@@ -143,8 +143,7 @@ if __name__ == "__main__":
 
     # If there are no files, exit
     if not input_files:
-        input("No files found, press enter to exit.")
-        exit()
+        exit("No Files Found")
 
     # Create the output folder if it doesn't exist
     if not os.path.exists("output"):
@@ -380,6 +379,5 @@ if __name__ == "__main__":
     with open("output\\MASTER.xml", "w") as f:
         f.write(XML)
 
-    print("XML file has been created successfully at file://output\\MASTER.xml")
-    input("Press enter to exit.")
+    print("XML file has been created successfully at file://output/MASTER.xml")
     exit()
