@@ -101,7 +101,8 @@ def convert_excel_to_csv(input_file, output_file):
                                 sleep(1)  # Wait for new entries
                                 continue
                             else:
-                                print(f"{line.strip().split(",")[2:]}")  # Print the added line
+                                print(f"{line.strip()}")  # Print the added line
+                                sleep(0.1)
                 else:
                     sleep(1)
 
@@ -321,8 +322,18 @@ def run(InDir, OutDir):
             except ValueError:
                 planet_data = 0
             except IndexError:
-                print(f"IndexError at row {i}")
-                exit()
+                try:
+                    DATA[i]
+                    try:
+                        DATA[i][letter_to_int(Definitions.Mass_Col)]
+                    except IndexError:
+                        print(
+                            f"IndexError at row {i}, col {letter_to_int(Definitions.Mass_Col)}, line 325"
+                        )
+                        exit()
+                except IndexError:
+                    print(f"IndexError at row {i}, line 325")
+                    exit()
             # If the planet data is not empty, add it to the active planets
             if planet_data:
                 PLANET_INDEXES.append(i)
