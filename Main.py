@@ -179,6 +179,8 @@ class Definitions:
 
 
 def run(InDir, OutDir):
+    if not InDir or not OutDir:
+        exit("No directories selected")
 
     # Initialize the data list
     DATALIST = []
