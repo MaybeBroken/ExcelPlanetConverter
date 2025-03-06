@@ -5,19 +5,28 @@ from threading import Thread
 import threading
 from time import sleep
 import atexit
+import sys
+
+if sys.platform == "win32":
+    from tkinter import filedialog
+elif sys.platform == "darwin":
+    from PyQt5.QtWidgets import QFileDialog
+
 
 # Make sure the script is running in its own directory
 os.chdir(os.path.dirname(__file__))
 
+DATALIST = []
+
 
 # Register cleanup function to run on program exit
-def cleanup():
+def cleanup(output_dir):
     if os.path.exists("convert.bat"):
         os.remove("convert.bat")
     try:
         for input_file, DATA in DATALIST:
             try:
-                output_file = f"output\\{input_file.removesuffix('.xlsx')}.csv"
+                output_file = f"{output_dir}\\{input_file.removesuffix('.xlsx')}.csv"
                 if os.path.exists(output_file):
                     os.remove(output_file)
             except Exception as e:
@@ -25,8 +34,6 @@ def cleanup():
     except Exception as e:
         print(f"Error deleting files: {e}")
 
-
-atexit.register(cleanup)
 
 # Sub-Program to convert the actual excel file to csv
 batProgram = r"""
@@ -49,6 +56,32 @@ def convert_excel_to_csv(input_file, output_file):
     if not os.path.exists(input_file):
         raise FileNotFoundError(f"The input file {input_file} does not exist.")
 
+    # Ensure Java is on the system path
+    try:
+        if sys.platform == "win32":
+            # run a dummy subprocess to check if Java is installed
+            subprocess.run(
+                ["java", "-version"],
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+        elif sys.platform == "darwin":
+            # do the same on mac, but with the mac process manager
+            os.spawnle(
+                os.P_WAIT,
+                "/usr/bin/java",
+                "java",
+                "-version",
+                stdout=open(os.devnull, "w"),
+                stderr=open(os.devnull, "w"),
+            )
+    # If Java is not installed, raise an error
+    except Exception as e:
+        raise EnvironmentError(
+            "Java is not installed or not found in the system path: " + str(e)
+        )
+    converting = False
     # Run the program if the output file does not exist, otherwise read the file and return it
     if not os.path.exists(output_file):
 
@@ -56,12 +89,31 @@ def convert_excel_to_csv(input_file, output_file):
         with open("convert.bat", "w") as f:
             f.write(batProgram)
 
+        def _thread():
+            while converting:
+                if os.path.exists(output_file):
+                    # open the output file and print any added data
+                    with open(output_file, "r") as f:
+                        f.seek(0, os.SEEK_END)  # Move the cursor to the end of the file
+                        while converting:
+                            line = f.readline()  # Read the next line
+                            if not line:
+                                sleep(1)  # Wait for new entries
+                                continue
+                            else:
+                                print(f"{line.strip().split(",")[2:]}")  # Print the added line
+                else:
+                    sleep(1)
+
+        converting = True
+        Thread(target=_thread).start()
         # Run the batch file
         subprocess.run(["convert.bat", input_file, output_file])
 
     # Read the output file and return it
     with open(output_file, "r") as f:
         data = f.read()
+    converting = False
     return data
 
 
@@ -125,29 +177,21 @@ class Definitions:
 </resource>"""
 
 
-if __name__ == "__main__":
-
-    # Make sure the input folder exists
-    if not os.path.exists("input"):
-        os.makedirs("input")
-        # Wait for the user to put the excel files in the input folder
-        input(
-            "Please put your excel files in the input folder and press enter to continue."
-        )
+def run(InDir, OutDir):
 
     # Initialize the data list
     DATALIST = []
 
-    # Get a list of excel files in ./input
-    input_files = [f for f in os.listdir("input") if f.endswith(".xlsx")]
+    # Get a list of excel files in the input directory
+    input_files = [f for f in os.listdir(InDir) if f.endswith(".xlsx")]
 
     # If there are no files, exit
     if not input_files:
         exit("No Files Found")
 
     # Create the output folder if it doesn't exist
-    if not os.path.exists("output"):
-        os.makedirs("output")
+    if not os.path.exists(OutDir):
+        os.makedirs(OutDir)
 
     # Limit the number of concurrent threads to 3
     semaphore = threading.Semaphore(3)
@@ -159,8 +203,10 @@ if __name__ == "__main__":
             with semaphore:
                 try:
                     # Convert the excel file to csv
-                    output_file = f"output\\{input_file.removesuffix('.xlsx')}.csv"
-                    csv_data = convert_excel_to_csv(f"input\\{input_file}", output_file)
+                    output_file = f"{OutDir}\\{input_file.removesuffix('.xlsx')}.csv"
+                    csv_data = convert_excel_to_csv(
+                        f"{InDir}\\{input_file}", output_file
+                    )
 
                     # Initialize the data array
                     DATA = []
@@ -376,8 +422,11 @@ if __name__ == "__main__":
     XML += Definitions.Base_XML_End
 
     # Write the XML string to a file
-    with open("output\\MASTER.xml", "w") as f:
+    with open(f"{OutDir}\\MASTER.xml", "w") as f:
         f.write(XML)
 
-    print("XML file has been created successfully at file://output/MASTER.xml")
-    exit()
+    print(f"XML file has been created successfully at file://{OutDir}/MASTER.xml")
+    cleanup(OutDir)
+
+
+run(InDir=filedialog.askdirectory(), OutDir=filedialog.askdirectory())
