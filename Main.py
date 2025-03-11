@@ -17,16 +17,19 @@ elif sys.platform == "darwin":
 os.chdir(os.path.dirname(__file__))
 
 DATALIST = []
+BATNAME = "convert.bat" if sys.platform == "win32" else "convert.sh"
 
 
 # Register cleanup function to run on program exit
 def cleanup(output_dir):
-    if os.path.exists("convert.bat"):
-        os.remove("convert.bat")
+    if os.path.exists(BATNAME):
+        os.remove(BATNAME)
     try:
         for input_file, DATA in DATALIST:
             try:
-                output_file = f"{output_dir}\\{input_file.removesuffix('.xlsx')}.csv"
+                output_file = (
+                    f"{output_dir}{os.path.sep}{input_file.removesuffix('.xlsx')}.csv"
+                )
                 if os.path.exists(output_file):
                     os.remove(output_file)
             except Exception as e:
@@ -37,7 +40,6 @@ def cleanup(output_dir):
 
 # Sub-Program to convert the actual excel file to csv
 batProgram = r"""
-@echo off
 echo Converting %1 to %2...
 java -jar excelToCsv.jar --input %1 --sheet-name "System Builder" >> %2
 echo Finished conversion, file saved to %2
@@ -73,8 +75,6 @@ def convert_excel_to_csv(input_file, output_file):
                 "/usr/bin/java",
                 "java",
                 "-version",
-                stdout=open(os.devnull, "w"),
-                stderr=open(os.devnull, "w"),
             )
     # If Java is not installed, raise an error
     except Exception as e:
@@ -86,30 +86,32 @@ def convert_excel_to_csv(input_file, output_file):
     if not os.path.exists(output_file):
 
         # Create the batch file
-        with open("convert.bat", "w") as f:
+        with open(BATNAME, "w") as f:
             f.write(batProgram)
 
-        def _thread():
-            while converting:
-                if os.path.exists(output_file):
-                    # open the output file and print any added data
-                    with open(output_file, "r") as f:
-                        f.seek(0, os.SEEK_END)  # Move the cursor to the end of the file
-                        while converting:
-                            line = f.readline()  # Read the next line
-                            if not line:
-                                sleep(1)  # Wait for new entries
-                                continue
-                            else:
-                                print(f"{line.strip()}")  # Print the added line
-                                sleep(0.1)
-                else:
-                    sleep(1)
+        def _thread(): ...
+
+        # while converting:
+        #     if os.path.exists(output_file):
+        #         # open the output file and print any added data
+        #         with open(output_file, "r") as f:
+        #             f.seek(0, os.SEEK_END)  # Move the cursor to the end of the file
+        #             while converting:
+        #                 line = f.readline()  # Read the next line
+        #                 if not line:
+        #                     sleep(1)  # Wait for new entries
+        #                     continue
+        #                 else:
+        #                     print(f"{line.strip()}")  # Print the added line
+        #                     sleep(0.1)
+        #     else:
+        #         sleep(1)
 
         converting = True
         Thread(target=_thread).start()
         # Run the batch file
-        subprocess.run(["convert.bat", input_file, output_file])
+
+        subprocess.run([BATNAME, input_file, output_file], shell=True, cwd=os.getcwd())
 
     # Read the output file and return it
     with open(output_file, "r") as f:
@@ -155,6 +157,13 @@ class Definitions:
     Habitable_Zone_Col = "AJ"
     Tectonic_Habitability_Col = "AX"
     Rotation_Period_Col = "BC"
+
+    # Temporary columns, not implemented yet
+    Name_Col = "BK"
+    Type_Col = "BL"
+    Surface_Col = "BM"
+    Arg_Periapsis_Col = "BN"
+    Tilt_Col = "BO"
 
     Planet_Start_Row = 6
     Planet_End_Normal_Row = 30
@@ -206,9 +215,11 @@ def run(InDir, OutDir):
             with semaphore:
                 try:
                     # Convert the excel file to csv
-                    output_file = f"{OutDir}\\{input_file.removesuffix('.xlsx')}.csv"
+                    output_file = (
+                        f"{OutDir}{os.path.sep}{input_file.removesuffix('.xlsx')}.csv"
+                    )
                     csv_data = convert_excel_to_csv(
-                        f"{InDir}\\{input_file}", output_file
+                        f"{InDir}{os.path.sep}{input_file}", output_file
                     )
 
                     # Initialize the data array
@@ -248,8 +259,8 @@ def run(InDir, OutDir):
             thread.join()
 
     # Wait for the batch file to finish, then delete it
-    if os.path.exists("convert.bat"):
-        os.remove("convert.bat")
+    if os.path.exists(BATNAME):
+        os.remove(BATNAME)
 
     # Initialize the XML string
     XML = Definitions.Base_XML_Start
@@ -418,7 +429,7 @@ def run(InDir, OutDir):
 
             # Add the planet to the XML string
             XML += f"""
-                <planet weather="" color="{' '.join(map(str, planet_color))} 255" orbitaldistance="{planet_semimajor_axis}"
+                <planet weather="" surface="" color="{' '.join(map(str, planet_color))} 255" orbitaldistance="{planet_semimajor_axis}"
                     orbitalposition="{random.randint(0, 360)}" orbitalperiod="{planet_period_days /360}"
                     rotationperiod="{rotation_period}" mass="{planet_mass}" radius="{planet_radius * 6371}"
                     density="5.43" axistilt="{random.randint(1, 400)/10}" name="{planet_name}">
@@ -435,10 +446,12 @@ def run(InDir, OutDir):
     XML += Definitions.Base_XML_End
 
     # Write the XML string to a file
-    with open(f"{OutDir}\\MASTER.xml", "w") as f:
+    with open(f"{OutDir}{os.path.sep}MASTER.xml", "w") as f:
         f.write(XML)
 
-    print(f"XML file has been created successfully at file://{OutDir}/MASTER.xml")
+    print(
+        f"XML file has been created successfully at file://{OutDir}{os.path.sep}MASTER.xml"
+    )
     cleanup(OutDir)
 
 
