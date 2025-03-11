@@ -10,7 +10,7 @@ import sys
 if sys.platform == "win32":
     from tkinter import filedialog
 elif sys.platform == "darwin":
-    from PyQt5.QtWidgets import QFileDialog
+    from PyQt5.QtWidgets import QFileDialog, QApplication
 
 
 # Make sure the script is running in its own directory
@@ -442,4 +442,10 @@ def run(InDir, OutDir):
     cleanup(OutDir)
 
 
-run(InDir=filedialog.askdirectory(), OutDir=filedialog.askdirectory())
+if sys.platform == "win32":
+    run(InDir=filedialog.askdirectory(), OutDir=filedialog.askdirectory())
+elif sys.platform == "darwin":
+    app = QApplication(sys.argv)
+    InDir = QFileDialog.getExistingDirectory(None, "Select Input Directory")
+    OutDir = QFileDialog.getExistingDirectory(None, "Select Output Directory")
+    run(InDir=InDir, OutDir=OutDir)
