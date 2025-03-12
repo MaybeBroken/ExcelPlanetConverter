@@ -7,7 +7,14 @@ class Launcher(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title = "Launcher"
-        self.open_button = ctk.CTkButton("Open xml file...",
-                                         command=lambda: MainWindow(
-                                             filedialog.askopenfilename(defaultextension="xml",
-                                                                        filetypes=(("Galaxy Files", "*.xml"),))))
+        self.open_button = ctk.CTkButton(self,
+                                         text="Open xml file...",
+                                         command=self.launch)
+        self.open_button.grid()
+
+    def launch(self):
+        MainWindow(filedialog.askopenfilename(filetypes=(("Galaxy Files", "*.xml"),)))
+
+
+if __name__ == '__main__':
+    Launcher().mainloop()
