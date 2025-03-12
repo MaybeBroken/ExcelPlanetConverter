@@ -12,7 +12,6 @@ if sys.platform == "win32":
 elif sys.platform == "darwin":
     from PyQt5.QtWidgets import QFileDialog, QApplication
 
-
 # Make sure the script is running in its own directory
 os.chdir(os.path.dirname(__file__))
 
@@ -84,7 +83,6 @@ def convert_excel_to_csv(input_file, output_file):
     converting = False
     # Run the program if the output file does not exist, otherwise read the file and return it
     if not os.path.exists(output_file):
-
         # Create the batch file
         with open(BATNAME, "w") as f:
             f.write(batProgram)
@@ -125,7 +123,7 @@ def letter_to_int(scheme):
     scheme = scheme.upper()
     number = 0
     for i, char in enumerate(reversed(scheme)):
-        number += (ord(char) - ord("A") + 1) * (26**i)
+        number += (ord(char) - ord("A") + 1) * (26 ** i)
     return number
 
 
@@ -230,7 +228,6 @@ def run(InDir, OutDir):
 
                     # Iterate through the lines
                     for line in lines:
-
                         # Split the line into cells
                         data = line.split(",")
 
@@ -321,8 +318,8 @@ def run(InDir, OutDir):
 
         # Add the star to the XML string
         XML += f"""
-            <location type="StarSystem" name="System-{random.randint(0,10000)}" faction="" pedia=""
-                position="{random.randint(10, 10000)/100} {random.randint(10, 10000)/100} {random.randint(10, 10000)/100}"
+            <location type="StarSystem" name="System-{random.randint(0, 10000)}" faction="" pedia=""
+                position="{random.randint(10, 10000) / 100} {random.randint(10, 10000) / 100} {random.randint(10, 10000) / 100}"
                 color="{' '.join(map(str, star_color))} 255" ambient="255 255 255 255">
         """
 
@@ -430,9 +427,9 @@ def run(InDir, OutDir):
             # Add the planet to the XML string
             XML += f"""
                 <planet weather="" surface="" color="{' '.join(map(str, planet_color))} 255" orbitaldistance="{planet_semimajor_axis}"
-                    orbitalposition="{random.randint(0, 360)}" orbitalperiod="{planet_period_days /360}"
+                    orbitalposition="{random.randint(0, 360)}" orbitalperiod="{planet_period_days / 360}"
                     rotationperiod="{rotation_period}" mass="{planet_mass}" radius="{planet_radius * 6371}"
-                    density="5.43" axistilt="{random.randint(1, 400)/10}" name="{planet_name}">
+                    density="5.43" axistilt="{random.randint(1, 400) / 10}" name="{planet_name}">
                     <description />
                     <pedia />
                 </planet>
