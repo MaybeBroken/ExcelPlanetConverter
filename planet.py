@@ -69,7 +69,10 @@ class Planet:
             self.__setattr__(attr, val)
     
     def fill_attr(self, spreadsheet) -> None:
-        self.__setattr__("color", " ".join(list(hex_to_rgb(hab_to_color[spreadsheet["System Builder"]["AJ" + str(self.row_index)].value]))))
+        try:
+            self.__setattr__("color", " ".join(list(hex_to_rgb(hab_to_color[spreadsheet["System Builder"]["AJ" + str(self.row_index)].value]))))
+        except KeyError:
+            pass
         self.__setattr__("orbitalposition", random.randint(0, 3590) / 10)
         for prop, location in prop_locations.items():
             try:
@@ -98,8 +101,11 @@ class Planet:
         """
         s = "<planet model='Planet' "
         for prop in props:
-            value = self.__getattribute__(prop)
-            if value is not None and value != "#NUM!":
+            try:
+                value = self.__getattribute__(prop)
+            except AttributeError:
+                continue
+            if value is not None and value not in ("#NUM!", "#DIV/0!"):
                 if str(value).replace(".", "").isnumeric():
                     if int(value) != float(value):
                         value = round(float(value), 2)
@@ -122,13 +128,13 @@ if __name__ == '__main__':
         Planet("f"),
         Planet("g"),
         Planet("h"),
+        Planet("i"),
+        Planet("j"),
     ]
     print("building")
     for planet in planets:
         planet.fill_attr(openpyxl.open("worldbuilding spreadsheet 33 sextantis.xlsx", data_only=True))
-        # print("\n".join(f"{key}: {val}" for key, val in planet.__dict__.items()))
-        # print("-" * 20)
     print("done")
     for planet in planets:
         # print(planet.get_xml_repr())
-        print(etree.tostring(etree.fromstring(planet.get_xml_repr()), pretty_print=True))
+        print(etree.tostring(etree.fromstring(planet.get_xml_repr()), pretty_print=True, encoding=str))
