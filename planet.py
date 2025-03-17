@@ -27,11 +27,11 @@ prop_locations = {
     "description": "BZ",
     "type": "BL",
     "surface": "BM",
-    # "color": "",  # needs coding
+    # "color": "",  # location coded elsewhere
     "orbitaldistance": "T",
     "eccentricity": "Z",
     "argumentofperiapsis": "BN",
-    #     "orbitalposition": "",  # needs coding
+    #     "orbitalposition": "",  # location coded elsewhere
     "orbitalperiod": "V",
     "rotationalperiod": "U",
     "mass": "L",
@@ -132,8 +132,9 @@ if __name__ == '__main__':
         Planet("j"),
     ]
     print("building")
+    spreadsheet = openpyxl.open("worldbuilding spreadsheet 33 sextantis.xlsx", data_only=True)
     for planet in planets:
-        planet.fill_attr(openpyxl.open("worldbuilding spreadsheet 33 sextantis.xlsx", data_only=True))
+        planet.fill_attr(spreadsheet)
     print("done")
     for planet in planets:
         # print(planet.get_xml_repr())
