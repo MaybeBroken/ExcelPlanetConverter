@@ -77,9 +77,13 @@ class Planet:
         for prop, location in prop_locations.items():
             try:
                 value = spreadsheet["System Builder"][location + str(self.row_index)].value
-                self.__setattr__(prop, value)
-            except AttributeError:
-                pass
+                if isinstance(value, float):
+                    self.__setattr__(prop, (round(float(value), 2)))
+                else:
+                    self.__setattr__(prop, value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+            except AttributeError as e:
+                print(e)
+                self.__setattr__(prop, "")
     
     def get_xml_repr(self) -> str:
         """

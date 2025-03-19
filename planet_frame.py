@@ -11,10 +11,20 @@ limit_integer = lambda v: isinstance(v, int)
 limit_float = lambda v: isinstance(v, float) or isinstance(v, int)
 limit_color = lambda v: isinstance(v, int) and 0 <= v < 256
 
+def file_picker():
+    pass
+
 value_limits = {
     "name": (limit_none, None),
     "government": (limit_none, None),
-    "type": (limit_none, ctk.CTkOptionMenu),
+    "type": (limit_none, lambda m: ctk.CTkOptionMenu(m, values=[
+        "Rock",
+        "Ice",
+        "Gas_Giant",
+        "Volcanic",
+        "Water",
+        "Terrestrial",
+    ])),
     "surface": (limit_none, None),
     "color": ((limit_color,) * 4, None),
     "orbitaldistance": (limit_float, None),
@@ -38,26 +48,34 @@ class PlanetFrame(ctk.CTkFrame):
         self.title = ctk.CTkButton(self, text=planet_obj.__getattribute__("name"), command=self.toggle_expansion)
         self.title.grid(sticky="EW", columnspan=2)
         self.expanded = False
-        self.configure(height=self.title.winfo_height())
+        self.grid_propagate(False)
+        self.update_idletasks()
+        self.configure(height=self.title.winfo_height(), width=258)
         for attr, attr_attr in value_limits.items():
             try:
-                self.__setattr__(f"planet.{attr}", planet.__getattribute__(attr))
-                self.__setattr__(f"planet.{attr}.label", ctk.CTkLabel(self, text=attr))
-                self.__setattr__(f"planet.{attr}.field", (attr_attr[1] or ctk.CTkEntry)(self))
-                self.__getattribute__(f"planet.{attr}.label").grid()
-                self.__getattribute__(f"planet.{attr}.field").grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=1)
-                self.__setattr__(f"planet.{attr}.limit", attr_attr[0])
+                __value = planet.__getattribute__(attr)
             except AttributeError:
-                pass
+                __value = ""
+            self.__setattr__(f"planet.{attr}", __value)
+            self.__setattr__(f"planet.{attr}.label", ctk.CTkLabel(self, text=attr))
+            self.__setattr__(f"planet.{attr}.field", (attr_attr[1] or ctk.CTkEntry)(self))
+            self.__getattribute__(f"planet.{attr}.label").grid()
+            field = self.__getattribute__(f"planet.{attr}.field")
+            if isinstance(field, ctk.CTkEntry):
+                field.insert(0, str(__value))
+            else:
+                field.set(__value)
+            field.grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=1)
+            self.__setattr__(f"planet.{attr}.limit", attr_attr[0])
+        self.grid_propagate(False)
     
     def toggle_expansion(self):
         if not self.expanded:
-            self.grid_propagate(False)
-            self.configure(height=self.title.winfo_height())
-        else:
             self.grid_propagate(True)
+        else:
+            self.grid_propagate(False)
+            self.configure(height=self.title.winfo_height(), width=258)
         self.expanded = not self.expanded
-        
 
 
 if __name__ == '__main__':
@@ -85,8 +103,8 @@ if __name__ == '__main__':
     container.grid(sticky="NESW")
     for planet in planets:
         # print(planet.get_xml_repr())
-        print(etree.tostring(etree.fromstring(planet.get_xml_repr()), pretty_print=True, encoding=str))
+        # print(etree.tostring(etree.fromstring(planet.get_xml_repr()), pretty_print=True, encoding=str))
         frame = PlanetFrame(container, planet)
         frame.grid()
-        frame.grid_propagate(False)
+        # frame.grid_propagate(False)
     root.mainloop()
