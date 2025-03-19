@@ -9,13 +9,13 @@ from planet import Planet
 limit_none = lambda v: True
 limit_integer = lambda v: isinstance(v, int)
 limit_float = lambda v: isinstance(v, float) or isinstance(v, int)
+
+
 def limit_color(color_str):
     for val in color_str.split(" "):
         if not (val.isdigit() and 0 <= int(val) < 256):
             return False
     return True
-
-
 
 
 ctk.set_appearance_mode("dark")
@@ -39,83 +39,175 @@ attr_to_display = {
     "temperature": "Temperature",
 }
 
-value_limits = {
-    "name": (limit_none, None),
-    "government": (limit_none, None),
-    "type": (limit_none, lambda m, **kwargs: ctk.CTkOptionMenu(m, values=["Rock", "Ice", "Gas_Giant", "Volcanic", "Water", "Terrestrial", ])),
-    "surface": (limit_none, None),
-    "color": (limit_color, None, "RGBA"),
-    "orbitaldistance": (limit_float, None, "°"),
-    "eccentricity": (limit_float, None),
-    "argumentofperiapsis": (limit_float, None, "°"),
-    "orbitalposition": (limit_float, None, "°"),
-    "orbitalperiod": (limit_float, None),
-    "rotationalperiod": (limit_float, None),
-    "mass": (limit_float, None, "und"),
-    "radius": (limit_float, None),
-    "density": (limit_float, None, "(g/cm³)"),
-    "inclination": (limit_float, None, "°"),
-    "temperature": (limit_float, None, "K"),
+attr_prop = {
+    "name": {
+        "display_name": "Name",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "government": {
+        "display_name": "Government",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "type": {
+        "display_name": "Type",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkOptionMenu,
+        "field_kwargs": {"values": ["Rock", "Ice", "Gas_Giant", "Volcanic", "Water", "Terrestrial"]},
+    },
+    "surface": {
+        "display_name": "Surface",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "color": {
+        "display_name": "Color",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "orbitaldistance": {
+        "display_name": "Orbital Distance",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "eccentricity": {
+        "display_name": "Eccentricity",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "argumentofperiapsis": {
+        "display_name": "Argument of Periapsis",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "orbitalposition": {
+        "display_name": "Orbital Position",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "orbitalperiod": {
+        "display_name": "Orbital Period",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "rotationalperiod": {
+        "display_name": "Rotational Period",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "mass": {
+        "display_name": "Mass",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "radius": {
+        "display_name": "Radius",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "density": {
+        "display_name": "Density",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "inclination": {
+        "display_name": "Inclination",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
+    "temperature": {
+        "display_name": "Temperature",
+        "display_after": "",
+        "validator": None,
+        "editable": True,
+        "field_type": ctk.CTkEntry,
+        "field_kwargs": {},
+    },
 }
 
 
-class PlanetFrame(ctk.CTkFrame):
+class PlanetFrame(ctk.CTkToplevel):
     systems = {}
     
     def __init__(self, master, planet_obj: Planet, system):
-        super().__init__(master, fg_color=("gray92", "gray14"), corner_radius=8, border_width=4, border_color=("gray92", "gray14"))
+        super().__init__(master)
+        self.resizable(False, False)
         self.columnconfigure(0, weight=1)
-        self.title = ctk.CTkButton(self, text=planet_obj.__getattribute__("name") or " ", command=self.toggle_expansion)
-        self.title.grid(sticky="EW", columnspan=3)
         self.expanded = False
-        self.grid_propagate(False)
-        self.update_idletasks()
-        self.configure(height=self.title.winfo_height(), width=258)
-        self.target_height = self.title.winfo_height()
         self.planet = planet_obj
+        self.title(self.planet.name)
         self.system = system
         if system in PlanetFrame.systems.keys():
             PlanetFrame.systems[system].append(self)
         else:
             PlanetFrame.systems[system] = [self]
         
-        for attr, attr_attr in value_limits.items():
+        for attribute, attribute_attributes in attr_prop.items():
             try:
-                __value = planet_obj.__getattribute__(attr)
+                __value = planet_obj.__getattribute__(attribute)
             except AttributeError:
                 __value = ""
-            self.__setattr__(f"planet.{attr}", __value)
-            self.__setattr__(f"planet.{attr}.label", ctk.CTkLabel(self, text=f"{attr_to_display[attr]}:"))
+            self.__setattr__(f"planet.{attribute}", __value)
+            self.__setattr__(f"planet.{attribute}.label", ctk.CTkLabel(self, text=f"{attribute_attributes['display_name']}:"))
             try:
-                self.__setattr__(f"planet.{attr}.label_after", ctk.CTkLabel(self, text=f"{attr_attr[2] or ' '}"))
+                self.__setattr__(f"planet.{attribute}.label_after", ctk.CTkLabel(self, text=f"{attribute_attributes['display_after'] or ' '}"))
             except IndexError:
-                self.__setattr__(f"planet.{attr}.label_after", ctk.CTkLabel(self, text=f""))
-            self.__setattr__(f"planet.{attr}.field", (attr_attr[1] or ctk.CTkEntry)(self, border_color=("gray92", "gray14")))
-            self.__getattribute__(f"planet.{attr}.label").grid(sticky="E", padx=4, pady=1)
-            field = self.__getattribute__(f"planet.{attr}.field")
+                self.__setattr__(f"planet.{attribute}.label_after", ctk.CTkLabel(self, text=f""))
+            self.__setattr__(f"planet.{attribute}.field", (attribute_attributes["field_type"] or ctk.CTkEntry)(self, **attribute_attributes["field_kwargs"]))
+            self.__getattribute__(f"planet.{attribute}.label").grid(sticky="E", padx=4, pady=1)
+            field = self.__getattribute__(f"planet.{attribute}.field")
             if isinstance(field, ctk.CTkEntry):
                 field.insert(0, str(__value))
             else:
                 field.set(__value)
-            field.grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="W")
-            self.__getattribute__(f"planet.{attr}.label_after").grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
-            self.__setattr__(f"planet.{attr}.limit", attr_attr[0])
-        self.grid_propagate(False)
-    
-    def toggle_expansion(self):
-        if not self.expanded:
-            for p in PlanetFrame.systems[self.system]:
-                p.de_expand()
-            self.grid_propagate(True)
-        else:
-            self.grid_propagate(False)
-            self.configure(height=self.title.winfo_height(), width=258, require_redraw=True)
-        self.expanded = not self.expanded
-    
-    def de_expand(self):
-        self.grid_propagate(False)
-        self.configure(height=self.title.winfo_height(), width=258, require_redraw=True)
-        self.expanded = False
+            field.grid(row=self.__getattribute__(f"planet.{attribute}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="W")
+            self.__getattribute__(f"planet.{attribute}.label_after").grid(row=self.__getattribute__(f"planet.{attribute}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
+            self.__setattr__(f"planet.{attribute}.validator", attribute_attributes["validator"])
 
 
 if __name__ == '__main__':
