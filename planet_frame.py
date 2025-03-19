@@ -46,7 +46,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "government": {
         "display_name": "Government",
@@ -54,7 +54,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "type": {
         "display_name": "Type",
@@ -70,7 +70,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "color": {
         "display_name": "Color",
@@ -78,7 +78,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "orbitaldistance": {
         "display_name": "Orbital Distance",
@@ -86,7 +86,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "eccentricity": {
         "display_name": "Eccentricity",
@@ -94,7 +94,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "argumentofperiapsis": {
         "display_name": "Argument of Periapsis",
@@ -102,7 +102,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "orbitalposition": {
         "display_name": "Orbital Position",
@@ -110,7 +110,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "orbitalperiod": {
         "display_name": "Orbital Period",
@@ -118,7 +118,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, "state": "readonly"},
     },
     "rotationalperiod": {
         "display_name": "Rotational Period",
@@ -126,7 +126,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "mass": {
         "display_name": "Mass",
@@ -134,7 +134,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "radius": {
         "display_name": "Radius",
@@ -142,7 +142,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "density": {
         "display_name": "Density",
@@ -150,7 +150,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, "state": "readonly"},
     },
     "inclination": {
         "display_name": "Inclination",
@@ -158,7 +158,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
     "temperature": {
         "display_name": "Temperature",
@@ -166,7 +166,7 @@ attr_prop = {
         "validator": None,
         "editable": True,
         "field_type": ctk.CTkEntry,
-        "field_kwargs": {},
+        "field_kwargs": {"border_width": 0, },
     },
 }
 
@@ -187,27 +187,28 @@ class PlanetFrame(ctk.CTkToplevel):
         else:
             PlanetFrame.systems[system] = [self]
         
-        for attribute, attribute_attributes in attr_prop.items():
+        for attr, attr_attrs in attr_prop.items():
             try:
-                __value = planet_obj.__getattribute__(attribute)
+                __value = planet_obj.__getattribute__(attr)
             except AttributeError:
                 __value = ""
-            self.__setattr__(f"planet.{attribute}", __value)
-            self.__setattr__(f"planet.{attribute}.label", ctk.CTkLabel(self, text=f"{attribute_attributes['display_name']}:"))
-            try:
-                self.__setattr__(f"planet.{attribute}.label_after", ctk.CTkLabel(self, text=f"{attribute_attributes['display_after'] or ' '}"))
-            except IndexError:
-                self.__setattr__(f"planet.{attribute}.label_after", ctk.CTkLabel(self, text=f""))
-            self.__setattr__(f"planet.{attribute}.field", (attribute_attributes["field_type"] or ctk.CTkEntry)(self, **attribute_attributes["field_kwargs"]))
-            self.__getattribute__(f"planet.{attribute}.label").grid(sticky="E", padx=4, pady=1)
-            field = self.__getattribute__(f"planet.{attribute}.field")
+            self.__setattr__(f"planet.{attr}", __value)
+            self.__setattr__(f"planet.{attr}.label", ctk.CTkLabel(self, text=f"{attr_attrs['display_name']}:"))
+            self.__setattr__(f"planet.{attr}.label_after", ctk.CTkLabel(self, text=f"{attr_attrs['display_after'] or ' '}"))
+            self.__setattr__(f"planet.{attr}.field", (attr_attrs["field_type"] or ctk.CTkEntry)(self, **attr_attrs["field_kwargs"]))
+            self.__getattribute__(f"planet.{attr}.label").grid(sticky="E", padx=4, pady=1)
+            field = self.__getattribute__(f"planet.{attr}.field")
             if isinstance(field, ctk.CTkEntry):
+                if field.cget("state") == "readonly":
+                    field.configure(state="normal")
+                    field.insert(0, str(__value))
+                    field.configure(state="readonly")
                 field.insert(0, str(__value))
             else:
                 field.set(__value)
-            field.grid(row=self.__getattribute__(f"planet.{attribute}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="W")
-            self.__getattribute__(f"planet.{attribute}.label_after").grid(row=self.__getattribute__(f"planet.{attribute}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
-            self.__setattr__(f"planet.{attribute}.validator", attribute_attributes["validator"])
+            field.grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="W")
+            self.__getattribute__(f"planet.{attr}.label_after").grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
+            self.__setattr__(f"planet.{attr}.validator", attr_attrs["validator"])
 
 
 if __name__ == '__main__':
