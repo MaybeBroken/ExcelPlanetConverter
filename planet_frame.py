@@ -11,8 +11,7 @@ limit_integer = lambda v: isinstance(v, int)
 limit_float = lambda v: isinstance(v, float) or isinstance(v, int)
 limit_color = lambda v: isinstance(v, int) and 0 <= v < 256
 
-def file_picker():
-    pass
+ctk.set_appearance_mode("dark")
 
 value_limits = {
     "name": (limit_none, None),
@@ -42,7 +41,9 @@ value_limits = {
 
 
 class PlanetFrame(ctk.CTkFrame):
-    def __init__(self, master, planet_obj: Planet):
+    systems = {}
+    
+    def __init__(self, master, planet_obj: Planet, system):
         super().__init__(master)
         self.columnconfigure(0, weight=1)
         self.title = ctk.CTkButton(self, text=planet_obj.__getattribute__("name"), command=self.toggle_expansion)
@@ -51,9 +52,17 @@ class PlanetFrame(ctk.CTkFrame):
         self.grid_propagate(False)
         self.update_idletasks()
         self.configure(height=self.title.winfo_height(), width=258)
+        self.target_height = self.title.winfo_height()
+        self.planet = planet_obj
+        self.system = system
+        if system in PlanetFrame.systems.keys():
+            PlanetFrame.systems[system].append(self)
+        else:
+            PlanetFrame.systems[system] = [self]
+            
         for attr, attr_attr in value_limits.items():
             try:
-                __value = planet.__getattribute__(attr)
+                __value = planet_obj.__getattribute__(attr)
             except AttributeError:
                 __value = ""
             self.__setattr__(f"planet.{attr}", __value)
@@ -71,11 +80,18 @@ class PlanetFrame(ctk.CTkFrame):
     
     def toggle_expansion(self):
         if not self.expanded:
+            for p in PlanetFrame.systems[self.system]:
+                p.de_expand()
             self.grid_propagate(True)
         else:
             self.grid_propagate(False)
             self.configure(height=self.title.winfo_height(), width=258)
         self.expanded = not self.expanded
+    
+    def de_expand(self):
+        self.grid_propagate(False)
+        self.configure(height=self.title.winfo_height(), width=258)
+        self.expanded = False
 
 
 if __name__ == '__main__':
@@ -104,7 +120,7 @@ if __name__ == '__main__':
     for planet in planets:
         # print(planet.get_xml_repr())
         # print(etree.tostring(etree.fromstring(planet.get_xml_repr()), pretty_print=True, encoding=str))
-        frame = PlanetFrame(container, planet)
+        frame = PlanetFrame(container, planet, "33 sextantis")
         frame.grid()
         # frame.grid_propagate(False)
     root.mainloop()
