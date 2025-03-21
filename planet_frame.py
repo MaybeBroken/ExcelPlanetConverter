@@ -1,3 +1,5 @@
+from functools import partial
+
 import customtkinter as ctk
 import tkinter as tk
 
@@ -171,7 +173,7 @@ attr_prop = {
 }
 
 
-class PlanetFrame(ctk.CTkToplevel):
+class PlanetWindow(ctk.CTkToplevel):
     systems = {}
     
     def __init__(self, master, planet_obj: Planet, system):
@@ -182,10 +184,10 @@ class PlanetFrame(ctk.CTkToplevel):
         self.planet = planet_obj
         self.title(self.planet.name)
         self.system = system
-        if system in PlanetFrame.systems.keys():
-            PlanetFrame.systems[system].append(self)
+        if system in PlanetWindow.systems.keys():
+            PlanetWindow.systems[system].append(self)
         else:
-            PlanetFrame.systems[system] = [self]
+            PlanetWindow.systems[system] = [self]
         
         for attr, attr_attrs in attr_prop.items():
             try:
@@ -209,10 +211,22 @@ class PlanetFrame(ctk.CTkToplevel):
             field.grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="W")
             self.__getattribute__(f"planet.{attr}.label_after").grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
             self.__setattr__(f"planet.{attr}.validator", attr_attrs["validator"])
+        self.protocol("WM_DELETE_WINDOW", self.on_close)
+    
+    def on_close(self):
+        for attr, attr_attrs in attr_prop.items():
+            self.planet.__setattr__(attr, self.__getattribute__(f"planet.{attr}.field").get())
+            self.planet.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"planet.{attr}.field").get())
+        # for planet_button in self.master.children.values():
+        #     if isinstance(planet_button, ctk.CTkButton) and planet_button.cget("text") == self.title():
+        #         planet_button.configure(text=self.__getattribute__("planet.name.field").get())
+        
+        self.destroy()
+            
 
 
 if __name__ == '__main__':
-    
+    root = ctk.CTk()
     planets = [
         Planet("b"),
         Planet("c"),
@@ -229,16 +243,13 @@ if __name__ == '__main__':
     for planet in planets:
         planet.fill_attr(spreadsheet)
     print("done")
-    root = ctk.CTk()
     root.title("Planet Display Test")
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
     container = ctk.CTkScrollableFrame(root, width=350, height=400)
     container.grid(sticky="NESW")
     for planet in planets:
-        # print(planet.get_xml_repr())
-        # print(etree.tostring(etree.fromstring(planet.get_xml_repr()), pretty_print=True, encoding=str))
-        frame = PlanetFrame(container, planet, "33 sextantis")
-        frame.grid()
-        # frame.grid_propagate(False)
+        button = ctk.CTkButton(container, textvariable=planet.name_var, command=partial(lambda p: PlanetWindow(container, p, "33 sextantis"), planet))
+        button.grid()
+        # planet_window =
     root.mainloop()

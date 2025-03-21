@@ -3,9 +3,12 @@ import random
 import openpyxl
 from lxml import etree
 
+import customtkinter as ctk
+
 props = [
     "name",
     "government",
+    "description",
     "type",
     "surface",
     "color",
@@ -67,6 +70,12 @@ class Planet:
         self.row_index = suffixes.index(suffix) + 6  # Where the row of info in the spreadsheet is
         for attr, val, in kwargs.items():
             self.__setattr__(attr, val)
+        for attr in props:
+            try:
+                self.__getattribute__(attr)
+            except AttributeError:
+                self.__setattr__(attr, "")
+            self.__setattr__(f"{attr}_var", ctk.StringVar(value=self.__getattribute__(attr)))
     
     def fill_attr(self, spreadsheet) -> None:
         try:
@@ -79,8 +88,10 @@ class Planet:
                 value = spreadsheet["System Builder"][location + str(self.row_index)].value
                 if isinstance(value, float):
                     self.__setattr__(prop, (round(float(value), 2)))
+                    self.__getattribute__(f"{prop}_var").set((round(float(value), 2)))
                 else:
                     self.__setattr__(prop, value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+                    self.__getattribute__(f"{prop}_var").set(value if value not in [None, "#NUM!", "#DIV/0!"] else "")
             except AttributeError as e:
                 print(e)
                 self.__setattr__(prop, "")
@@ -136,7 +147,7 @@ if __name__ == '__main__':
         Planet("j"),
     ]
     print("building")
-    spreadsheet = openpyxl.open("worldbuilding spreadsheet 33 sextantis.xlsx", data_only=True)
+    spreadsheet = openpyxl.open("worldbuilding spreadsheet 33 sextantis.xlsx", data_only=True, rich_text=True)
     for planet in planets:
         planet.fill_attr(spreadsheet)
     print("done")
