@@ -66,7 +66,28 @@ def hex_to_rgb(hex_color) -> tuple[str, ...]:
 
 
 class Planet:
+    """
+    :var name:
+    :var government:
+    :var description:
+    :var type:
+    :var surface:
+    :var color:
+    :var orbitaldistance:
+    :var eccentricity:
+    :var argumentofperiapsis:
+    :var orbitalposition:
+    :var orbitalperiod:
+    :var rotationalperiod:
+    :var mass:
+    :var radius:
+    :var density:
+    :var inclination:
+    """
+    
     def __init__(self, suffix, **kwargs):
+        if suffix not in suffixes:
+            raise ValueError("Invalid suffix: suffix must be within b-z")
         self.row_index = suffixes.index(suffix) + 6  # Where the row of info in the spreadsheet is
         for attr, val, in kwargs.items():
             self.__setattr__(attr, val)

@@ -2,6 +2,7 @@ from functools import partial
 
 import customtkinter as ctk
 import tkinter as tk
+import colour
 
 import openpyxl
 from lxml import etree
@@ -222,7 +223,6 @@ class PlanetWindow(ctk.CTkToplevel):
         #         planet_button.configure(text=self.__getattribute__("planet.name.field").get())
         
         self.destroy()
-            
 
 
 if __name__ == '__main__':
@@ -249,7 +249,12 @@ if __name__ == '__main__':
     container = ctk.CTkScrollableFrame(root, width=350, height=400)
     container.grid(sticky="NESW")
     for planet in planets:
-        button = ctk.CTkButton(container, textvariable=planet.name_var, command=partial(lambda p: PlanetWindow(container, p, "33 sextantis"), planet))
+        button = ctk.CTkButton(container,
+                               fg_color=colour.rgb2hex((int(c) / 256 for c in planet.color.split(" ")[0:3])),
+                               hover_color=colour.rgb2hex((int(c) / (256 + 128) for c in planet.color.split(" ")[0:3])),
+                               text_color=colour.rgb2hex((int(c) / 512 for c in planet.color.split(" ")[0:3])),
+                               textvariable=planet.name_var,
+                               command=partial(lambda p: PlanetWindow(container, p, "33 sextantis"), planet))
         button.grid()
         # planet_window =
     root.mainloop()
