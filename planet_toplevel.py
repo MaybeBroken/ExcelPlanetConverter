@@ -184,11 +184,11 @@ class PlanetWindow(ctk.CTkToplevel):
         self.expanded = False
         self.planet = planet_obj
         self.title(self.planet.name)
-        self.system = system
-        if system in PlanetWindow.systems.keys():
-            PlanetWindow.systems[system].append(self)
+        self.system = system.get()
+        if self.system in PlanetWindow.systems.keys():
+            PlanetWindow.systems[self.system].append(self)
         else:
-            PlanetWindow.systems[system] = [self]
+            PlanetWindow.systems[self.system] = [self]
         
         for attr, attr_attrs in attr_prop.items():
             try:

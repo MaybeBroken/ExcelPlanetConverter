@@ -73,7 +73,7 @@ class MainWindow(ctk.CTk):
                                        hover_color=colour.rgb2hex((int(c) / (256 + 128) for c in planet.color.split(" ")[0:3])),
                                        text_color=colour.rgb2hex((int(c) / 512 for c in planet.color.split(" ")[0:3])),
                                        textvariable=planet.name_var,
-                                       command=partial(lambda p: PlanetWindow(self, p, "33 sextantis"), planet))
+                                       command=partial(lambda p: PlanetWindow(self, p, system.name_var), planet))
                 button.grid(sticky="W", padx=(16, 0))
         
         
