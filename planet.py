@@ -38,7 +38,7 @@ prop_locations = {
     "orbitalperiod": "V",
     "rotationalperiod": "U",
     "mass": "L",
-    "radius": "P",
+    "radius": ("Q", "P"),
     "density": "S",
     "inclination": "BO",
     "temperature": "AI",
@@ -96,7 +96,10 @@ class Planet:
                 self.__getattribute__(attr)
             except AttributeError:
                 self.__setattr__(attr, "")
-            self.__setattr__(f"{attr}_var", ctk.StringVar(value=self.__getattribute__(attr)))
+            try:
+                self.__setattr__(f"{attr}_var", ctk.StringVar(value=self.__getattribute__(attr)))
+            except (RuntimeError, AttributeError):
+                pass
     
     def fill_attr(self, spreadsheet) -> None:
         try:
@@ -106,13 +109,26 @@ class Planet:
         self.__setattr__("orbitalposition", random.randint(0, 3590) / 10)
         for prop, location in prop_locations.items():
             try:
-                value = spreadsheet["System Builder"][location + str(self.row_index)].value
+                if isinstance(location, tuple):
+                    value = spreadsheet["System Builder"][location[0] + str(self.row_index)].value
+                    i = 1
+                    while not value:
+                        value = spreadsheet["System Builder"][location[i] + str(self.row_index)].value
+                        i += 1
+                else:
+                    value = spreadsheet["System Builder"][location + str(self.row_index)].value
                 if isinstance(value, float):
                     self.__setattr__(prop, (round(float(value), 2)))
-                    self.__getattribute__(f"{prop}_var").set((round(float(value), 2)))
+                    try:
+                        self.__getattribute__(f"{prop}_var").set((round(float(value), 2)))
+                    except (RuntimeError, AttributeError):
+                        pass
                 else:
                     self.__setattr__(prop, value if value not in [None, "#NUM!", "#DIV/0!"] else "")
-                    self.__getattribute__(f"{prop}_var").set(value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+                    try:
+                        self.__getattribute__(f"{prop}_var").set(value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+                    except (RuntimeError, AttributeError):
+                        pass
             except AttributeError as e:
                 print(e)
                 self.__setattr__(prop, "")

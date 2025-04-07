@@ -235,7 +235,7 @@ if __name__ == '__main__':
         Planet("f"),
         Planet("g"),
         Planet("h"),
-        # Planet("i"),
+        Planet("i"),
         # Planet("j"),
     ]
     print("building")
