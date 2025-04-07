@@ -60,6 +60,8 @@ def create_color_range():
     color_vals.extend(linear_gradient(middle, maximum, 2898 - 439))
     # print(*[f"{v}" for i, v in enumerate(color_vals)], sep="\n")
 
+create_color_range()
+
 
 prop_locations = {
     "name": "",
@@ -72,6 +74,19 @@ prop_locations = {
     "ambient": "",
     "pedia": "",
 }
+
+default_vals = {
+    "name": "Unnamed Star System",
+    "faction": "",
+    "class": "",
+    "radius": 1.0,
+    "luminosity": 1.0,
+    "position": "",
+    "color": "255 255 255 255",
+    "ambient": "255 255 255 255",
+    "pedia": "",
+}
+
 PLANET_MASS_COL = "L"
 PLANET_MASS_ROW = 6
 
@@ -85,7 +100,11 @@ class System:
             try:
                 self.__getattribute__(attr)
             except AttributeError:
-                self.__setattr__(attr, "")
+                try:
+                    self.__setattr__(attr, default_vals[attr])
+                except KeyError:
+                    self.__setattr__(attr, "")
+                    
             try:
                 self.__setattr__(f"{attr}_var", ctk.StringVar(value=self.__getattribute__(attr)))
             except (RuntimeError, AttributeError):
@@ -93,7 +112,7 @@ class System:
     
     def fill_attr(self, spreadsheet) -> None:
         try:
-            self.__setattr__("color", (*[int(_ * 256) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], 255))
+            self.__setattr__("color", " ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255")))
         except KeyError:
             pass
         for prop, location in prop_locations.items():
@@ -113,13 +132,13 @@ class System:
                     except (RuntimeError, AttributeError):
                         pass
                 else:
-                    self.__setattr__(prop, value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+                    self.__setattr__(prop, value if value not in [None, "#NUM!", "#DIV/0!"] else default_vals[prop])
                     try:
-                        self.__getattribute__(f"{prop}_var").set(value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+                        self.__getattribute__(f"{prop}_var").set(value if value not in [None, "#NUM!", "#DIV/0!"] else default_vals[prop])
                     except (RuntimeError, AttributeError):
                         pass
             except IndexError:
-                self.__setattr__(prop, "")
+                self.__setattr__(prop, default_vals[prop])
         col = PLANET_MASS_COL
         row = PLANET_MASS_ROW
         while spreadsheet["System Builder"][f"{col}{row}"].value:
