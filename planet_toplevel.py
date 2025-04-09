@@ -224,13 +224,13 @@ class PlanetWindow(ctk.CTkToplevel):
                 self.planet.__setattr__(attr, self.__getattribute__(f"planet.{attr}.field").get())
                 self.planet.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"planet.{attr}.field").get())
             except AttributeError:
-                print(attr)
+                pass
         for system_frame in self.master.system_frames:
-            for planet_button in system_frame.children.values():
-                if isinstance(planet_button, ctk.CTkButton):
+            for button in system_frame.children.values():
+                if isinstance(button, ctk.CTkButton):
                     try:
-                        planet_button.__getattribute__("color_callback")()
-                        planet_button.update_idletasks()
+                        button.__getattribute__("color_callback")()
+                        button.update_idletasks()
                     except AttributeError:
                         pass
         

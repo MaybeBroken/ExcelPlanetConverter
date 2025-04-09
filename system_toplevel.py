@@ -137,9 +137,14 @@ class SystemWindow(ctk.CTkToplevel):
         for attr, attr_attrs in attr_prop.items():
             self.system.__setattr__(attr, self.__getattribute__(f"system.{attr}.field").get())
             self.system.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"system.{attr}.field").get())
-        # for system_button in self.master.children.values():
-        #     if isinstance(system_button, ctk.CTkButton) and system_button.cget("text") == self.title():
-        #         system_button.configure(text=self.__getattribute__("system.name.field").get())
+        for system_frame in self.master.system_frames:
+            for button in system_frame.children.values():
+                if isinstance(button, ctk.CTkButton):
+                    try:
+                        button.__getattribute__("color_callback")()
+                        button.update_idletasks()
+                    except AttributeError:
+                        pass
         
         self.destroy()
 

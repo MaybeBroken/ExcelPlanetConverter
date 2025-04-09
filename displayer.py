@@ -27,9 +27,7 @@ class SystemFrame(ctk.CTkFrame):
         self.button = ctk.CTkButton(self,
                                     width=0,
                                     textvariable=system.system_info_var,
-                                    fg_color="transparent",
-                                    border_color=colour.rgb2hex((int(c) / 256 for c in system.color.split(" ")[0:3])),
-                                    border_width=3,
+                                    fg_color=colour.rgb2hex((int(c) / 256 for c in system.color.split(" ")[0:3])),
                                     hover_color=colour.rgb2hex((int(c) / (256 + 128) for c in system.color.split(" ")[0:3])),
                                     text_color=colour.rgb2hex((int(c) / 512 for c in system.color.split(" ")[0:3])),
                                     command=self.expand)
