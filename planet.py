@@ -57,6 +57,26 @@ hab_to_color = {
     "Frozen": "#9BC2E6FF",
 }
 
+default_vals = {
+    "name": "Unnamed Planet",
+    "government": "",
+    "description": "",
+    "type": "Rock",
+    "surface": "",
+    "color": "",
+    "orbitaldistance": "",
+    "eccentricity": "",
+    "argumentofperiapsis": "",
+    "orbitalposition": "",
+    "orbitalperiod": "",
+    "rotationalperiod": "",
+    "mass": "",
+    "radius": "",
+    "density": "",
+    "inclination": "",
+    "temperature": "",
+}
+
 suffixes = "bcdefghijklmnopqrstuvwxyz"
 
 
@@ -67,22 +87,7 @@ def hex_to_rgb(hex_color) -> tuple[str, ...]:
 
 class Planet:
     """
-    :var name:
-    :var government:
-    :var description:
-    :var type:
-    :var surface:
-    :var color:
-    :var orbitaldistance:
-    :var eccentricity:
-    :var argumentofperiapsis:
-    :var orbitalposition:
-    :var orbitalperiod:
-    :var rotationalperiod:
-    :var mass:
-    :var radius:
-    :var density:
-    :var inclination:
+    @DynamicAttrs
     """
     
     def __init__(self, suffix, **kwargs):
@@ -95,7 +100,7 @@ class Planet:
             try:
                 self.__getattribute__(attr)
             except AttributeError:
-                self.__setattr__(attr, "")
+                self.__setattr__(attr, default_vals[attr])
             try:
                 self.__setattr__(f"{attr}_var", ctk.StringVar(value=self.__getattribute__(attr)))
             except (RuntimeError, AttributeError):
@@ -104,6 +109,7 @@ class Planet:
     def fill_attr(self, spreadsheet) -> None:
         try:
             self.__setattr__("color", " ".join(list(hex_to_rgb(hab_to_color[spreadsheet["System Builder"]["AJ" + str(self.row_index)].value]))))
+            self.__setattr__("color_var", ctk.StringVar(value=" ".join(list(hex_to_rgb(hab_to_color[spreadsheet["System Builder"]["AJ" + str(self.row_index)].value])))))
         except KeyError:
             pass
         self.__setattr__("orbitalposition", random.randint(0, 3590) / 10)
@@ -124,9 +130,9 @@ class Planet:
                     except (RuntimeError, AttributeError):
                         pass
                 else:
-                    self.__setattr__(prop, value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+                    self.__setattr__(prop, value if value not in [None, "#NUM!", "#DIV/0!"] else default_vals[prop])
                     try:
-                        self.__getattribute__(f"{prop}_var").set(value if value not in [None, "#NUM!", "#DIV/0!"] else "")
+                        self.__getattribute__(f"{prop}_var").set(value if value not in [None, "#NUM!", "#DIV/0!"] else default_vals[prop])
                     except (RuntimeError, AttributeError):
                         pass
             except AttributeError as e:
@@ -134,23 +140,6 @@ class Planet:
                 self.__setattr__(prop, "")
     
     def get_xml_repr(self) -> str:
-        """
-            <planet
-                name= "Mercury"
-                model= "Planet"
-                type= "Rock"
-                surface= "mercury.jpg"
-                color= "255 160 0 255"
-                orbitaldistance= "0.38"
-                orbitalposition= "190"
-                orbitalperiod= "0.24"
-                rotationperiod= "58.666"
-                mass= "455.8115"
-                radius= "2439"
-                density= "5.43"
-                axistilt= "0"
-            />
-        """
         s = "<planet model='Planet' "
         for prop in props:
             try:

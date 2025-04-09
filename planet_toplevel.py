@@ -72,8 +72,8 @@ attr_prop = {
         "display_after": "",
         "validator": None,
         "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
+        "field_type": ctk.CTkButton,
+        "field_kwargs": {"text": "Select file..."},
     },
     "color": {
         "display_name": "Color",
@@ -180,6 +180,7 @@ class PlanetWindow(ctk.CTkToplevel):
     def __init__(self, master, planet_obj: Planet, system):
         super().__init__(master)
         self.resizable(False, False)
+        self.attributes("-topmost", True)
         self.columnconfigure(0, weight=1)
         self.expanded = False
         self.planet = planet_obj
@@ -208,7 +209,10 @@ class PlanetWindow(ctk.CTkToplevel):
                     field.configure(state="readonly")
                 field.insert(0, str(__value))
             else:
-                field.set(__value)
+                try:
+                    field.set(__value)
+                except AttributeError:
+                    pass
             field.grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="W")
             self.__getattribute__(f"planet.{attr}.label_after").grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
             self.__setattr__(f"planet.{attr}.validator", attr_attrs["validator"])
@@ -216,11 +220,19 @@ class PlanetWindow(ctk.CTkToplevel):
     
     def on_close(self):
         for attr, attr_attrs in attr_prop.items():
-            self.planet.__setattr__(attr, self.__getattribute__(f"planet.{attr}.field").get())
-            self.planet.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"planet.{attr}.field").get())
-        # for planet_button in self.master.children.values():
-        #     if isinstance(planet_button, ctk.CTkButton) and planet_button.cget("text") == self.title():
-        #         planet_button.configure(text=self.__getattribute__("planet.name.field").get())
+            try:
+                self.planet.__setattr__(attr, self.__getattribute__(f"planet.{attr}.field").get())
+                self.planet.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"planet.{attr}.field").get())
+            except AttributeError:
+                print(attr)
+        for system_frame in self.master.system_frames:
+            for planet_button in system_frame.children.values():
+                if isinstance(planet_button, ctk.CTkButton):
+                    try:
+                        planet_button.__getattribute__("color_callback")()
+                        planet_button.update_idletasks()
+                    except AttributeError:
+                        pass
         
         self.destroy()
 

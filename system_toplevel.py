@@ -103,6 +103,7 @@ class SystemWindow(ctk.CTkToplevel):
     def __init__(self, master, system_obj: System):
         super().__init__(master)
         self.resizable(True, False)
+        self.attributes("-topmost", True)
         self.geometry(f"300x{276}")
         self.columnconfigure(1, weight=1)
         self.system = system_obj

@@ -60,11 +60,11 @@ def create_color_range():
     color_vals.extend(linear_gradient(middle, maximum, 2898 - 439))
     # print(*[f"{v}" for i, v in enumerate(color_vals)], sep="\n")
 
+
 create_color_range()
 
-
 prop_locations = {
-    "name": "",
+    "name": "B5",
     "faction": "",
     "class": "",
     "radius": ("F12", "E12"),
@@ -92,6 +92,10 @@ PLANET_MASS_ROW = 6
 
 
 class System:
+    """
+    @DynamicAttrs
+    """
+    
     def __init__(self, **kwargs):
         self.planets = []
         for attr, val, in kwargs.items():
@@ -104,15 +108,21 @@ class System:
                     self.__setattr__(attr, default_vals[attr])
                 except KeyError:
                     self.__setattr__(attr, "")
-                    
+            
             try:
                 self.__setattr__(f"{attr}_var", ctk.StringVar(value=self.__getattribute__(attr)))
             except (RuntimeError, AttributeError):
                 pass
+        self.system_info_var = ctk.StringVar(value=f"{self.name}: {len(self.planets)} planets")
+        self.name_var.trace_add("write", self.update_info)
+        
+    def update_info(self, *_):
+        self.system_info_var.set(f"{self.name_var.get()}: {len(self.planets)} planets")
     
     def fill_attr(self, spreadsheet) -> None:
         try:
             self.__setattr__("color", " ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255")))
+            self.__setattr__("color_var", ctk.StringVar(value=" ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255"))))
         except KeyError:
             pass
         for prop, location in prop_locations.items():
@@ -146,6 +156,7 @@ class System:
             self.planets.append(planet)
             planet.fill_attr(spreadsheet)
             row += 1
+        self.update_info()
 
 
 if __name__ == '__main__':
