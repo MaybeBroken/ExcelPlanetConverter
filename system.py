@@ -157,6 +157,24 @@ class System:
             planet.fill_attr(spreadsheet)
             row += 1
         self.update_info()
+    
+    def get_xml_repr(self) -> str:
+        """
+        <location type="StarSystem" name="Sol" faction="Alliance" pedia="" class="G" radius="1" luminosity="1" position="0 0 0" color="255 255 130 255" ambient="255 255 255 255">
+        :return:
+        """
+        s = '<location type="StarSystem" '
+        for prop in props:
+            try:
+                s += f'{prop}="{self.__getattribute__(prop)}" '
+            except AttributeError:
+                pass
+        s += '>\n'
+        for planet in self.planets:
+            s += planet.get_xml_repr()
+            s += '\n'
+        s += '</location>\n'
+        return s
 
 
 if __name__ == '__main__':

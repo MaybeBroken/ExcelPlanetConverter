@@ -75,6 +75,7 @@ class MainWindow(ctk.CTk):
             
             system = System()
             system.fill_attr(spreadsheet)
+            print(system.get_xml_repr())
             
             system_frame = SystemFrame(self.container, system)
             system_frame.grid(sticky="EW", pady=2)
