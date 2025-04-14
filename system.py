@@ -125,6 +125,8 @@ class System:
             self.__setattr__("color_var", ctk.StringVar(value=" ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255"))))
         except KeyError:
             pass
+        except ValueError:
+            pass
         for prop, location in prop_locations.items():
             try:
                 if isinstance(location, tuple):
@@ -173,7 +175,7 @@ class System:
         for planet in self.planets:
             s += planet.get_xml_repr()
             s += '\n'
-        s += '</location>\n'
+        s += '</location>'
         return s
 
 

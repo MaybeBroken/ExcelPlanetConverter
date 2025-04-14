@@ -6,6 +6,7 @@ import customtkinter as ctk
 import tkinter as tk
 
 import openpyxl
+from typing_extensions import override
 
 from planet_toplevel import PlanetWindow
 from system import System
@@ -17,26 +18,13 @@ def set_color(widget, color):
                      hover_color=colour.rgb2hex((int(c) / (256 + 128) for c in color.split(" ")[0:3])),
                      text_color=colour.rgb2hex((int(c) / 512 for c in color.split(" ")[0:3])),
                      )
-
-
-class SystemFrame(ctk.CTkFrame):
-    def __init__(self, master, system):
-        super().__init__(master, border_width=2)
-        self.system = system
-        self.bind("<Button-1>", lambda _: self.toggle())
-        self.button = ctk.CTkButton(self,
-                                    width=0,
-                                    textvariable=system.system_info_var,
-                                    fg_color=colour.rgb2hex((int(c) / 256 for c in system.color.split(" ")[0:3])),
-                                    hover_color=colour.rgb2hex((int(c) / (256 + 128) for c in system.color.split(" ")[0:3])),
-                                    text_color=colour.rgb2hex((int(c) / 512 for c in system.color.split(" ")[0:3])),
-                                    command=self.expand)
-        if len(self.system.planets):
-            self.expanded = False
-            self.collapse()
-        else:
-            self.expanded = True
-            self.expand()
+    
+class ExpandableFrame(ctk.CTkFrame):
+    def __init__(self, master, obj, **kwargs):
+        super().__init__(master, **kwargs)
+        self.obj = obj
+        self.expanded = False
+        self.button = None
     
     def collapse(self):
         self.grid_propagate(False)
@@ -50,7 +38,60 @@ class SystemFrame(ctk.CTkFrame):
         self.expanded = True
     
     def toggle(self):
-        if len(self.system.planets) == 0:
+        pass
+
+
+class SystemFrame(ExpandableFrame):
+    def __init__(self, master, obj):
+        super().__init__(master, obj, border_width=2)
+        self.system = obj
+        self.bind("<Button-1>", lambda _: self.toggle())
+        self.button = ctk.CTkButton(self,
+                                    width=0,
+                                    textvariable=obj.system_info_var,
+                                    fg_color=colour.rgb2hex((int(c) / 256 for c in obj.color.split(" ")[0:3])),
+                                    hover_color=colour.rgb2hex((int(c) / (256 + 128) for c in obj.color.split(" ")[0:3])),
+                                    text_color=colour.rgb2hex((int(c) / 512 for c in obj.color.split(" ")[0:3])),
+                                    command=self.expand)
+        if len(self.obj.planets):
+            self.expanded = False
+            self.collapse()
+        else:
+            self.expanded = True
+            self.expand()
+    
+    @override
+    def toggle(self):
+        if len(self.obj.planets) == 0:
+            return
+        if self.expanded:
+            self.collapse()
+        else:
+            self.expand()
+
+
+class PlanetFrame(ExpandableFrame):
+    def __init__(self, master, obj):
+        super().__init__(master, obj, border_width=2)
+        self.system = obj
+        self.bind("<Button-1>", lambda _: self.toggle())
+        self.button = ctk.CTkButton(self,
+                                    width=0,
+                                    textvariable=obj.system_info_var,
+                                    fg_color=colour.rgb2hex((int(c) / 256 for c in obj.color.split(" ")[0:3])),
+                                    hover_color=colour.rgb2hex((int(c) / (256 + 128) for c in obj.color.split(" ")[0:3])),
+                                    text_color=colour.rgb2hex((int(c) / 512 for c in obj.color.split(" ")[0:3])),
+                                    command=self.expand)
+        if len(self.obj.moons):
+            self.expanded = False
+            self.collapse()
+        else:
+            self.expanded = True
+            self.expand()
+    
+    @override
+    def toggle(self):
+        if len(self.obj.moons) == 0:
             return
         if self.expanded:
             self.collapse()
@@ -77,7 +118,7 @@ class MainWindow(ctk.CTk):
             system.fill_attr(spreadsheet)
             print(system.get_xml_repr())
             
-            system_frame = SystemFrame(self.container, system)
+            system_frame = SystemFrame(self.container, system)  # NOQA
             system_frame.grid(sticky="EW", pady=2)
             system_frame.columnconfigure(0, weight=1)
             

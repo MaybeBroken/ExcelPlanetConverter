@@ -112,6 +112,8 @@ class Planet:
             self.__setattr__("color_var", ctk.StringVar(value=" ".join(list(hex_to_rgb(hab_to_color[spreadsheet["System Builder"]["AJ" + str(self.row_index)].value])))))
         except KeyError:
             pass
+        except ValueError:
+            pass
         self.__setattr__("orbitalposition", random.randint(0, 3590) / 10)
         for prop, location in prop_locations.items():
             try:
@@ -156,7 +158,7 @@ class Planet:
             s += description
         s += "</description>\n"
         s += "<atmosphere />\n"  # to be implemented
-        s += "</planet>\n"
+        s += "</planet>"
         return s
 
 
