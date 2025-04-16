@@ -30,7 +30,7 @@ class Attribute:
         
         entry_frame = ctk.CTkFrame(master, fg_color="transparent")
         
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify)
+        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify, width=70)
         entry.grid(row=0, column=0, sticky="EW")
         
         after = ctk.CTkLabel(entry_frame, text=after_text)
