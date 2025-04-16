@@ -1,5 +1,5 @@
 import tkinter
-from typing import Callable
+from typing import Callable, Iterable
 
 import customtkinter as ctk
 from tkinter.filedialog import askopenfilename
@@ -13,26 +13,107 @@ class Attribute:
         self.get = var_get
     
     @classmethod
-    def _short_text(cls, master, value: str, label_text: str, after_text="", editable=True):
+    def _short_text(cls, master, value: str, label_text: str, after_text="", editable=True, justify="left"):
+        """
+        Short Text Input Creator
+        :param master:
+        :param value:
+        :param label_text:
+        :param after_text:
+        :param editable:
+        :return:
+        """
         ctk_vars = [ctk.StringVar(master, value)]
+        
         label = ctk.CTkLabel(master, text=label_text)
         label.grid(sticky="E")
-        entry = ctk.CTkEntry(master, textvariable=ctk_vars[0], state=tkinter.NORMAL if editable else tkinter.DISABLED)
-        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="EW")
-        after = ctk.CTkLabel(master, text=after_text)
-        after.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 2, sticky="W", padx=(2, 4))
+        
+        entry_frame = ctk.CTkFrame(master, fg_color="transparent")
+        
+        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify)
+        entry.grid(row=0, column=0, sticky="EW")
+        
+        after = ctk.CTkLabel(entry_frame, text=after_text)
+        after.grid(row=0, column=1, sticky="W", padx=2, pady=2)
+        
+        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
+        
+        return cls(label, value, ctk_vars, ctk_vars[0].get)
+    
+    @classmethod
+    def _multi_short(cls, master, value, label_text: str, after_text="", editable=True):
+        """
+        Multiple Short Text (separated by ' ') Input Creator
+        :param master: parent container
+        :param value: value
+        :param label_text: text of label
+        :param after_text: text after input
+        :param editable: whether this input is editable
+        :return:
+        """
+        ctk_vars = [ctk.StringVar(master, v) for v in value.strip().split(" ")]
+        
+        label = ctk.CTkLabel(master, text=label_text)
+        label.grid(sticky="E")
+        
+        entry_frame = ctk.CTkFrame(master, fg_color="transparent")
+        for i, var in enumerate(ctk_vars):
+            entry = ctk.CTkEntry(entry_frame, textvariable=var, width=36, state="normal" if editable else "disabled", border_width=2 if editable else 0, justify="center")
+            entry.grid(row=0, column=i, padx=2, pady=2)
+        
+        after = ctk.CTkLabel(entry_frame, text=after_text)
+        after.grid(row=entry.grid_info()["row"], column=entry.grid_info()["column"] + 2, sticky="W", padx=2, pady=2)  # NOQA
+        
+        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
+        
+        return cls(label, value, ctk_vars, lambda: " ".join([_.get().strip() for _ in ctk_vars]))
+    
+    @classmethod
+    def _file_input(cls, master, value, label_text: str, filetypes: Iterable[tuple[str, str | list[str] | tuple[str, ...]]] | None, after_text="", editable=True):
+        
+        def pick_file():
+            return askopenfilename(filetypes=filetypes)
+        
+        def update_short(*_):
+            ctk_vars[1].set(ctk_vars[0].get().split("/")[-1] or "No File Specified")
+        
+        ctk_vars = [ctk.StringVar(master, value), ctk.StringVar(master, value or "No File Specified")]
+        ctk_vars[0].trace_add("write", update_short)
+        
+        label = ctk.CTkLabel(master, text=label_text)
+        label.grid(sticky="E")
+        
+        entry = ctk.CTkButton(master, textvariable=ctk_vars[1], command=lambda: ctk_vars[0].set(pick_file()))
+        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W", padx=2, pady=2)
         
         return cls(label, value, ctk_vars, ctk_vars[0].get)
     
     @classmethod
     def _dropdown(cls, master, value, label_text: str, options: list, after_text="", editable=True):
+        """
+        Dropdown Creator
+        :param master:
+        :param value:
+        :param label_text:
+        :param options:
+        :param after_text:
+        :param editable:
+        :return:
+        """
         ctk_vars = [ctk.StringVar(master, value)]
+        
         label = ctk.CTkLabel(master, text=label_text)
         label.grid(sticky="E")
-        entry = ctk.CTkOptionMenu(master, values=options, variable=ctk_vars[0])
-        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="EW")
-        after = ctk.CTkLabel(master, text=after_text)
-        after.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 2, sticky="W", padx=(2, 4))
+        
+        entry_frame = ctk.CTkFrame(master, fg_color="transparent")
+        
+        entry = ctk.CTkOptionMenu(entry_frame, values=options, variable=ctk_vars[0], state="normal" if editable else "disabled")
+        entry.grid(row=0, column=0, sticky="EW")
+        
+        after = ctk.CTkLabel(entry_frame, text=after_text)
+        after.grid(row=0, column=1, sticky="W", padx=2, pady=2)
+        
+        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
         
         return cls(label, value, ctk_vars, ctk_vars[0].get)
     
@@ -48,10 +129,10 @@ class Attribute:
     def description(cls, master, value=""):
         ctk_vars = [ctk.StringVar(master, value)]
         label = ctk.CTkLabel(master, text="Description: ")
-        label.grid(sticky="E")
+        label.grid(sticky="NE")
         entry = ctk.CTkTextbox(master, height=50)
         entry.insert(1.0, value)
-        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
+        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W", padx=2, pady=2)
         
         return cls(label, value, ctk_vars, lambda: entry.get(1.0, ctk.END))
     
@@ -61,41 +142,22 @@ class Attribute:
     
     @classmethod
     def surface(cls, master, value: str = None):
-        
-        def pick_file():
-            return askopenfilename(filetypes=[("Image", [".png", ".jpg"])])
-        
-        def update_short(*_):
-            ctk_vars[1].set(ctk_vars[0].get().split("/")[-1] or "No File Specified")
-        
-        ctk_vars = [ctk.StringVar(master, value), ctk.StringVar(master, value or "No File Specified")]
-        ctk_vars[0].trace_add("write", update_short)
-        label = ctk.CTkLabel(master, text="Surface: ")
-        label.grid(sticky="E")
-        entry = ctk.CTkButton(master, textvariable=ctk_vars[1], command=lambda: ctk_vars[0].set(pick_file()))
-        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
-        
-        return cls(label, value, ctk_vars, ctk_vars[0].get)
+        return cls._file_input(master, value, "Surface Map: ", [("Image", [".png", ".jpg"])])
+    
+    @classmethod
+    def specular(cls, master, value: str = None):
+        return cls._file_input(master, value, "Specular Map: ", [("Image", [".png", ".jpg"])])
+    
+    @classmethod
+    def normal(cls, master, value: str = None):
+        return cls._file_input(master, value, "Normal Map: ", [("Image", [".png", ".jpg"])])
     
     @classmethod
     def color(cls, master, value: str = "0 176 80"):
-        if len(value.strip().split(" ")) == 3:
+        value = value.strip()
+        while len(value.strip().split(" ")) <= 3:
             value += " 255"
-        ctk_vars = [ctk.StringVar(master, v) for v in value.strip().split(" ")]
-        label = ctk.CTkLabel(master, text="Color: ")
-        label.grid(sticky="E")
-        entry_frame = ctk.CTkFrame(master)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], width=40)
-        entry.grid(row=0, column=0)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[1], width=40)
-        entry.grid(row=0, column=1)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[2], width=40)
-        entry.grid(row=0, column=2)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[3], width=40)
-        entry.grid(row=0, column=3)
-        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
-        
-        return cls(label, value, ctk_vars, lambda: " ".join([_.get().strip() for _ in ctk_vars]))
+        return cls._multi_short(master, value, "Color: ", editable=False)
     
     @classmethod
     def orbitaldistance(cls, master, value=None, moon=False):
@@ -107,11 +169,11 @@ class Attribute:
     
     @classmethod
     def argumentofperiapsis(cls, master, value=None):
-        return cls._short_text(master, value, "Argument of Periapsis: ")
+        return cls._short_text(master, value, "Argument of Periapsis: ", "°")
     
     @classmethod
     def orbitalposition(cls, master, value=None):
-        return cls._short_text(master, value, "Orbital Position: ")
+        return cls._short_text(master, value, "Orbital Position: ", "°")
     
     @classmethod
     def orbitalperiod(cls, master, value=None):
@@ -123,7 +185,7 @@ class Attribute:
     
     @classmethod
     def mass(cls, master, value=None):
-        return cls._short_text(master, value, "Mass: ")
+        return cls._short_text(master, value, "Mass: ", "kg")
     
     @classmethod
     def radius(cls, master, value=None, system=False, moon=False):
@@ -135,7 +197,7 @@ class Attribute:
     
     @classmethod
     def inclination(cls, master, value=None):
-        return cls._short_text(master, value, "Inclination: ")
+        return cls._short_text(master, value, "Inclination: ", "°")
     
     @classmethod
     def temperature(cls, master, value=None):
@@ -143,51 +205,29 @@ class Attribute:
     
     @classmethod
     def faction(cls, master, value=""):
-        return cls._dropdown(master, value, "Faction: ", ["House Anoway", "House Cardilir", "House Dezadi", "House Meylek", "House Piddlewee", "House Terra", "House Tinarrah", "Independent"])
+        return cls._dropdown(master, value or "Independent", "Faction: ", ["House Anoway", "House Cardilir", "House Dezadi", "House Meylek", "House Piddlewee", "House Terra", "House Tinarrah", "Independent"])
     
     @classmethod
     def class_(cls, master, value=""):
-        return cls._short_text(master, value, "Star Class: ")
+        return cls._dropdown(master, value or "M", "Star Class: ", ["O", "B", "A", "F", "G", "K", "M"])
     
     @classmethod
     def luminosity(cls, master, value=""):
-        return cls._short_text(master, value, "Luminosity: ")
+        return cls._short_text(master, value, "Luminosity: ", "Solar Luminosities")
     
     @classmethod
     def position(cls, master, value: str = "0 0 0"):
-        ctk_vars = [ctk.StringVar(master, v) for v in value.strip().split(" ")]
-        label = ctk.CTkLabel(master, text="Position: ")
-        label.grid(sticky="E")
-        entry_frame = ctk.CTkFrame(master)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], width=40)
-        entry.grid(row=0, column=0)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[1], width=40)
-        entry.grid(row=0, column=1)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[2], width=40)
-        entry.grid(row=0, column=2)
-        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
-        
-        return cls(label, value, ctk_vars, lambda: " ".join([_.get().strip() for _ in ctk_vars]))
+        value = value.strip()
+        while len(value.strip().split(" ")) <= 2:
+            value += " 0"
+        return cls._multi_short(master, value, "Position: ", "LY")
     
     @classmethod
     def ambient(cls, master, value: str = "255 255 255"):
-        if len(value.strip().split(" ")) == 3:
+        value = value.strip()
+        while len(value.strip().split(" ")) <= 3:
             value += " 255"
-        ctk_vars = [ctk.StringVar(master, v) for v in value.strip().split(" ")]
-        label = ctk.CTkLabel(master, text="Ambient: ")
-        label.grid(sticky="E")
-        entry_frame = ctk.CTkFrame(master)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], width=40)
-        entry.grid(row=0, column=0)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[1], width=40)
-        entry.grid(row=0, column=1)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[2], width=40)
-        entry.grid(row=0, column=2)
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[3], width=40)
-        entry.grid(row=0, column=3)
-        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
-        
-        return cls(label, value, ctk_vars, lambda: " ".join([_.get().strip() for _ in ctk_vars]))
+        return cls._multi_short(master, value, "Ambient: ", editable=False)
     
     @classmethod
     def pedia(cls, master, value=""):
@@ -206,10 +246,11 @@ class Attribute:
 
 if __name__ == '__main__':
     ctk.set_appearance_mode("dark")
+    ctk.set_default_color_theme("./blue.json")
     root = ctk.CTk()
     l = []
     for attr in vars(Attribute).keys():
         if attr.startswith("_"):
             continue
-        l.append(getattr(Attribute, attr)(root, "test t t "))
+        l.append(getattr(Attribute, attr)(root))
     root.mainloop()
