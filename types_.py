@@ -30,7 +30,7 @@ class Attribute:
         
         entry_frame = ctk.CTkFrame(master, fg_color="transparent")
         
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify, width=70)
+        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify, width=100)
         entry.grid(row=0, column=0, sticky="EW")
         
         after = ctk.CTkLabel(entry_frame, text=after_text)
@@ -70,7 +70,15 @@ class Attribute:
     
     @classmethod
     def _file_input(cls, master, value, label_text: str, filetypes: Iterable[tuple[str, str | list[str] | tuple[str, ...]]] | None, after_text="", editable=True):
-        
+        """
+        :param master:
+        :param value:
+        :param label_text:
+        :param filetypes:
+        :param after_text:
+        :param editable:
+        :return:
+        """
         def pick_file():
             return askopenfilename(filetypes=filetypes)
         
@@ -116,6 +124,29 @@ class Attribute:
         entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
         
         return cls(label, value, ctk_vars, ctk_vars[0].get)
+    
+    @classmethod
+    def _mineral_values(cls, master, value, label_text: str, options: list[str], editable=True):
+        """
+        Mineral Input Creator
+        :param master: parent container
+        :param value: value
+        :param label_text: text of label
+        :param editable: whether this input is editable
+        :return:
+        """
+        ctk_vars = [ctk.StringVar(master, v) for v in value.strip().split(" ")]
+        
+        label = ctk.CTkLabel(master, text=label_text)
+        label.grid(sticky="E")
+        
+        entry_frame = ctk.CTkFrame(master, fg_color="transparent")
+        
+        
+        
+        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
+        
+        return cls(label, value, ctk_vars, lambda: " ".join([_.get().strip() for _ in ctk_vars]))
     
     @classmethod
     def name(cls, master, value="Unnamed"):
@@ -248,9 +279,13 @@ if __name__ == '__main__':
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("./blue.json")
     root = ctk.CTk()
+    root.grid_rowconfigure(0, weight=1)
+    root.grid_columnconfigure(0, weight=1)
+    sf = ctk.CTkScrollableFrame(root, width=400, height=900)
+    sf.grid(sticky="NESW")
     l = []
     for attr in vars(Attribute).keys():
         if attr.startswith("_"):
             continue
-        l.append(getattr(Attribute, attr)(root))
+        l.append(getattr(Attribute, attr)(sf))
     root.mainloop()
