@@ -33,14 +33,14 @@ prop_locations = {
     # "color": "",  # location coded elsewhere
     "orbitaldistance": "T",
     "eccentricity": "Z",
-    "argumentofperiapsis": "BN",
-    #     "orbitalposition": "",  # location coded elsewhere
+    "argumentofperiapsis": ("BO", "BN"),
+    "orbitalposition": ("BS", "BR"),
     "orbitalperiod": "V",
     "rotationalperiod": "U",
     "mass": "L",
     "radius": ("Q", "P"),
     "density": "S",
-    "inclination": "BO",
+    "inclination": ("BQ", "BP"),
     "temperature": "AI",
 }
 hab_to_color = {
@@ -115,7 +115,6 @@ class Planet:
             pass
         except ValueError:
             pass
-        self.__setattr__("orbitalposition", random.randint(0, 3590) / 10)
         for prop, location in prop_locations.items():
             try:
                 if isinstance(location, tuple):

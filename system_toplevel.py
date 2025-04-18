@@ -8,6 +8,7 @@ import openpyxl
 
 from planet_toplevel import PlanetWindow
 from system import System
+from types_ import Attribute
 
 attr_to_display = {
     "name": "Name",
@@ -21,79 +22,16 @@ attr_to_display = {
     "pedia": "Pedia",
 }
 
-attr_prop = {
-    "name": {
-        "display_name": "Name",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "faction": {
-        "display_name": "Faction",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "class": {
-        "display_name": "Class",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "radius": {
-        "display_name": "Radius",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "luminosity": {
-        "display_name": "Luminosity",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "position": {
-        "display_name": "Position",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "color": {
-        "display_name": "Color",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "ambient": {
-        "display_name": "Ambient",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "pedia": {
-        "display_name": "Pedia",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
+attr_to_widget = {
+    "name": Attribute.name,
+    "faction": Attribute.faction,
+    "class": Attribute.class_,
+    "radius": Attribute.radius,
+    "luminosity": Attribute.luminosity,
+    "position": Attribute.position,
+    "color": Attribute.color,
+    "ambient": Attribute.ambient,
+    "pedia": Attribute.pedia,
 }
 
 
@@ -102,41 +40,27 @@ class SystemWindow(ctk.CTkToplevel):
     
     def __init__(self, master, system_obj: System):
         super().__init__(master)
-        self.resizable(True, False)
         self.attributes("-topmost", True)
-        self.geometry(f"300x{276}")
-        self.columnconfigure(1, weight=1)
+        self.geometry(f"500x700")
+        self.columnconfigure(0, weight=1)
+        self.rowconfigure(0, weight=1)
         self.system = system_obj
         self.title(self.system.name)
+        self.sframe = ctk.CTkScrollableFrame(self)
+        self.sframe.grid(row=0, column=0, sticky="NESW")
         
-        for attr, attr_attrs in attr_prop.items():
+        for attr, widget in attr_to_widget.items():
             try:
                 __value = system_obj.__getattribute__(attr)
             except AttributeError:
                 __value = ""
-            self.__setattr__(f"system.{attr}", __value)
-            self.__setattr__(f"system.{attr}.label", ctk.CTkLabel(self, text=f"{attr_attrs['display_name']}:"))
-            self.__setattr__(f"system.{attr}.label_after", ctk.CTkLabel(self, text=f"{attr_attrs['display_after'] or ' '}"))
-            self.__setattr__(f"system.{attr}.field", (attr_attrs["field_type"] or ctk.CTkEntry)(self, **attr_attrs["field_kwargs"]))
-            self.__getattribute__(f"system.{attr}.label").grid(sticky="E", padx=4, pady=1)
-            field = self.__getattribute__(f"system.{attr}.field")
-            if isinstance(field, ctk.CTkEntry):
-                if field.cget("state") == "readonly":
-                    field.configure(state="normal")
-                    field.insert(0, str(__value))
-                    field.configure(state="readonly")
-                field.insert(0, str(__value))
-            else:
-                field.set(__value)
-            field.grid(row=self.__getattribute__(f"system.{attr}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="WE")
-            self.__getattribute__(f"system.{attr}.label_after").grid(row=self.__getattribute__(f"system.{attr}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
-            self.__setattr__(f"system.{attr}.validator", attr_attrs["validator"])
+            self.__setattr__(f"system.{attr}", widget(self.sframe, __value))
         self.protocol("WM_DELETE_WINDOW", self.on_close)
     
     def on_close(self):
-        for attr, attr_attrs in attr_prop.items():
-            self.system.__setattr__(attr, self.__getattribute__(f"system.{attr}.field").get())
-            self.system.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"system.{attr}.field").get())
+        for attr, widget in attr_to_widget.items():
+            self.system.__setattr__(attr, self.__getattribute__(f"system.{attr}").get())
+            self.system.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"system.{attr}").get())
         for system_frame in self.master.system_frames:
             for button in system_frame.children.values():
                 if isinstance(button, ctk.CTkButton):

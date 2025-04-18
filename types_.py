@@ -4,6 +4,8 @@ from typing import Callable, Iterable
 import customtkinter as ctk
 from tkinter.filedialog import askopenfilename
 
+from PIL import Image
+
 
 class Attribute:
     def __init__(self, label: ctk.CTkLabel, value, ctk_vars: list[ctk.Variable], var_get: Callable):
@@ -13,7 +15,7 @@ class Attribute:
         self.get = var_get
     
     @classmethod
-    def _short_text(cls, master, value: str, label_text: str, after_text="", editable=True, justify="left"):
+    def _short_text(cls, master, value: str, label_text: str, after_text="", editable=True, justify="left", width=100):
         """
         Short Text Input Creator
         :param master:
@@ -30,7 +32,7 @@ class Attribute:
         
         entry_frame = ctk.CTkFrame(master, fg_color="transparent")
         
-        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify, width=100)
+        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[0], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify, width=width)
         entry.grid(row=0, column=0, sticky="EW")
         
         after = ctk.CTkLabel(entry_frame, text=after_text)
@@ -69,14 +71,37 @@ class Attribute:
         return cls(label, value, ctk_vars, lambda: " ".join([_.get().strip() for _ in ctk_vars]))
     
     @classmethod
-    def _file_input(cls, master, value, label_text: str, filetypes: Iterable[tuple[str, str | list[str] | tuple[str, ...]]] | None, after_text="", editable=True):
+    def _long_text(cls, master, value: str, label_text: str, after_text="", editable=True):
+        """
+        Long Text Input Creator
+        :param master:
+        :param value:
+        :param label_text:
+        :param after_text:
+        :param editable:
+        :return:
+        """
+        ctk_vars = [ctk.StringVar(master, value)]
+        
+        label = ctk.CTkLabel(master, text=label_text)
+        label.grid(sticky="NE")
+        
+        entry = ctk.CTkTextbox(master, height=50)
+        entry.insert(1.0, value)
+        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W", padx=2, pady=2)
+        
+        return cls(label, value, ctk_vars, lambda: entry.get(1.0, ctk.END))
+    
+    @classmethod
+    def _file_input(cls, master, value, label_text: str, filetypes: Iterable[tuple[str, str | list[str] | tuple[str, ...]]] | None, after_text="", editable=True, show_image=True):
         """
         :param master:
         :param value:
         :param label_text:
         :param filetypes:
-        :param after_text:
+        :param after_text: Not used
         :param editable:
+        :param show_image:
         :return:
         """
         def pick_file():
@@ -85,14 +110,34 @@ class Attribute:
         def update_short(*_):
             ctk_vars[1].set(ctk_vars[0].get().split("/")[-1] or "No File Specified")
         
+        def update_image(*_):
+            try:
+                display.configure(image=ctk.CTkImage(Image.open((ctk_vars[0].get())), size=(28, 28)))
+            except AttributeError:
+                pass
+        
         ctk_vars = [ctk.StringVar(master, value), ctk.StringVar(master, value or "No File Specified")]
         ctk_vars[0].trace_add("write", update_short)
         
         label = ctk.CTkLabel(master, text=label_text)
         label.grid(sticky="E")
         
-        entry = ctk.CTkButton(master, textvariable=ctk_vars[1], command=lambda: ctk_vars[0].set(pick_file()))
-        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W", padx=2, pady=2)
+        entry_frame = ctk.CTkFrame(master, fg_color="transparent")
+        
+        entry = ctk.CTkButton(entry_frame, textvariable=ctk_vars[1], command=lambda: ctk_vars[0].set(pick_file()), width=0, state="normal" if editable else "disabled")
+        entry.grid(row=0, column=0, sticky="W", padx=2, pady=2)
+        
+        if show_image:
+            try:
+                display = ctk.CTkLabel(entry_frame, image=ctk.CTkImage(Image.open(open(ctk_vars[0].get()))))
+                display.grid(row=0, column=1, sticky="W", padx=2, pady=2)
+            except (FileNotFoundError, UnicodeDecodeError):
+                display = ctk.CTkLabel(entry_frame, text="")
+                display.grid(row=0, column=1, sticky="W", padx=2, pady=2)
+        
+            ctk_vars[0].trace_add("write", update_image)
+        
+        entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
         
         return cls(label, value, ctk_vars, ctk_vars[0].get)
     
@@ -150,7 +195,7 @@ class Attribute:
     
     @classmethod
     def name(cls, master, value="Unnamed"):
-        return cls._short_text(master, value, "Name: ")
+        return cls._short_text(master, value, "Name: ", width=200)
     
     @classmethod
     def government(cls, master, value=""):
@@ -158,14 +203,7 @@ class Attribute:
     
     @classmethod
     def description(cls, master, value=""):
-        ctk_vars = [ctk.StringVar(master, value)]
-        label = ctk.CTkLabel(master, text="Description: ")
-        label.grid(sticky="NE")
-        entry = ctk.CTkTextbox(master, height=50)
-        entry.insert(1.0, value)
-        entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W", padx=2, pady=2)
-        
-        return cls(label, value, ctk_vars, lambda: entry.get(1.0, ctk.END))
+        cls._long_text(master, value, "Description: ")
     
     @classmethod
     def type(cls, master, value=None):
@@ -182,6 +220,10 @@ class Attribute:
     @classmethod
     def normal(cls, master, value: str = None):
         return cls._file_input(master, value, "Normal Map: ", [("Image", [".png", ".jpg"])])
+    
+    @classmethod
+    def atmosphere_texture(cls, master, value=""):
+        return cls._file_input(master, value, "Atmosphere Map: ", [("Image", [".png", ".jpg"])])
     
     @classmethod
     def color(cls, master, value: str = "0 176 80"):

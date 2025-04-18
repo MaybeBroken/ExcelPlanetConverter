@@ -8,6 +8,7 @@ import openpyxl
 from lxml import etree
 
 from planet import Planet
+from types_ import Attribute
 
 limit_none = lambda v: True
 limit_integer = lambda v: isinstance(v, int)
@@ -42,135 +43,26 @@ attr_to_display = {
     "temperature": "Temperature",
 }
 
-attr_prop = {
-    "name": {
-        "display_name": "Name",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "government": {
-        "display_name": "Government",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "type": {
-        "display_name": "Type",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkOptionMenu,
-        "field_kwargs": {"values": ["Rock", "Ice", "Gas_Giant", "Volcanic", "Water", "Terrestrial"]},
-    },
-    "surface": {
-        "display_name": "Surface",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkButton,
-        "field_kwargs": {"text": "Select file..."},
-    },
-    "color": {
-        "display_name": "Color",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "orbitaldistance": {
-        "display_name": "Orbital Distance",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "eccentricity": {
-        "display_name": "Eccentricity",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "argumentofperiapsis": {
-        "display_name": "Argument of Periapsis",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "orbitalposition": {
-        "display_name": "Orbital Position",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "orbitalperiod": {
-        "display_name": "Orbital Period",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, "state": "readonly"},
-    },
-    "rotationalperiod": {
-        "display_name": "Rotational Period",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "mass": {
-        "display_name": "Mass",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "radius": {
-        "display_name": "Radius",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "density": {
-        "display_name": "Density",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, "state": "readonly"},
-    },
-    "inclination": {
-        "display_name": "Inclination",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
-    "temperature": {
-        "display_name": "Temperature",
-        "display_after": "",
-        "validator": None,
-        "editable": True,
-        "field_type": ctk.CTkEntry,
-        "field_kwargs": {"border_width": 0, },
-    },
+attr_to_widget = {
+    "name": Attribute.name,
+    "government": Attribute.government,
+    "type": Attribute.type,
+    "surface": Attribute.surface,
+    "specular": Attribute.specular,
+    "normal": Attribute.normal,
+    "atmosphere_texture": Attribute.atmosphere_texture,
+    "color": Attribute.color,
+    "orbitaldistance": Attribute.orbitaldistance,
+    "eccentricity": Attribute.eccentricity,
+    "argumentofperiapsis": Attribute.argumentofperiapsis,
+    "orbitalposition": Attribute.orbitalposition,
+    "orbitalperiod": Attribute.orbitalperiod,
+    "rotationalperiod": Attribute.rotationalperiod,
+    "mass": Attribute.mass,
+    "radius": Attribute.radius,
+    "density": Attribute.density,
+    "inclination": Attribute.inclination,
+    "temperature": Attribute.temperature,
 }
 
 
@@ -179,50 +71,34 @@ class PlanetWindow(ctk.CTkToplevel):
     
     def __init__(self, master, planet_obj: Planet, system):
         super().__init__(master)
-        self.resizable(False, False)
+        self.geometry("500x700")
         self.attributes("-topmost", True)
         self.columnconfigure(0, weight=1)
+        self.rowconfigure(0, weight=1)
         self.expanded = False
         self.planet = planet_obj
         self.title(self.planet.name)
         self.system = system.get()
+        self.sframe = ctk.CTkScrollableFrame(self)
+        self.sframe.grid(row=0, column=0, sticky="NESW")
         if self.system in PlanetWindow.systems.keys():
             PlanetWindow.systems[self.system].append(self)
         else:
             PlanetWindow.systems[self.system] = [self]
         
-        for attr, attr_attrs in attr_prop.items():
+        for attr, widget in attr_to_widget.items():
             try:
                 __value = planet_obj.__getattribute__(attr)
             except AttributeError:
                 __value = ""
-            self.__setattr__(f"planet.{attr}", __value)
-            self.__setattr__(f"planet.{attr}.label", ctk.CTkLabel(self, text=f"{attr_attrs['display_name']}:"))
-            self.__setattr__(f"planet.{attr}.label_after", ctk.CTkLabel(self, text=f"{attr_attrs['display_after'] or ' '}"))
-            self.__setattr__(f"planet.{attr}.field", (attr_attrs["field_type"] or ctk.CTkEntry)(self, **attr_attrs["field_kwargs"]))
-            self.__getattribute__(f"planet.{attr}.label").grid(sticky="E", padx=4, pady=1)
-            field = self.__getattribute__(f"planet.{attr}.field")
-            if isinstance(field, ctk.CTkEntry):
-                if field.cget("state") == "readonly":
-                    field.configure(state="normal")
-                    field.insert(0, str(__value))
-                    field.configure(state="readonly")
-                field.insert(0, str(__value))
-            else:
-                try:
-                    field.set(__value)
-                except AttributeError:
-                    pass
-            field.grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=1, padx=(4, 0), sticky="W")
-            self.__getattribute__(f"planet.{attr}.label_after").grid(row=self.__getattribute__(f"planet.{attr}.label").grid_info()["row"], column=2, sticky="W", padx=(0, 4))
-            self.__setattr__(f"planet.{attr}.validator", attr_attrs["validator"])
+            self.__setattr__(f"planet.{attr}", widget(self.sframe, __value))
         self.protocol("WM_DELETE_WINDOW", self.on_close)
     
     def on_close(self):
-        for attr, attr_attrs in attr_prop.items():
+        for attr, widget in attr_to_widget.items():
             try:
-                self.planet.__setattr__(attr, self.__getattribute__(f"planet.{attr}.field").get())
-                self.planet.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"planet.{attr}.field").get())
+                self.planet.__setattr__(attr, self.__getattribute__(f"planet.{attr}").get())
+                self.planet.__getattribute__(f"{attr}_var").set(self.__getattribute__(f"planet.{attr}").get())
             except AttributeError:
                 pass
         for system_frame in self.master.system_frames:
