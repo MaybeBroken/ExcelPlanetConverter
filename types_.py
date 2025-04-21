@@ -1,4 +1,5 @@
 import tkinter
+from functools import partial
 from typing import Callable, Iterable
 
 import customtkinter as ctk
@@ -8,7 +9,7 @@ from PIL import Image
 
 
 class Attribute:
-    def __init__(self, label: ctk.CTkLabel, value, ctk_vars: list[ctk.Variable], var_get: Callable):
+    def __init__(self, label, value, ctk_vars: list[ctk.Variable], var_get: Callable):
         self.label = label
         self.value = value
         self.vars = ctk_vars
@@ -104,6 +105,7 @@ class Attribute:
         :param show_image:
         :return:
         """
+        
         def pick_file():
             return askopenfilename(filetypes=filetypes)
         
@@ -134,7 +136,7 @@ class Attribute:
             except (FileNotFoundError, UnicodeDecodeError):
                 display = ctk.CTkLabel(entry_frame, text="")
                 display.grid(row=0, column=1, sticky="W", padx=2, pady=2)
-        
+            
             ctk_vars[0].trace_add("write", update_image)
         
         entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
@@ -171,27 +173,75 @@ class Attribute:
         return cls(label, value, ctk_vars, ctk_vars[0].get)
     
     @classmethod
-    def _mineral_values(cls, master, value, label_text: str, options: list[str], editable=True):
+    def _mineral(cls, master, value: float, mineral: str, options: list[str], after_text="", editable=True, justify="left", width=100):
+        ctk_vars = [ctk.StringVar(master, mineral), ctk.DoubleVar(master, value)]
+        
+        entry_frame = ctk.CTkFrame(master, fg_color="transparent")
+        
+        name = ctk.CTkOptionMenu(entry_frame, values=options, variable=ctk_vars[0])
+        name.set(mineral)
+        name.grid(sticky="E")
+        
+        def slider_update(_):
+            ctk_vars[1].set(round(_, 4))
+        
+        slider = ctk.CTkSlider(entry_frame, width=100, from_=0, to=1, number_of_steps=1000, command=slider_update, variable=ctk_vars[1])
+        slider.grid(row=0, column=1, sticky="EW")
+        
+        entry = ctk.CTkEntry(entry_frame, textvariable=ctk_vars[1], state="normal" if editable else "disabled", border_width=2 if editable else 0, justify=justify, width=width)
+        entry.grid(row=0, column=2, sticky="EW")
+        
+        after = ctk.CTkLabel(entry_frame, text=after_text)
+        after.grid(row=0, column=3, sticky="W", padx=2, pady=2)
+        
+        entry_frame.grid(column=0, sticky="W")
+        
+        return cls(name, value, ctk_vars, ctk_vars[1].get)
+    
+    @classmethod
+    def _mineral_values(cls, master, value: dict[str: float], label_text: str, options: list[str], editable=True):
         """
         Mineral Input Creator
         :param master: parent container
-        :param value: value
+        :param value: values
         :param label_text: text of label
         :param editable: whether this input is editable
         :return:
         """
-        ctk_vars = [ctk.StringVar(master, v) for v in value.strip().split(" ")]
+        ctk_vars = [ctk.Variable(master, (k, v)) for k, v in value.items()]
         
         label = ctk.CTkLabel(master, text=label_text)
         label.grid(sticky="E")
         
+        def normalize():
+            values = list(map(lambda _: _.get(), minerals))
+            for i, v in enumerate(values):
+                print(sum(values))
+                minerals[i].vars[1].set((float(v) / sum(values)))
+                ctk_vars[i].set((ctk_vars[i].get()[0], (float(v) / sum(values))))
+        
         entry_frame = ctk.CTkFrame(master, fg_color="transparent")
         
+        minerals = []
+        for i, p in enumerate(value.items()):
+            k, v = p
+            mineral = cls._mineral(entry_frame, v, k, options)
+            mineral.vars[0].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
+            mineral.vars[1].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
+            minerals.append(mineral)
+            
+        def add_mineral():
+            ctk_vars.append(ctk.Variable(master, ("", 1)))
         
+        add_button = ctk.CTkButton(entry_frame, text="Add Mineral", command=add_mineral)
+        add_button.grid(sticky="SEW")
+        
+        normalize_button = ctk.CTkButton(entry_frame, text="Normalize", command=normalize)
+        normalize_button.grid(sticky="SEW")
         
         entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
         
-        return cls(label, value, ctk_vars, lambda: " ".join([_.get().strip() for _ in ctk_vars]))
+        return cls(label, value, ctk_vars, lambda: dict(_.get() for _ in ctk_vars))
     
     @classmethod
     def name(cls, master, value="Unnamed"):
@@ -306,28 +356,37 @@ class Attribute:
     def pedia(cls, master, value=""):
         return cls._short_text(master, value, "Pedia: ")
     
-    # @classmethod
-    # def new(cls, master, value):
-    #     ctk_vars = [ctk.StringVar(master, value)]
-    #     label = ctk.CTkLabel(master, text="New: ")
-    #     label.grid(sticky="E")
-    #     entry = ctk.CTkEntry(master, textvariable=ctk_vars[0])
-    #     entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
-    #
-    #     return cls(label, value, ctk_vars, ctk_vars[0].get)
-
-
+    @classmethod
+    def surface_minerals(cls, master):
+        return cls._mineral_values(master, {"iron": .5, "gold": .2}, "Surface Minerals: ", ["iron", "silicon", "magnesium", "sulfur", "nickel", "aluminum", "calcium", "gold", "silver", "platinum", "basalt", "iron oxide", "silicon dioxide", "oxygen", "helium", "water"])
+        
+        # @classmethod
+        # def new(cls, master, value):
+        #     ctk_vars = [ctk.StringVar(master, value)]
+        #     label = ctk.CTkLabel(master, text="New: ")
+        #     label.grid(sticky="E")
+        #     entry = ctk.CTkEntry(master, textvariable=ctk_vars[0])
+        #     entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
+        #
+        #     return cls(label, value, ctk_vars, ctk_vars[0].get)
+    
 if __name__ == '__main__':
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("./blue.json")
     root = ctk.CTk()
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
-    sf = ctk.CTkScrollableFrame(root, width=400, height=900)
+    sf = ctk.CTkScrollableFrame(root, width=600, height=1100)
     sf.grid(sticky="NESW")
     l = []
     for attr in vars(Attribute).keys():
         if attr.startswith("_"):
             continue
+        print(attr)
         l.append(getattr(Attribute, attr)(sf))
+    for o in l:
+        try:
+            print(o.get())
+        except AttributeError:
+            pass
     root.mainloop()

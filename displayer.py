@@ -11,6 +11,7 @@ from typing_extensions import override
 from planet_toplevel import PlanetWindow
 from system import System
 from system_toplevel import SystemWindow
+import lxml.etree
 
 
 def set_color(widget, color):
@@ -105,6 +106,7 @@ class MainWindow(ctk.CTk):
         self.title("System Display Test")
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
+        self.rowconfigure(10, weight=0)
         
         self.container = ctk.CTkScrollableFrame(self, width=350, height=400, fg_color="transparent")
         self.container.grid(sticky="NESW")
@@ -116,7 +118,6 @@ class MainWindow(ctk.CTk):
             
             system = System()
             system.fill_attr(spreadsheet)
-            print(system.get_xml_repr())
             
             system_frame = SystemFrame(self.container, system)  # NOQA
             system_frame.grid(sticky="EW", pady=2)
@@ -144,6 +145,9 @@ class MainWindow(ctk.CTk):
                 button.__setattr__("color_callback", partial(lambda b=button, p=planet: set_color(b, p.color_var.get())))
                 # button.__setattr__("planet_color_callback", partial(lambda b=button, p=planet: print(p.color_var.get())))
                 button.grid(sticky="W", padx=(16, 0))
+                
+        self.export_button = ctk.CTkButton(self, text="Export", command=lambda : print(*[sysframe.system.get_xml_repr() for sysframe in self.system_frames], sep="\n"))
+        self.export_button.grid(row=10, column=0, sticky="SEW")
 
 
 if __name__ == '__main__':

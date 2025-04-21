@@ -1,0 +1,1226 @@
+<resource fileversion="1">
+	<maps>
+		<map id="Milky Way D" name="Milky Way D" dimensions="800 10 240" systems="1" show-influence="false" seed="10101" autogenerate="false">
+			<description />
+			<pedia />
+			<sector-mode>Alphanumeric</sector-mode>
+			<sector-size>10 10</sector-size>
+			<skybox source="base" />
+			<background source="/images/nebula.png" style="Cover" scale="1" />
+			<location type="StarSystem" name="Sol" faction="Alliance" pedia="" position="600 0 0" color="255 255 130 255" ambient="255 255 255 255">
+				<faction name="Alliance" influence="1" />
+				<planet name="Mercury" model="Planet" type="Terrestrial" surface="mercury" weather="" color="255 160 0 255" orbitaldistance="0.38" orbitalposition="190" orbitalperiod="0.24" rotationperiod="58.666" mass="0.055" radius="2439" density="5.43" axistilt="0">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+					<surface>
+						<mineral name="Iron" value="0.71" />
+						<mineral name="Silicon" value="0.13" />
+						<mineral name="Magnesium" value="0.11" />
+						<mineral name="Sulfur" value="0.03" />
+						<mineral name="Nickel" value="0.02" />
+					</surface>
+				</planet>
+				<planet name="Venus" model="Planet" type="Terrestrial" surface="venus" weather="" color="255 0 0 255" orbitaldistance="0.72" orbitalposition="45" orbitalperiod="0.615" rotationperiod="243" mass="0.815" radius="6051" density="5.24" axistilt="0">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+					<surface />
+				</planet>
+				<planet name="Earth" model="Planet" type="Terrestrial" surface="earth" weather="" color="0 66 255 255" orbitaldistance="1" orbitalposition="330" orbitalperiod="1" rotationperiod="1" mass="1" radius="6371" density="5.5" axistilt="-23.4">
+					<description>Home Sweet Home</description>
+					<pedia>Earth</pedia>
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="earth_atmos">
+						<gas name="Nitrogen" value="0.78" />
+						<gas name="Oxygen" value="0.21" />
+						<gas name="Argon" value="0.01" />
+						<gas name="Cardon Dioxide" value="0.00035" />
+					</atmosphere>
+					<surface>
+						<mineral name="Iron" value="0.32" />
+						<mineral name="Oxygen" value="0.3" />
+						<mineral name="Silicon" value="0.15" />
+						<mineral name="Magnesium" value="0.14" />
+						<mineral name="Sulfur" value="0.03" />
+						<mineral name="Nickel" value="0.02" />
+					</surface>
+					<moon name="Moon" model="Planet" type="Rock" surface="moon" weather="" color="118 118 118 255" orbitaldistance="0.002569555" orbitalposition="70" orbitalperiod="0.0748" rotationperiod="0" mass="0.012" radius="1738" density="3.34" axistilt="0">
+						<description>Luna, Earth's Moon</description>
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface>
+							<mineral name="Oxygen" value="0.45" />
+							<mineral name="Silicon" value="0.21" />
+							<mineral name="Iron" value="0.13" />
+							<mineral name="Calcium" value="0.08" />
+							<mineral name="Aluminum" value="0.07" />
+							<mineral name="Magnesium" value="0.059" />
+							<mineral name="Other" value="0.001" />
+						</surface>
+					</moon>
+				</planet>
+				<planet name="Mars" model="Planet" type="Terrestrial" surface="mars" weather="" color="130 40 0 255" orbitaldistance="1.52" orbitalposition="250" orbitalperiod="1.881" rotationperiod="1.041" mass="0.107" radius="3396" density="3.93" axistilt="0">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="">
+						<gas name="Cardon Dioxide" value="0.95" />
+						<gas name="Nitrogen" value="0.03" />
+						<gas name="Argon" value="0.016" />
+						<gas name="Other" value="0.004" />
+					</atmosphere>
+					<surface>
+						<mineral name="Basalt" value="0.65" />
+						<mineral name="Iron Oxide" value="0.4" />
+						<mineral name="Other" value="0.05" />
+					</surface>
+				</planet>
+				<planet name="Jupiter" model="Planet" type="Gas_Giant" surface="jupiter" weather="" color="115 132 0 255" orbitaldistance="5.2" orbitalposition="260" orbitalperiod="11.86" rotationperiod="0.416" mass="317.83" radius="71492" density="1.33" axistilt="0">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="">
+						<gas name="Hydrogen" value="0.9" />
+						<gas name="Helium" value="0.09" />
+						<gas name="Other" value="0.01" />
+					</atmosphere>
+					<surface />
+					<moon name="Io" model="Planet" type="Terrestrial" surface="io" weather="" color="118 118 118 255" orbitaldistance="0.00357" orbitalposition="10" orbitalperiod="1.7691" rotationperiod="0.416" mass="1" radius="1830" density="3.528" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Europa" model="Planet" type="Terrestrial" surface="europa" weather="" color="118 118 118 255" orbitaldistance="0.003" orbitalposition="90" orbitalperiod="3.5512" rotationperiod="0.416" mass="1" radius="1560" density="3.01" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Ganymede" model="Planet" type="Terrestrial" surface="ganymede" weather="" color="118 118 118 255" orbitaldistance="0.0047" orbitalposition="200" orbitalperiod="7.1546" rotationperiod="0.416" mass="1" radius="2631" density="1.93" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Callisto" model="Planet" type="Terrestrial" surface="callisto" weather="" color="118 118 118 255" orbitaldistance="0.0061" orbitalposition="260" orbitalperiod="16.689" rotationperiod="0.416" mass="1" radius="2410" density="1.83" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+				</planet>
+				<planet name="Saturn" model="Planet" type="Gas_Giant" surface="saturn" weather="" color="255 0 0 255" orbitaldistance="9.54" orbitalposition="110" orbitalperiod="29.46" rotationperiod="0.458" mass="95.159" radius="60268" density="5.5" axistilt="26.73">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="">
+						<gas name="Hydrogen" value="0.94" />
+						<gas name="Helium" value="0.058" />
+						<gas name="Methane" value="0.01" />
+						<gas name="Other" value="0.01" />
+					</atmosphere>
+					<surface />
+					<rings inner="400" outer="800" texture="rings" />
+					<moon name="Mimas" model="Planet" type="Rock" surface="mimas" weather="" color="118 118 118 255" orbitaldistance="0.00175" orbitalposition="70" orbitalperiod="0.9" rotationperiod="0" mass="0.0005" radius="396" density="3.34" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Enceladus" model="Planet" type="Rock" surface="enceladus" weather="" color="118 118 118 255" orbitaldistance="0.00185" orbitalposition="140" orbitalperiod="1.4" rotationperiod="0" mass="0.002" radius="504" density="3.34" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Tethys" model="Planet" type="Rock" surface="tethys" weather="" color="118 118 118 255" orbitaldistance="0.00195" orbitalposition="270" orbitalperiod="1.9" rotationperiod="0" mass="0.008" radius="1062" density="3.34" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Dione" model="Planet" type="Rock" surface="dione" weather="" color="118 118 118 255" orbitaldistance="0.002" orbitalposition="10" orbitalperiod="2.7" rotationperiod="0" mass="0.015" radius="1123" density="3.34" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Rhea" model="Planet" type="Rock" surface="rhea" weather="" color="118 118 118 255" orbitaldistance="0.00205" orbitalposition="100" orbitalperiod="4.5" rotationperiod="0" mass="0.03" radius="1527" density="3.34" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Titan" model="Planet" type="Rock" surface="titan" weather="" color="118 118 118 255" orbitaldistance="0.0021" orbitalposition="310" orbitalperiod="16" rotationperiod="0" mass="0.21" radius="5149" density="3.34" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+					<moon name="Iapetus" model="Planet" type="Rock" surface="iapetus" weather="" color="118 118 118 255" orbitaldistance="0.0022" orbitalposition="200" orbitalperiod="79" rotationperiod="0" mass="0.025" radius="1470" density="3.34" axistilt="0">
+						<description />
+						<pedia />
+						<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+						<surface />
+					</moon>
+				</planet>
+				<planet name="Uranus" model="Planet" type="Gas_Giant" surface="uranus" weather="" color="255 0 0 255" orbitaldistance="19.21" orbitalposition="340" orbitalperiod="84.01" rotationperiod="0.708" mass="14.5" radius="25559" density="1.27" axistilt="0">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+					<surface />
+				</planet>
+				<planet name="Neptune" model="Planet" type="Gas_Giant" surface="neptune" weather="" color="0 150 255 255" orbitaldistance="30.06" orbitalposition="225" orbitalperiod="164.8" rotationperiod="0.666" mass="17.204" radius="24764" density="1.64" axistilt="0">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+					<surface />
+				</planet>
+				<planet name="Pluto" model="Planet" type="Terrestrial" surface="pluto" weather="" color="118 118 118 255" orbitaldistance="39.5" orbitalposition="80" orbitalperiod="248.1" rotationperiod="1" mass="0.002" radius="1195" density="1.88" axistilt="0">
+					<description />
+					<pedia />
+					<atmosphere present="true" height="0.01" color="0 0 0 0" texture="" />
+					<surface />
+				</planet>
+			</location>
+			<location type="StarSystem" name="G 57-11" class="G" faction="" pedia="" position="-110.7451 11.802928 -10.16631" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="33 Sextantis" class="M" faction="" pedia="" position="-105.52802 -3.4062762 -37.67833" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 18020" class="G" faction="" pedia="" position="-103.60987 5.584543 37.258247" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="38 Virginis" class="M" faction="" pedia="" position="-102.97568 -6.5701714 24.336943" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="B 230AB" class="B" faction="" pedia="" position="-98.99414 -51.436672 16.43441" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 17289" class="G" faction="" pedia="" position="-97.84398 4.480707 18.420988" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 15709" class="G" faction="" pedia="" position="-97.351715 39.448708 -14.091774" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="53 Virginis" class="M" faction="" pedia="" position="-96.91155 -29.602724 31.515627" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Vindemiatrix" class="M" faction="" pedia="" position="-96.66063 19.42797 26.887829" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="17 Virginis" class="M" faction="" pedia="" position="-96.34216 8.990265 9.503976" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AB Crateris" class="A" faction="" pedia="" position="-95.24374 -16.148018 -24.260822" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 16129" class="G" faction="" pedia="" position="-94.16738 4.6504226 -5.880486" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 54-21" class="G" faction="" pedia="" position="-93.98407 50.586952 -45.36166" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 19222" class="G" faction="" pedia="" position="-92.7708 31.992792 61.804253" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 18574" class="G" faction="" pedia="" position="-91.860115 -25.949697 45.17258" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FK5 2970" class="F" faction="" pedia="" position="-91.381676 -55.83275 3.027236" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="66 Virginis" class="M" faction="" pedia="" position="-91.13171 -8.8299055 35.234375" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Chi Leonis" class="M" faction="" pedia="" position="-90.93001 12.051796 -22.241806" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 147-42" class="G" faction="" pedia="" position="-89.976456 66.18876 -16.29022" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="14 Boötis" class="M" faction="" pedia="" position="-88.108574 24.321327 58.366943" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 65-51" class="G" faction="" pedia="" position="-87.05905 25.86598 64.40495" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="89 Leonis" class="M" faction="" pedia="" position="-85.92326 4.622778 -9.650122" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 53-4" class="G" faction="" pedia="" position="-85.71433 2.8181396 -56.047974" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 341" class="B" faction="" pedia="" position="-84.107544 -32.84968 24.024961" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Canum Venaticorum A" class="M" faction="" pedia="" position="-83.84016 68.28696 20.915606" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Corvi" class="M" faction="" pedia="" position="-83.50865 -24.972057 10.94457" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DH Leonis" class="M" faction="" pedia="" position="-83.32772 43.95308 -48.09429" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 66-5" class="G" faction="" pedia="" position="-83.070015 17.424309 65.82876" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FK5 5139" class="F" faction="" pedia="" position="-82.58581 10.070498 19.792374" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="24 Leonis Minoris" class="M" faction="" pedia="" position="-82.3386 50.069263 -39.950943" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="35 Leonis" class="M" faction="" pedia="" position="-81.66574 39.46807 -39.592995" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GAT 329" class="G" faction="" pedia="" position="-81.62042 24.577597 -36.881878" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CRJ 5" class="M" faction="" pedia="" position="-81.45886 7.77422 25.235008" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DP Ursae Majoris" class="M" faction="" pedia="" position="-80.81227 75.48188 0.7467356" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 253" class="M" faction="" pedia="" position="-80.730736 -58.75788 -21.614779" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="B 2530" class="B" faction="" pedia="" position="-79.74403 -10.77104 -62.42515" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 28 AB" class="B" faction="" pedia="" position="-78.542595 -18.863665 10.368984" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 57-27" class="G" faction="" pedia="" position="-78.142525 26.550419 -2.6814477" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 44-13" class="G" faction="" pedia="" position="-78.00984 17.142057 -35.48624" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="46 Leonis Minoris" class="M" faction="" pedia="" position="-77.31905 54.883957 -23.15614" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 8458" class="M" faction="" pedia="" position="-77.2828 36.94053 -62.701733" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 9263" class="M" faction="" pedia="" position="-76.66311 79.249886 -36.341404" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 395" class="M" faction="" pedia="" position="-76.20837 -54.688065 44.4249" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 147-8" class="G" faction="" pedia="" position="-76.18503 43.756275 -21.419634" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 16204" class="G" faction="" pedia="" position="-75.23545 -70.1269 -3.32846" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Antliae" class="M" faction="" pedia="" position="-74.36194 -62.3135 -43.422123" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 10106" class="M" faction="" pedia="" position="-73.55769 -78.41389 11.135834" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 116-63" class="G" faction="" pedia="" position="-73.27903 72.910194 -44.467117" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 2899 AB" class="A" faction="" pedia="" position="-72.65005 6.9451365 -79.73217" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ALD 112" class="M" faction="" pedia="" position="-72.61194 23.361355 42.762333" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 18763" class="G" faction="" pedia="" position="-72.57966 43.46411 39.033447" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="88 Leonis AB" class="M" faction="" pedia="" position="-72.18145 18.627314 -8.941919" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 59-7" class="G" faction="" pedia="" position="-72.154686 33.0935 4.5503407" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 133" class="M" faction="" pedia="" position="-71.92496 -58.66611 -37.627506" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 8147" class="A" faction="" pedia="" position="-71.72746 11.46454 -70.61489" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FK5 5156" class="F" faction="" pedia="" position="-71.155304 71.79817 20.448187" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 45-4" class="G" faction="" pedia="" position="-70.875626 12.776462 -23.688856" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 88" class="M" faction="" pedia="" position="-70.58252 3.6663916 5.211175" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 148-61" class="G" faction="" pedia="" position="-69.810524 53.84294 8.41494" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ADS 8724 B" class="M" faction="" pedia="" position="-69.28752 8.178166 18.34428" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CX Comae Berenices" class="M" faction="" pedia="" position="-68.66933 35.26228 8.112249" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2090" class="M" faction="" pedia="" position="-68.52719 -54.078053 1.3761111" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 11095" class="M" faction="" pedia="" position="-68.46522 -68.2926 28.571943" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="18 Boötis" class="M" faction="" pedia="" position="-68.03375 19.138613 47.31564" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 18192" class="M" faction="" pedia="" position="-67.718056 52.48385 27.173143" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Regulus" class="M" faction="" pedia="" position="-66.9587 16.06 -35.46241" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="75 Cancri" class="M" faction="" pedia="" position="-66.85853 45.691704 -61.916885" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 269" class="M" faction="" pedia="" position="-66.710655 -52.526913 12.882607" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DAW 132AB" class="M" faction="" pedia="" position="-65.80685 -48.697914 -15.683273" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="21 Leonis Minoris" class="M" faction="" pedia="" position="-65.61372 52.57816 -35.097485" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Librae" class="M" faction="" pedia="" position="-65.24981 -18.903566 80.71992" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="16 Librae" class="M" faction="" pedia="" position="-64.93454 -6.8949 63.35826" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GCRV 8629" class="M" faction="" pedia="" position="-64.22852 14.990328 59.393387" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FR Cancri" class="M" faction="" pedia="" position="-64.037285 29.396725 -81.58926" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 52" class="M" faction="" pedia="" position="-63.906433 -41.919132 -66.78221" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FS 20" class="M" faction="" pedia="" position="-63.272556 -5.8550577 -14.606136" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Canum Venaticorum B" class="M" faction="" pedia="" position="-62.1238 50.591614 15.492074" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 69" class="M" faction="" pedia="" position="-61.984825 32.880524 -36.574657" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 20286" class="M" faction="" pedia="" position="-61.66792 -52.773174 64.73786" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="39 Leonis AB" class="M" faction="" pedia="" position="-61.39786 29.069681 -29.533382" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Coronae Borealis" class="M" faction="" pedia="" position="-61.37315 55.444973 78.434685" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2088" class="M" faction="" pedia="" position="-61.15558 -47.794956 0.5926028" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="19 Leonis Minoris" class="M" faction="" pedia="" position="-61.150135 61.864857 -36.13322" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 18590" class="M" faction="" pedia="" position="-60.62508 10.513728 29.977884" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2086" class="M" faction="" pedia="" position="-59.753876 -47.16418 -1.0921326" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 252" class="M" faction="" pedia="" position="-59.642124 17.973064 -33.797626" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 20543" class="M" faction="" pedia="" position="-59.45689 68.5889 68.614395" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="40 Leonis" class="M" faction="" pedia="" position="-58.935226 23.003342 -27.563854" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alkaid" class="M" faction="" pedia="" position="-58.52264 76.32018 29.671738" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EQ Virginis" class="M" faction="" pedia="" position="-58.44704 -9.358026 25.633022" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BEU 18" class="M" faction="" pedia="" position="-58.30448 15.229319 31.479376" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 40-5" class="M" faction="" pedia="" position="-58.00293 30.816422 -95.98235" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DON 466B" class="M" faction="" pedia="" position="-57.65773 -25.07781 -11.517449" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 175" class="M" faction="" pedia="" position="-56.979355 -10.515847 59.952606" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BDS 5341 A" class="M" faction="" pedia="" position="-56.9241 70.563675 -28.98466" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="83 Leonis AB" class="M" faction="" pedia="" position="-56.923805 3.0276272 -8.313815" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 65-1" class="M" faction="" pedia="" position="-56.874382 11.657336 28.807804" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 227" class="M" faction="" pedia="" position="-56.832687 -27.39466 -18.846092" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 179-14" class="M" faction="" pedia="" position="-56.82519 66.98169 60.1617" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 9989" class="M" faction="" pedia="" position="-56.684944 46.14266 -13.0252" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Corvi" class="M" faction="" pedia="" position="-56.445988 -16.55653 7.951727" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DK Leonis" class="M" faction="" pedia="" position="-55.653316 23.948416 -27.65044" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="37 Librae" class="M" faction="" pedia="" position="-55.220325 -16.49322 74.745544" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FLA 2AB" class="M" faction="" pedia="" position="-54.829876 48.10948 80.54563" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="9 Librae AB" class="M" faction="" pedia="" position="-54.480305 -21.321964 50.308025" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 117-34" class="M" faction="" pedia="" position="-54.406174 41.183613 -38.305782" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 91-23" class="M" faction="" pedia="" position="-53.75023 24.861053 -93.47806" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DAM 30A" class="M" faction="" pedia="" position="-53.14713 76.238754 52.938488" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="70 Virginis" class="M" faction="" pedia="" position="-53.1216 14.062368 21.579212" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DO Canum Venaticorum" class="M" faction="" pedia="" position="-52.963264 66.738625 8.35375" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Leonis" class="M" faction="" pedia="" position="-52.93813 20.22214 -10.744667" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 167-35" class="M" faction="" pedia="" position="-52.646 45.630547 62.383198" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 138" class="M" faction="" pedia="" position="-52.513058 -42.31956 -26.450499" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 21321" class="M" faction="" pedia="" position="-52.411964 26.941063 83.88466" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="1 Hydrae" class="M" faction="" pedia="" position="-52.212063 -5.80355 -71.47892" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 52-23" class="M" faction="" pedia="" position="-51.70158 12.660993 -61.716232" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 581AB" class="M" faction="" pedia="" position="-51.362114 21.664688 -85.15665" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="49 Librae" class="M" faction="" pedia="" position="-51.121006 -30.424929 88.84204" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 10-49" class="M" faction="" pedia="" position="-50.863564 0.2271568 -2.7335427" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 179-29" class="M" faction="" pedia="" position="-50.457367 70.76857 64.3806" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="23 Librae" class="M" faction="" pedia="" position="-50.225254 -35.753136 56.511482" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DR Crucis" class="M" faction="" pedia="" position="-50.104504 -81.70144 10.293515" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 21681" class="M" faction="" pedia="" position="-49.025608 -34.45393 92.31893" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1126 B" class="M" faction="" pedia="" position="-48.760406 -38.503567 -37.257072" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 8001" class="M" faction="" pedia="" position="-48.569405 91.97014 -51.58471" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="81 Cancri AB" class="M" faction="" pedia="" position="-47.980484 17.274185 -43.08908" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 9-2" class="M" faction="" pedia="" position="-47.914307 32.78295 -66.24454" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 50-13" class="M" faction="" pedia="" position="-47.575428 17.151024 -83.37877" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 385" class="M" faction="" pedia="" position="-47.429382 -28.936836 26.391657" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 5588" class="M" faction="" pedia="" position="-47.349934 -75.6587 -44.14066" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BF Lyncis" class="M" faction="" pedia="" position="-46.7173 51.087036 -38.36146" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BF Canum Venaticorum" class="M" faction="" pedia="" position="-46.665073 34.021164 11.997647" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AN Coronae Borealis" class="M" faction="" pedia="" position="-46.47029 57.711292 63.66904" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 19863" class="M" faction="" pedia="" position="-46.407665 15.238414 40.843887" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 9-46" class="M" faction="" pedia="" position="-46.156548 14.51541 -43.70255" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 431" class="M" faction="" pedia="" position="-45.979465 6.8068147 -31.603287" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Ophiuchi" class="M" faction="" pedia="" position="-45.967598 -8.790361 96.7211" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Furuhjelm I-87" class="M" faction="" pedia="" position="-45.34986 60.383644 -36.33756" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 91 AB" class="M" faction="" pedia="" position="-45.172157 50.182583 -26.255976" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BEU 20" class="M" faction="" pedia="" position="-44.65043 58.436348 60.294155" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FME 1" class="M" faction="" pedia="" position="-44.58363 -10.617983 -7.490926" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 47-33" class="M" faction="" pedia="" position="-44.398136 29.354898 -37.658085" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="31 Hydrae AB" class="M" faction="" pedia="" position="-44.047848 -2.6929882 -34.06022" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alioth" class="M" faction="" pedia="" position="-44.029526 67.03186 10.576059" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CHR 238" class="M" faction="" pedia="" position="-43.823105 -61.26616 -50.080967" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="5 Puppis" class="M" faction="" pedia="" position="-43.7374 -20.826477 -85.88917" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 43A" class="M" faction="" pedia="" position="-43.7285 46.782074 -20.655197" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Corvi" class="M" faction="" pedia="" position="-43.701897 -20.140802 1.6048654" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="37 Ursae Majoris" class="M" faction="" pedia="" position="-43.69251 72.39736 -16.95588" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="B 1663B" class="M" faction="" pedia="" position="-43.62066 -67.91838 -28.111046" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="78 Ursae Majoris" class="M" faction="" pedia="" position="-43.500626 67.75493 11.803841" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ES 608" class="M" faction="" pedia="" position="-43.368107 53.173763 19.731346" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alcor" class="M" faction="" pedia="" position="-43.358585 66.43551 16.909946" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DAE 4" class="M" faction="" pedia="" position="-43.150566 -28.126888 17.292051" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FS 21" class="M" faction="" pedia="" position="-43.118877 24.81789 -4.3253355" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="10 Canum Venaticorum" class="M" faction="" pedia="" position="-42.99138 35.84986 8.550458" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 1246B" class="M" faction="" pedia="" position="-42.87666 -25.25183 29.751802" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Comae Berenices AB" class="M" faction="" pedia="" position="-42.469162 14.065042 13.388918" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FN Boötis" class="M" faction="" pedia="" position="-42.098106 75.06903 55.753662" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 382" class="M" faction="" pedia="" position="-41.92236 -26.606848 23.010254" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 91-8" class="M" faction="" pedia="" position="-41.655792 31.430964 -86.17288" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 54-5" class="M" faction="" pedia="" position="-41.644512 20.252653 -24.90552" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 440" class="M" faction="" pedia="" position="-41.616737 3.5379477 48.38896" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 535" class="M" faction="" pedia="" position="-41.463745 -16.692764 -15.307786" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DX Leonis" class="M" faction="" pedia="" position="-41.27007 26.254768 -30.893358" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 9-7" class="M" faction="" pedia="" position="-41.166203 25.067053 -54.517372" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 9-43" class="M" faction="" pedia="" position="-40.980907 15.730054 -40.521244" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 21462" class="M" faction="" pedia="" position="-40.382336 -58.25604 69.7998" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COO 159" class="M" faction="" pedia="" position="-40.17213 -28.626713 20.402906" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 204" class="M" faction="" pedia="" position="-40.03867 -31.927235 -14.345076" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 9-9" class="M" faction="" pedia="" position="-39.95896 21.593327 -50.494335" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alphekka" class="M" faction="" pedia="" position="-39.521404 33.57474 53.746056" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BAG 25" class="M" faction="" pedia="" position="-39.30556 -10.518031 50.38105" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BPM 8422" class="M" faction="" pedia="" position="-39.263863 -98.90563 18.338413" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 182" class="M" faction="" pedia="" position="-39.189114 36.042397 -39.440655" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2071" class="M" faction="" pedia="" position="-38.83045 -62.771626 -45.883423" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="63 Geminorum" class="M" faction="" pedia="" position="-38.579754 40.568775 -95.80113" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="18 Puppis" class="M" faction="" pedia="" position="-38.42578 -17.48553 -59.93122" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 208 AB" class="M" faction="" pedia="" position="-38.346077 -25.022032 -46.05115" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BAG 7" class="M" faction="" pedia="" position="-38.284462 13.893305 61.351276" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 50-7" class="M" faction="" pedia="" position="-38.20332 8.959719 -71.43162" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 36A" class="M" faction="" pedia="" position="-38.007004 12.065032 -45.356186" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 9879" class="M" faction="" pedia="" position="-37.9108 -33.21754 -98.89301" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EIS 1A" class="M" faction="" pedia="" position="-37.851242 1.9094799 58.37467" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 9-11" class="M" faction="" pedia="" position="-37.837646 16.159756 -46.25575" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 103" class="M" faction="" pedia="" position="-37.823627 65.10044 18.868488" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 251" class="M" faction="" pedia="" position="-37.501083 59.50387 -23.821276" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Serpentis" class="M" faction="" pedia="" position="-37.432495 5.486189 59.220867" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 691 AB" class="M" faction="" pedia="" position="-37.387962 -1.328939 42.207676" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 249" class="M" faction="" pedia="" position="-36.922142 38.799183 -47.82782" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EK Draconis" class="M" faction="" pedia="" position="-36.90545 99.70488 30.695736" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 15-1" class="M" faction="" pedia="" position="-36.694656 6.557099 37.084064" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 17-8" class="M" faction="" pedia="" position="-36.507828 10.749621 74.81012" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="2E 2201" class="M" faction="" pedia="" position="-36.41583 99.70309 -21.342405" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ADS 6905 A" class="M" faction="" pedia="" position="-35.573154 48.544006 -42.31959" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1177 B" class="M" faction="" pedia="" position="-35.554504 -25.33773 18.058052" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 17-1" class="M" faction="" pedia="" position="-35.547726 7.8823214 66.49797" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Virginis" class="M" faction="" pedia="" position="-35.489014 1.094708 -1.442713" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DT Virginis" class="M" faction="" pedia="" position="-35.119003 7.9850116 9.538728" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="15 Leonis Minoris" class="M" faction="" pedia="" position="-35.047184 43.234154 -22.632616" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 40-9" class="M" faction="" pedia="" position="-35.007183 26.284859 -55.205524" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Denebola" class="M" faction="" pedia="" position="-34.954926 9.097388 -1.66912" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 344" class="M" faction="" pedia="" position="-34.672188 -18.031158 13.250824" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="49 Serpentis AB" class="M" faction="" pedia="" position="-34.661003 18.576752 68.994995" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 88-20" class="M" faction="" pedia="" position="-34.520107 52.956093 -96.83752" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BPM 8075" class="M" faction="" pedia="" position="-34.21494 -89.11585 10.661113" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DS Leonis" class="M" faction="" pedia="" position="-34.154728 14.219794 -8.731714" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="47 Ursae Majoris" class="M" faction="" pedia="" position="-33.71981 29.760344 -9.118774" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Coronae Borealis AB" class="M" faction="" pedia="" position="-33.130924 30.61792 40.62387" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2075" class="M" faction="" pedia="" position="-32.893597 -56.484814 -21.06475" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Circini" class="M" faction="" pedia="" position="-32.576233 -82.62261 37.979164" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CW Ursae Majoris" class="M" faction="" pedia="" position="-32.41066 21.963175 -6.9075813" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CL Draconis" class="M" faction="" pedia="" position="-32.3437 90.03162 54.795612" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 15-9" class="M" faction="" pedia="" position="-31.935905 2.6094344 34.729725" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="30 Lyncis" class="M" faction="" pedia="" position="-31.69662 87.32552 -45.085835" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 19660" class="M" faction="" pedia="" position="-31.360645 87.38202 24.854176" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 353" class="M" faction="" pedia="" position="-31.316832 61.858795 -1.9462526" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2061" class="M" faction="" pedia="" position="-31.29261 -61.442425 -74.56239" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Er 8" class="M" faction="" pedia="" position="-30.955069 -35.537292 10.223425" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AZ Cancri" class="M" faction="" pedia="" position="-30.914156 15.9592 -36.663002" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2070" class="M" faction="" pedia="" position="-30.814726 -0.980934 -38.590805" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta BoÃ¶tis" class="M" faction="" pedia="" position="-30.782257 11.66992 16.832748" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 17-7" class="M" faction="" pedia="" position="-30.63285 5.8851476 61.9519" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2112 A" class="M" faction="" pedia="" position="-30.5299 -25.372221 37.098312" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Velorum AB" class="M" faction="" pedia="" position="-30.317575 -65.05842 -34.661003" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FP Cancri" class="M" faction="" pedia="" position="-30.279696 36.612896 -48.018105" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2119" class="M" faction="" pedia="" position="-30.222057 -72.20203 59.878117" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 21509" class="M" faction="" pedia="" position="-30.217886 -94.317116 53.67" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Chi Cancri" class="M" faction="" pedia="" position="-30.151773 27.02703 -43.03539" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="128 Carinae AB" class="M" faction="" pedia="" position="-30.120802 -101.813515 -25.8874" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="B 2323" class="M" faction="" pedia="" position="-29.772243 -41.58208 15.931424" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 33A" class="M" faction="" pedia="" position="-29.556236 21.460873 -53.929657" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="39 Serpentis" class="M" faction="" pedia="" position="-29.120895 12.996544 47.152184" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 50-1" class="M" faction="" pedia="" position="-29.099575 5.970299 -61.075676" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Herculis" class="M" faction="" pedia="" position="-28.762426 70.359116 82.24263" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Carinae" class="M" faction="" pedia="" position="-28.758415 -104.22161 -25.621904" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Arcturus" class="M" faction="" pedia="" position="-28.756166 12.05874 19.336527" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2057" class="M" faction="" pedia="" position="-28.456312 18.327263 -74.34101" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AT Coronae Borealis" class="M" faction="" pedia="" position="-28.431374 47.81155 52.632374" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 327" class="M" faction="" pedia="" position="-28.413965 11.778315 66.85265" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="10 Ursae Majoris" class="M" faction="" pedia="" position="-28.322847 35.69162 -28.163662" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Braes 5" class="M" faction="" pedia="" position="-28.069513 -69.080635 74.68442" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2072" class="M" faction="" pedia="" position="-27.964737 -41.767708 -32.061283" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 88-7" class="M" faction="" pedia="" position="-27.9293 43.167324 -92.99098" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 19-2" class="M" faction="" pedia="" position="-27.871044 -1.8532774 84.88639" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Muscae" class="M" faction="" pedia="" position="-27.678541 -86.11571 7.7101283" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COU 91" class="M" faction="" pedia="" position="-27.630163 20.094215 -44.121983" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 169-30" class="M" faction="" pedia="" position="-27.629446 41.790134 90.37079" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 319" class="M" faction="" pedia="" position="-27.588598 40.510193 6.1280174" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1154 A" class="M" faction="" pedia="" position="-27.524832 0.3009958 1.7228448" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Crucis" class="M" faction="" pedia="" position="-27.505337 -57.987904 0.8260514" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DUN 55B" class="M" faction="" pedia="" position="-27.425434 -75.61801 -56.05886" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2120" class="M" faction="" pedia="" position="-27.281408 -12.264348 63.926254" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2058" class="M" faction="" pedia="" position="-26.924797 -24.098995 -69.62219" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 2230B" class="M" faction="" pedia="" position="-26.713646 2.0988858 39.617573" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 6701" class="M" faction="" pedia="" position="-26.657183 60.998577 -65.83374" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2121" class="M" faction="" pedia="" position="-26.550777 -18.196896 64.276184" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 54-2" class="M" faction="" pedia="" position="-26.485674 11.889285 -16.239853" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Volantis" class="M" faction="" pedia="" position="-25.927628 -98.686165 -35.12324" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DE Boötis" class="M" faction="" pedia="" position="-25.831915 12.3375025 24.385485" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="61 Ursae Majoris" class="M" faction="" pedia="" position="-25.636738 17.484129 -2.124542" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FN Virginis" class="M" faction="" pedia="" position="-25.498188 2.6284401 6.905593" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="26 Ophiuchi" class="M" faction="" pedia="" position="-25.384283 -45.829113 94.99741" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DYR 1B" class="M" faction="" pedia="" position="-25.192595 30.464048 -39.95606" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 55" class="M" faction="" pedia="" position="-25.182783 -16.088362 -26.22093" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2056" class="M" faction="" pedia="" position="-25.10451 -37.65551 -77.170555" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Comae Berenices" class="M" faction="" pedia="" position="-25.095024 13.954463 8.139568" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 23100" class="M" faction="" pedia="" position="-25.031975 -5.493361 106.80666" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="61 Virginis" class="M" faction="" pedia="" position="-24.855642 -8.730411 8.85266" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="9 Puppis AB" class="M" faction="" pedia="" position="-24.723253 -13.054149 -46.609295" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BEU 14" class="M" faction="" pedia="" position="-24.69349 18.514616 -7.808026" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BM V 83" class="M" faction="" pedia="" position="-24.342812 -33.334805 -43.11063" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="9 Ursae Minoris" class="M" faction="" pedia="" position="-24.262127 104.35762 24.360088" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 50-6" class="M" faction="" pedia="" position="-24.224833 5.025616 -45.63586" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CU Cancri" class="M" faction="" pedia="" position="-24.205435 13.869964 -31.085241" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CSS 544" class="M" faction="" pedia="" position="-24.171139 -94.3561 -28.414356" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="53 Herculis" class="M" faction="" pedia="" position="-24.01505 51.44505 79.753845" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="11 Leonis Minoris B" class="M" faction="" pedia="" position="-23.88791 21.325876 -17.401325" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF Ursae Majoris" class="M" faction="" pedia="" position="-23.574657 18.295805 -0.7512996" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 9562" class="M" faction="" pedia="" position="-23.56641 34.701233 -70.545555" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CO Camelopardalis" class="M" faction="" pedia="" position="-23.50662 107.21041 1.252329" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 14857" class="M" faction="" pedia="" position="-23.113205 -68.700455 53.692818" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2107" class="M" faction="" pedia="" position="-23.041027 -71.66458 16.603212" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FS 134" class="M" faction="" pedia="" position="-22.879822 18.783371 17.35712" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AN Sextantis" class="M" faction="" pedia="" position="-22.66101 -1.6636758 -11.509495" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DON 680AB" class="M" faction="" pedia="" position="-22.362133 -72.104774 20.383312" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE BoÃ¶tis" class="M" faction="" pedia="" position="-22.248978 8.871732 21.203074" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 36" class="M" faction="" pedia="" position="-22.209696 -14.921313 -26.233122" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AG 208 AB" class="M" faction="" pedia="" position="-21.728323 2.9094522 94.45547" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="36 Ursae Majoris" class="M" faction="" pedia="" position="-21.677696 34.721706 -8.909514" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 350" class="M" faction="" pedia="" position="-21.637695 47.498623 -9.731915" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 226-2" class="M" faction="" pedia="" position="-21.595804 86.86045 43.768303" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 203-26" class="M" faction="" pedia="" position="-21.41106 81.54101 64.11064" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="D 15AB" class="M" faction="" pedia="" position="-21.065533 61.301563 61.125618" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BSO 12B" class="M" faction="" pedia="" position="-20.897871 -29.465641 44.574078" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DG Canum Venaticorum" class="M" faction="" pedia="" position="-20.782467 12.652288 8.79887" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Canum Venaticorum" class="M" faction="" pedia="" position="-20.262009 18.031385 3.00572" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DX Lyncis" class="M" faction="" pedia="" position="-20.22517 38.64707 -47.069576" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2051" class="M" faction="" pedia="" position="-20.13777 -32.44577 -96.25984" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Chi Herculis" class="M" faction="" pedia="" position="-20.112928 34.881477 32.39775" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 19-3" class="M" faction="" pedia="" position="-20.087305 -5.733134 64.62431" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COO 58B" class="M" faction="" pedia="" position="-20.062757 -77.094894 -40.115246" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CLS 79" class="M" faction="" pedia="" position="-19.927858 14.901623 13.580117" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="18 Scorpii" class="M" faction="" pedia="" position="-19.897509 -6.654149 40.62436" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BSO 5AB" class="M" faction="" pedia="" position="-19.718958 -36.98046 -3.0629983" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="14 Herculis" class="M" faction="" pedia="" position="-19.641727 40.95701 37.894176" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CSS 875" class="M" faction="" pedia="" position="-19.625788 49.773582 20.380184" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BGH 3 AB" class="M" faction="" pedia="" position="-19.518272 -2.9034212 -41.86277" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 226-18" class="M" faction="" pedia="" position="-19.236347 83.83882 50.216812" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="13 Ursae Majoris" class="M" faction="" pedia="" position="-19.140732 61.465538 -17.479109" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 51" class="M" faction="" pedia="" position="-18.761887 48.010803 -59.27658" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BAR 7AB" class="M" faction="" pedia="" position="-18.707054 -13.90302 92.227325" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Geminorum AB" class="M" faction="" pedia="" position="-18.673607 22.006956 -51.219654" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 2452" class="M" faction="" pedia="" position="-17.634449 -73.28236 -83.92368" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2106" class="M" faction="" pedia="" position="-17.574856 -32.06373 11.545421" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Castor AB" class="M" faction="" pedia="" position="-17.549786 27.219208 -40.074497" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EE Leonis" class="M" faction="" pedia="" position="-17.4173 2.178332 -5.4185762" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Ophiuchi" class="M" faction="" pedia="" position="-17.388025 -22.789127 79.048744" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Circini" class="M" faction="" pedia="" position="-17.166378 -48.44924 14.727833" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Draconis AB" class="M" faction="" pedia="" position="-17.010712 77.0663 38.203026" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 257-6" class="M" faction="" pedia="" position="-16.882301 91.172485 17.03451" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 20831" class="M" faction="" pedia="" position="-16.86111 -100.67679 22.615566" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 23175" class="M" faction="" pedia="" position="-16.70111 -82.571106 78.328705" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2066" class="M" faction="" pedia="" position="-16.699677 0.6783734 -24.72648" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CR Draconis" class="M" faction="" pedia="" position="-16.671282 55.40168 34.597305" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 349" class="M" faction="" pedia="" position="-16.592878 76.140366 -15.795775" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CV Cancri" class="M" faction="" pedia="" position="-16.57283 9.499444 -21.28053" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alhena" class="M" faction="" pedia="" position="-16.461597 29.575861 -99.136536" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Scorpii" class="M" faction="" pedia="" position="-16.208263 -36.845467 51.539917" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="22 Lyncis" class="M" faction="" pedia="" position="-16.055077 49.458534 -38.793446" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 1134" class="M" faction="" pedia="" position="-15.725197 89.67738 26.790192" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 22" class="M" faction="" pedia="" position="-15.607739 -61.103092 -95.67125" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2055" class="M" faction="" pedia="" position="-15.148502 -20.546509 -50.03223" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FIN 355" class="M" faction="" pedia="" position="-15.047019 -62.378338 76.69763" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="47 Ophiuchi" class="M" faction="" pedia="" position="-14.155637 -8.684771 96.53864" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Herculis" class="M" faction="" pedia="" position="-13.880884 32.95925 69.835" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FL Virginis AB" class="M" faction="" pedia="" position="-13.719221 2.2005 2.0127892" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 87-3" class="M" faction="" pedia="" position="-13.7147875 43.83448 -67.27593" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AD Leonis" class="M" faction="" pedia="" position="-13.617444 5.4344525 -6.3761034" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 356" class="M" faction="" pedia="" position="-13.568088 54.613705 37.77251" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DP Draconis" class="M" faction="" pedia="" position="-13.145396 30.371986 2.8575203" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 494" class="M" faction="" pedia="" position="-12.752077 2.9407809 55.36794" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon 2 Arae" class="M" faction="" pedia="" position="-12.617406 -68.78143 49.81342" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="3 Ursae Majoris" class="M" faction="" pedia="" position="-12.575972 42.17296 -15.094713" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 181-34" class="M" faction="" pedia="" position="-12.564105 38.28156 67.25849" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1091" class="M" faction="" pedia="" position="-12.405865 44.435787 -57.33163" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1212" class="M" faction="" pedia="" position="-12.269956 -9.047445 59.87903" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="37 Geminorum" class="M" faction="" pedia="" position="-12.160713 24.133259 -49.40579" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BL Lyncis" class="M" faction="" pedia="" position="-11.7849 22.108667 -27.777449" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="12 Ophiuchi" class="M" faction="" pedia="" position="-11.368239 -1.2924922 29.75226" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 9-38A" class="M" faction="" pedia="" position="-11.255867 5.762376 -11.423887" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DUN 38C" class="M" faction="" pedia="" position="-11.029526 -38.149174 -38.56727" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FI Virginis" class="M" faction="" pedia="" position="-10.865221 0.1533504 -0.5820404" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Scorpii" class="M" faction="" pedia="" position="-10.803901 -49.017097 50.99579" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 226-50" class="M" faction="" pedia="" position="-10.370125 84.53105 49.586884" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Ursae Minoris" class="M" faction="" pedia="" position="-10.349294 94.264854 21.578495" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 321" class="M" faction="" pedia="" position="-10.250353 53.347717 -23.71086" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DEL 2" class="M" faction="" pedia="" position="-10.1301565 2.146058 -10.226424" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DUN 38B" class="M" faction="" pedia="" position="-9.811851 -33.92164 -34.227325" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 495" class="M" faction="" pedia="" position="-9.748182 -6.468753 8.8969965" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="7 Canis Majoris" class="M" faction="" pedia="" position="-9.7303505 -21.327051 -60.271435" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Pictoris" class="M" faction="" pedia="" position="-9.710791 -87.2833 -45.498028" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 75A" class="M" faction="" pedia="" position="-9.685754 28.104198 -23.167059" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 2249" class="M" faction="" pedia="" position="-9.577912 -76.815704 -75.234085" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CM Draconis" class="M" faction="" pedia="" position="-9.349028 39.688705 23.86672" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Trianguli Australis" class="M" faction="" pedia="" position="-9.301627 -35.88996 15.350786" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CE 496" class="M" faction="" pedia="" position="-9.191113 -6.098058 8.38961" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Groombridge 1618" class="M" faction="" pedia="" position="-9.188114 12.071291 -4.7124276" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ACG 1 AB" class="M" faction="" pedia="" position="-9.039915 99.0267 23.011591" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DON 832B" class="M" faction="" pedia="" position="-8.963989 -20.42879 52.14347" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 351B" class="M" faction="" pedia="" position="-8.935334 37.736847 66.39026" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Umi B" class="M" faction="" pedia="" position="-8.476358 77.62239 17.850618" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 2090AB" class="M" faction="" pedia="" position="-8.446203 80.856766 75.07428" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 19-7" class="M" faction="" pedia="" position="-8.441966 -2.365847 29.969995" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Monocerotis B" class="M" faction="" pedia="" position="-8.189153 6.3570976 -78.65777" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Chamaeleontis" class="M" faction="" pedia="" position="-8.156846 -61.778564 -11.810654" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 23634" class="M" faction="" pedia="" position="-8.056405 70.55354 52.961636" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="56 Aurigae" class="M" faction="" pedia="" position="-7.898067 37.107212 -38.18953" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 359" class="M" faction="" pedia="" position="-7.4413414 0.9569404 -2.1091223" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 8028" class="M" faction="" pedia="" position="-7.19808 46.65337 -98.84998" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COO 217C" class="M" faction="" pedia="" position="-7.010565 -79.072014 81.966896" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="25 Draconis" class="M" faction="" pedia="" position="-6.8860655 81.987206 56.623135" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="24 Draconis" class="M" faction="" pedia="" position="-6.8395452 81.20236 56.054787" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BDS 3340 A" class="M" faction="" pedia="" position="-6.7556 10.498374 -66.64444" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Lalande 21185" class="M" faction="" pedia="" position="-6.51837 4.881035 -1.6450613" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AG 210AB" class="M" faction="" pedia="" position="-6.423406 28.148632 66.14497" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DX Cancri" class="M" faction="" pedia="" position="-6.419755 5.327003 -8.374092" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EW Draconis" class="M" faction="" pedia="" position="-5.891211 32.279446 12.182163" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Cebalrai" class="M" faction="" pedia="" position="-5.8858323 6.525183 81.47819" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 57A" class="M" faction="" pedia="" position="-5.8568835 32.051636 12.105423" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DN Draconis" class="M" faction="" pedia="" position="-5.6516013 30.681816 17.504179" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AK Pictoris" class="M" faction="" pedia="" position="-5.5581045 -62.098663 -33.207794" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DUQ 1" class="M" faction="" pedia="" position="-5.2097735 28.283922 71.20769" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 436" class="M" faction="" pedia="" position="-4.9382153 59.5929 1.5206922" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Procyon" class="M" faction="" pedia="" position="-4.7673264 1.0387664 -10.304599" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CAT 1" class="M" faction="" pedia="" position="-4.72299 5.598496 -62.55562" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Luyten's Star" class="M" faction="" pedia="" position="-4.5896564 1.1297857 -11.4456" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 8563" class="M" faction="" pedia="" position="-4.5623374 -84.2578 -32.51739" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="71 Orionis" class="M" faction="" pedia="" position="-4.212572 22.602753 -64.92733" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 7831" class="M" faction="" pedia="" position="-4.0639486 9.635386 -96.984215" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="58 Ophiuchi" class="M" faction="" pedia="" position="-3.8389108 -21.131222 53.00724" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 256-6" class="M" faction="" pedia="" position="-3.835064 79.179665 1.1021408" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 8266" class="M" faction="" pedia="" position="-3.7316895 -66.481346 -37.8618" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AE Columbae" class="M" faction="" pedia="" position="-3.6163833 -55.739902 -100.51343" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="41 Arae AB" class="M" faction="" pedia="" position="-3.4956002 -20.824684 19.354685" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="36 Ophiuchi ABC" class="M" faction="" pedia="" position="-3.3762517 -8.732693 17.118488" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1218" class="M" faction="" pedia="" position="-2.6728413 -37.054203 19.148132" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="26 Draconis AB" class="M" faction="" pedia="" position="-2.358121 40.505566 21.521086" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="23 H. Camelopardalis" class="M" faction="" pedia="" position="-2.1119258 57.231255 -10.324942" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="31 Draconis AB" class="M" faction="" pedia="" position="-1.7336028 68.37951 21.952383" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Centauri AB" class="M" faction="" pedia="" position="-1.6418012 -3.835879 1.3737314" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Sirius" class="M" faction="" pedia="" position="-1.6117114 -2.4722536 -8.074368" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Proxima Centauri" class="M" faction="" pedia="" position="-1.537905 -3.7502062 1.1779032" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 227-20" class="M" faction="" pedia="" position="-1.4809202 92.32952 43.4811" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AC 7 BC" class="M" faction="" pedia="" position="-1.4329656 12.740015 24.196926" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 674" class="M" faction="" pedia="" position="-1.3778064 -10.797316 10.012047" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DUN 23AB" class="M" faction="" pedia="" position="-1.3401535 -72.5333 -64.25235" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GAT 2" class="M" faction="" pedia="" position="-1.170829 5.9701033 70.60792" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="35 Draconis" class="M" faction="" pedia="" position="-1.08721 102.022545 23.599466" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BPM 890" class="M" faction="" pedia="" position="-1.025759 -79.431854 3.4224458" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 7664" class="M" faction="" pedia="" position="-0.9715778 97.54243 -36.502743" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Mensae" class="M" faction="" pedia="" position="-0.3884616 -31.918432 -8.691747" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Barnard's Star" class="M" faction="" pedia="" position="-0.0563654 0.4832624 5.917976" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 61B" class="M" faction="" pedia="" position="0.0081826 36.603867 -22.363176" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EG Camelopardalis" class="M" faction="" pedia="" position="0.0373596 37.814434 -23.087776" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="70 Ophiuchi AB" class="M" faction="" pedia="" position="0.3941014 0.7239156 16.559692" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 1958" class="M" faction="" pedia="" position="0.705953 -56.47624 -52.784225" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Chi Draconis" class="M" faction="" pedia="" position="0.7146898 25.083288 7.76356" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Leporis" class="M" faction="" pedia="" position="0.7458228 -12.004494 -47.54697" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Struve 2398AB" class="M" faction="" pedia="" position="1.0920348 10.034737 5.778937" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 248" class="M" faction="" pedia="" position="1.363332 -0.1098294 -35.996105" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GAN 2" class="M" faction="" pedia="" position="1.6786066 -25.06063 -69.95503" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AK Leporis" class="M" faction="" pedia="" position="1.8323482 -11.149787 -26.96884" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Kapteyn's Star" class="M" faction="" pedia="" position="1.8933429 -9.031374 -8.829221" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BUP 82A" class="M" faction="" pedia="" position="1.9314848 32.07214 -23.668774" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FK5 5590" class="M" faction="" pedia="" position="1.9730172 3.589749 112.184166" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="36 Draconis" class="M" faction="" pedia="" position="2.004737 69.07669 33.039383" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 24614" class="M" faction="" pedia="" position="2.051355 11.94627 105.879196" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 196" class="M" faction="" pedia="" position="2.078478 67.19646 -12.610887" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Pictoris" class="M" faction="" pedia="" position="2.1901007 -48.889175 -39.434753" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="72 Ophiuchi" class="M" faction="" pedia="" position="2.616313 13.746866 81.549164" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Columbae" class="M" faction="" pedia="" position="2.749484 -50.22519 -69.66346" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AB Doradus" class="M" faction="" pedia="" position="2.7517333 -44.310604 -20.053303" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BLL 16A" class="M" faction="" pedia="" position="3.2521434 40.635445 -53.269737" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 21-7" class="M" faction="" pedia="" position="3.6829524 1.3816859 51.59628" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 7173" class="M" faction="" pedia="" position="3.7887068 36.385544 -57.22242" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Leporis" class="M" faction="" pedia="" position="3.9705496 -39.992085 -104.77718" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Pavonis" class="M" faction="" pedia="" position="4.2820754 -18.214695 6.806554" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 7118" class="M" faction="" pedia="" position="4.3391576 78.31439 -59.96043" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 7304" class="M" faction="" pedia="" position="4.6114006 52.889393 -103.154" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 69" class="M" faction="" pedia="" position="4.7476034 40.759747 -45.820408" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BY Draconis" class="M" faction="" pedia="" position="4.8912063 42.020912 32.799675" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 133" class="M" faction="" pedia="" position="4.979813 44.09535 -6.0056696" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 159B" class="M" faction="" pedia="" position="5.2355275 10.763314 9.654164" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Hydri" class="M" faction="" pedia="" position="5.3422923 -23.767942 -0.600492" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Capella LH" class="M" faction="" pedia="" position="5.5024886 30.655476 -29.248623" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Capella AB" class="M" faction="" pedia="" position="5.504347 30.340397 -28.778694" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Indi" class="M" faction="" pedia="" position="5.654894 -9.88983 3.157473" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Serpentis" class="M" faction="" pedia="" position="5.725701 -3.1200156 61.385376" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 204" class="M" faction="" pedia="" position="5.799051 -2.5818875 -41.842392" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DW Camelopardalis" class="M" faction="" pedia="" position="5.978416 97.31061 -37.489674" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="59 Draconis" class="M" faction="" pedia="" position="6.146078 86.537415 19.744223" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Eridani" class="M" faction="" pedia="" position="6.193674 -1.7239206 -8.289854" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 190" class="M" faction="" pedia="" position="6.4226565 -9.473593 -28.143776" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DO Cephei" class="M" faction="" pedia="" position="6.4269924 11.043641 2.7253275" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DON 91" class="M" faction="" pedia="" position="6.4287524 -10.068738 -25.072529" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="61 Cygni AB" class="M" faction="" pedia="" position="6.446161 7.105235 6.0720434" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 176" class="M" faction="" pedia="" position="6.6561375 -14.821134 63.143234" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 172" class="M" faction="" pedia="" position="7.045903 26.497574 -18.764528" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 201" class="M" faction="" pedia="" position="7.048544 13.915604 -44.05134" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="40 Eridani AD" class="M" faction="" pedia="" position="7.1898975 -2.1875904 -14.626935" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2043" class="M" faction="" pedia="" position="7.258064 15.22521 -54.128616" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 183" class="M" faction="" pedia="" position="7.3012915 -2.8791342 -27.639877" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BL Ceti" class="M" faction="" pedia="" position="7.4002976 -2.640111 -3.404842" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Lacaille 8760" class="M" faction="" pedia="" position="7.597919 -8.073521 6.5297475" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Altair" class="M" faction="" pedia="" position="7.699012 2.5844302 14.667881" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 640AB" class="M" faction="" pedia="" position="7.7158985 44.331207 84.69972" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="1 Orionis" class="M" faction="" pedia="" position="7.8273253 3.1709695 -24.763222" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 192" class="M" faction="" pedia="" position="8.013667 13.975262 -38.276638" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 127.1 B" class="M" faction="" pedia="" position="8.139079 -30.814335 -8.922164" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DON 93A" class="M" faction="" pedia="" position="8.397205 -14.44832 -35.54466" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 996B" class="M" faction="" pedia="" position="8.776506 34.061 0.2939868" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 205-19" class="M" faction="" pedia="" position="8.996524 70.91406 90.43654" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2043 B" class="M" faction="" pedia="" position="9.077568 19.034945 -67.65915" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 53B" class="M" faction="" pedia="" position="9.730383 -2.9488657 -54.035706" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 161" class="M" faction="" pedia="" position="9.746585 56.385254 -18.63993" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EZ Aquarii" class="M" faction="" pedia="" position="10.013155 -2.9292078 3.7227244" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 375" class="M" faction="" pedia="" position="10.036431 23.82496 27.964964" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BEU 6" class="M" faction="" pedia="" position="10.03842 15.414747 -26.914202" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 648B" class="M" faction="" pedia="" position="10.094166 26.526228 39.73653" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 648AB" class="M" faction="" pedia="" position="10.096318 26.525251 39.73666" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Cassiopeiae AB" class="M" faction="" pedia="" position="10.100034 16.424109 -2.1968489" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AST 1" class="M" faction="" pedia="" position="10.239106 1.6663164 31.407394" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DP Camelopardalis" class="M" faction="" pedia="" position="10.270924 68.40207 -32.78129" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Tau Ceti" class="M" faction="" pedia="" position="10.2742815 -3.265379 -5.015836" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 41" class="M" faction="" pedia="" position="10.760217 -4.74418 -28.702442" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 102-4" class="M" faction="" pedia="" position="10.885629 17.9137 -79.82524" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 180" class="M" faction="" pedia="" position="10.92752 -12.301153 -36.789818" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DON 101B" class="M" faction="" pedia="" position="11.000446 -24.100332 -60.52842" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="YZ Ceti" class="M" faction="" pedia="" position="11.01228 -3.5426745 -3.604582" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 188 B" class="M" faction="" pedia="" position="11.145744 16.539642 -47.730118" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EV Lacertae" class="M" faction="" pedia="" position="11.177628 11.502291 3.694558" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 200" class="M" faction="" pedia="" position="11.250814 -11.890785 59.29112" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 6132" class="M" faction="" pedia="" position="11.271744 91.06761 -44.835693" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1" class="M" faction="" pedia="" position="11.297041 -8.624493 -0.2631798" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 179" class="M" faction="" pedia="" position="11.461149 4.456583 -37.54291" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="40 Orionis" class="M" faction="" pedia="" position="11.517678 18.731178 -113.91131" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="110 Herculis" class="M" faction="" pedia="" position="11.536781 21.84813 57.136196" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Zeta Reticuli AB" class="M" faction="" pedia="" position="11.833474 -35.070557 -13.823574" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Draconis" class="M" faction="" pedia="" position="11.854077 92.665855 36.186" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 86-6" class="M" faction="" pedia="" position="12.118756 19.790613 -35.411064" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 118" class="M" faction="" pedia="" position="12.145586 -33.621845 -11.360448" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="9 Aurigae" class="M" faction="" pedia="" position="12.241952 66.98413 -51.663895" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AF Leporis" class="M" faction="" pedia="" position="12.255481 -18.04273 -84.73096" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 173" class="M" faction="" pedia="" position="12.462328 -6.917655 -33.199448" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1255 C" class="M" faction="" pedia="" position="12.723128 78.15576 15.529564" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 7A" class="M" faction="" pedia="" position="12.777048 29.193853 -6.491573" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DUN 238B" class="M" faction="" pedia="" position="12.830936 -52.276447 5.583206" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 6457" class="M" faction="" pedia="" position="13.17216 -80.15799 -67.31848" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Reticuli" class="M" faction="" pedia="" position="13.245967 -51.1154 -27.304651" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BAS 5" class="M" faction="" pedia="" position="13.343343 44.265846 -67.68888" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 163" class="M" faction="" pedia="" position="13.524501 -39.155045 -25.772419" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AY Indi" class="M" faction="" pedia="" position="13.5940695 -50.035946 8.736637" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta 1 Pictoris" class="M" faction="" pedia="" position="13.787681 -64.57183 -54.10322" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 198" class="M" faction="" pedia="" position="13.798537 -25.291374 -75.99875" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 174" class="M" faction="" pedia="" position="13.829083 15.689695 -38.685215" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Van Maanen's Star" class="M" faction="" pedia="" position="13.97311 1.3505853 -3.0436013" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Cephei" class="M" faction="" pedia="" position="14.570016 41.216637 16.571884" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ADS 3266 A" class="M" faction="" pedia="" position="14.62348 3.551705 -35.39532" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 83-2" class="M" faction="" pedia="" position="14.692102 5.2667255 -30.561" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 165 A" class="M" faction="" pedia="" position="15.041119 40.657024 -29.907078" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 145" class="M" faction="" pedia="" position="15.066937 -24.912073 -20.165186" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 215" class="M" faction="" pedia="" position="15.155903 6.103339 79.021614" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 8-38" class="M" faction="" pedia="" position="15.422441 10.144076 -36.90682" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Pavonis" class="M" faction="" pedia="" position="15.657095 -101.40106 26.958406" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 169" class="M" faction="" pedia="" position="15.702442 8.505764 -36.067955" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 7-9" class="M" faction="" pedia="" position="15.809207 9.17941 -25.463469" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 524" class="M" faction="" pedia="" position="16.068247 11.357122 -79.089035" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Eridani" class="M" faction="" pedia="" position="16.32546 -5.0002856 -24.033306" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 4077" class="M" faction="" pedia="" position="16.547989 83.991745 -44.182716" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 96-4" class="M" faction="" pedia="" position="16.559366 57.182747 -52.707714" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Caeli B" class="M" faction="" pedia="" position="16.603539 -43.79947 -45.97431" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Caeli AB" class="M" faction="" pedia="" position="16.60468 -43.800903 -45.972584" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 5777" class="M" faction="" pedia="" position="16.90108 -72.32127 -48.551865" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alderamin" class="M" faction="" pedia="" position="17.112587 43.295864 14.541263" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 162" class="M" faction="" pedia="" position="17.36426 24.733522 -32.870678" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 8-41" class="M" faction="" pedia="" position="17.544798 18.047392 -44.284298" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 175 B" class="M" faction="" pedia="" position="17.74255 -86.46371 -48.9474" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DUN 238A" class="M" faction="" pedia="" position="17.809576 -72.577774 7.7576265" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 21" class="M" faction="" pedia="" position="17.913961 49.94568 -2.1109152" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="111 Herculis" class="M" faction="" pedia="" position="17.941345 28.922297 86.21793" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="68 Eridani" class="M" faction="" pedia="" position="18.031092 -6.333952 -79.24854" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BX Ceti" class="M" faction="" pedia="" position="18.12283 2.8035347 -14.696243" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 4713" class="M" faction="" pedia="" position="18.129578 60.18374 -30.231642" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Aquilae" class="M" faction="" pedia="" position="18.23771 2.7228825 46.599483" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AT Microscopii" class="M" faction="" pedia="" position="18.257206 -17.877743 21.4049" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AU Microscopii" class="M" faction="" pedia="" position="18.264933 -16.85632 20.79867" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CD Ceti" class="M" faction="" pedia="" position="18.29222 2.2973871 -20.544619" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 49 AB" class="M" faction="" pedia="" position="18.390474 26.539171 -48.41429" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 268" class="M" faction="" pedia="" position="18.547834 43.892868 -9.842103" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ESG 1" class="M" faction="" pedia="" position="18.93333 -27.580774 -12.108357" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EQ Pegasi AB" class="M" faction="" pedia="" position="19.00254 6.9451365 2.3446572" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="16 Cygni B" class="M" faction="" pedia="" position="19.085638 53.87887 40.07316" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1262" class="M" faction="" pedia="" position="19.278173 -61.961906 15.517535" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 186" class="M" faction="" pedia="" position="19.317196 -33.928223 -76.568535" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 171" class="M" faction="" pedia="" position="19.353544 78.4062 -50.4797" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BR Piscium" class="M" faction="" pedia="" position="19.422787 0.8161736 0.9160274" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 39-9" class="M" faction="" pedia="" position="19.463602 38.222588 -42.96064" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 193" class="M" faction="" pedia="" position="19.535746 -27.975494 -96.73897" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 5990" class="M" faction="" pedia="" position="19.5719 -49.031246 -66.14638" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Coronae Australis" class="M" faction="" pedia="" position="19.710188 -58.832764 75.231735" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Eridani" class="M" faction="" pedia="" position="19.954102 -7.8729653 -86.174385" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 208-16" class="M" faction="" pedia="" position="19.990873 65.88303 57.89509" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 262-26" class="M" faction="" pedia="" position="20.095781 63.69691 23.182316" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 86-7" class="M" faction="" pedia="" position="20.299074 36.03063 -59.480526" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BB Capricorni AB" class="M" faction="" pedia="" position="20.50716 -4.441196 15.551863" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="47 Cassiopeiae" class="M" faction="" pedia="" position="20.583965 106.71173 -12.505099" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="13 Orionis" class="M" faction="" pedia="" position="20.607796 15.181755 -88.624435" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 25874" class="M" faction="" pedia="" position="20.64056 4.876862 89.74871" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Fomalhaut" class="M" faction="" pedia="" position="20.984783 -12.3872175 5.854406" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 97-23" class="M" faction="" pedia="" position="21.072021 16.394083 -95.64296" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 24-1" class="M" faction="" pedia="" position="21.142405 4.3229556 35.234863" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CC Eridani" class="M" faction="" pedia="" position="21.171417 -25.972225 -16.897167" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AG 9B" class="M" faction="" pedia="" position="21.259666 57.11918 -5.1345654" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 27445" class="M" faction="" pedia="" position="21.405388 79.62195 41.89416" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alshain AB" class="M" faction="" pedia="" position="21.41331 4.987474 38.90533" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 219" class="M" faction="" pedia="" position="21.61481 16.226683 58.06487" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 29869" class="M" faction="" pedia="" position="21.682878 -108.04781 17.644619" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 7-4" class="M" faction="" pedia="" position="22.121872 6.1917834 -33.8433" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 26150" class="M" faction="" pedia="" position="22.1339 76.64465 81.415565" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 26192" class="M" faction="" pedia="" position="22.2287 21.402487 79.303345" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Aldebaran AB" class="M" faction="" pedia="" position="22.382313 18.495153 -58.247204" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 102" class="M" faction="" pedia="" position="22.623323 13.421844 -17.932217" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 6144" class="M" faction="" pedia="" position="22.635614 22.741434 -87.782936" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 2A" class="M" faction="" pedia="" position="22.92507 66.10804 -5.0575967" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 152" class="M" faction="" pedia="" position="23.196106 -32.771313 -34.438347" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2035" class="M" faction="" pedia="" position="23.420818 33.260445 -77.91413" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 262-7" class="M" faction="" pedia="" position="23.423784 80.20803 36.769962" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CQ Tucanae" class="M" faction="" pedia="" position="23.43301 -52.256237 -0.6458386" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Reticuli" class="M" faction="" pedia="" position="23.693386 -90.18366 -35.19066" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1001" class="M" faction="" pedia="" position="23.719467 -20.39531 -0.4798068" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="54 Cassiopeiae" class="M" faction="" pedia="" position="23.848042 84.56339 -15.065666" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Caeli" class="M" faction="" pedia="" position="23.971563 -54.438282 -67.74756" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EP Eridani" class="M" faction="" pedia="" position="24.086054 -7.479907 -22.565264" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Trianguli" class="M" faction="" pedia="" position="24.16263 19.88675 -16.45798" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 10B" class="M" faction="" pedia="" position="24.199013 71.024574 -16.27255" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="39 Tauri" class="M" faction="" pedia="" position="24.249315 20.433224 -44.35465" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FK Aquarii AB" class="M" faction="" pedia="" position="24.729187 -9.922364 9.153134" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="2 AB" class="M" faction="" pedia="" position="25.328995 37.758656 50.566284" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="50 Persei" class="M" faction="" pedia="" position="25.588848 42.86023 -48.435318" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 2278" class="M" faction="" pedia="" position="25.618351 66.03694 -13.924536" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 79-3" class="M" faction="" pedia="" position="25.881336 6.745168 -27.994467" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1246" class="M" faction="" pedia="" position="26.030514 -32.534084 46.66576" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 23-2" class="M" faction="" pedia="" position="26.07749 8.640565 63.68948" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2" class="M" faction="" pedia="" position="26.129128 26.863737 -0.5894406" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="10 Tauri" class="M" faction="" pedia="" position="26.149601 0.314427 -36.282463" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 543B" class="M" faction="" pedia="" position="26.186602 -1.0367779 -44.230343" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 1425" class="M" faction="" pedia="" position="26.53627 -78.20251 -75.92706" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 5593" class="M" faction="" pedia="" position="26.86377 -52.964863 -68.76269" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Fornacis AB" class="M" faction="" pedia="" position="26.91795 -22.296574 -29.914118" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DAE 1" class="M" faction="" pedia="" position="27.139956 33.03896 -3.4360726" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 142-6" class="M" faction="" pedia="" position="27.650667 8.981887 93.174355" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 168" class="M" faction="" pedia="" position="27.68956 74.75255 -60.47825" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FIN 283B" class="M" faction="" pedia="" position="27.691124 -52.42191 18.225323" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Caph" class="M" faction="" pedia="" position="27.890375 46.73161 -1.1162893" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 116" class="M" faction="" pedia="" position="28.017973 26.234556 -26.151688" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 7-16" class="M" faction="" pedia="" position="28.35108 8.241769 -49.335896" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 6-28" class="M" faction="" pedia="" position="28.488064 15.228862 -42.137066" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 130" class="M" faction="" pedia="" position="28.553133 -33.524895 -31.826206" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 30916" class="M" faction="" pedia="" position="28.993917 -91.66425 15.434763" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 7-39" class="M" faction="" pedia="" position="29.036167 15.491129 -68.29847" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CABS 47" class="M" faction="" pedia="" position="29.054163 0.8653344 -105.27355" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 5847" class="M" faction="" pedia="" position="29.073462 32.167236 -90.41815" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 80-9" class="M" faction="" pedia="" position="29.166601 -4.165465 -39.644894" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 92-8" class="M" faction="" pedia="" position="29.228443 0.7490828 68.335175" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="27 Eridani" class="M" faction="" pedia="" position="29.466553 -23.06476 -44.879833" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Hydri" class="M" faction="" pedia="" position="29.47679 -62.676857 -16.807224" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FG Aquarii" class="M" faction="" pedia="" position="29.600147 -5.084198 14.2234125" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="38 Cassiopeiae" class="M" faction="" pedia="" position="29.679855 89.74897 -12.480127" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CHA 86Aa" class="M" faction="" pedia="" position="29.868902 38.09473 76.38203" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 8-29" class="M" faction="" pedia="" position="30.034576 28.237957 -65.766655" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 482" class="M" faction="" pedia="" position="30.042692 6.0167866 -69.34685" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 44A" class="M" faction="" pedia="" position="30.086866 16.101074 -44.55295" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 26570" class="M" faction="" pedia="" position="30.33153 -17.86529 87.01628" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 25-8" class="M" faction="" pedia="" position="30.488726 8.323204 32.2474" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 159" class="M" faction="" pedia="" position="30.725239 -0.293563 -54.646107" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 11" class="M" faction="" pedia="" position="30.802631 81.77215 -1.7819812" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Chi Eridani" class="M" faction="" pedia="" position="30.965305 -44.678757 -17.155" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Capricorni" class="M" faction="" pedia="" position="30.968306 -10.705808 20.296337" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 142-3" class="M" faction="" pedia="" position="31.060204 16.078613 108.65528" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 279" class="M" faction="" pedia="" position="31.115852 37.79758 -16.553171" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 806" class="M" faction="" pedia="" position="31.280449 -1.0665742 -10.233857" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 83-29" class="M" faction="" pedia="" position="31.301737 15.865866 -85.67896" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 1055" class="M" faction="" pedia="" position="31.354713 -60.738167 -44.982883" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 261" class="M" faction="" pedia="" position="31.645895 36.055992 34.81028" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 6-7" class="M" faction="" pedia="" position="31.802408 17.910473 -40.248352" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Indi" class="M" faction="" pedia="" position="31.88293 -62.014004 36.665318" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 3417" class="M" faction="" pedia="" position="32.328342 88.44657 -30.246084" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="1 Eridani" class="M" faction="" pedia="" position="32.454765 -14.509934 -28.487053" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 81-5" class="M" faction="" pedia="" position="32.49757 68.54848 -61.274895" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AG Doradus" class="M" faction="" pedia="" position="32.582005 -90.29594 -60.946644" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 566" class="M" faction="" pedia="" position="32.86569 -1.657873 -41.010017" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GCRV 2797" class="M" faction="" pedia="" position="33.077263 5.974928 -99.2523" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BNG 2A" class="M" faction="" pedia="" position="33.29347 -0.1176534 21.90469" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BLA 8" class="M" faction="" pedia="" position="33.365707 48.389027 42.37638" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="27 Cygni" class="M" faction="" pedia="" position="33.432083 46.32222 54.361446" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 8-2" class="M" faction="" pedia="" position="33.46054 32.739494 -57.863827" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BAG 8" class="M" faction="" pedia="" position="33.498554 62.4394 -50.044228" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CEL 335" class="M" faction="" pedia="" position="33.58413 27.280169 -51.257957" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 5882" class="M" faction="" pedia="" position="33.80522 -27.43704 -106.73765" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 33144" class="M" faction="" pedia="" position="34.355675 -77.00306 0.9497684" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FT Piscium" class="M" faction="" pedia="" position="34.702667 16.44569 -7.7810984" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 80A" class="M" faction="" pedia="" position="34.731354 5.955531 33.152832" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 163B" class="M" faction="" pedia="" position="34.742863 18.601984 53.889626" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 1003B" class="M" faction="" pedia="" position="34.757893 -33.158276 -52.209618" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 264-7" class="M" faction="" pedia="" position="34.883175 93.00731 26.369488" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 24-5" class="M" faction="" pedia="" position="35.228016 -1.7901638 56.410126" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 74-7" class="M" faction="" pedia="" position="35.48852 35.344627 -22.885689" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COU 80AB" class="M" faction="" pedia="" position="35.898792 29.566929 -55.335503" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Bok I 90B" class="M" faction="" pedia="" position="35.93273 -20.66778 -11.028938" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="85 Pegasi" class="M" faction="" pedia="" position="35.996105 18.408632 -0.339366" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 193A" class="M" faction="" pedia="" position="36.023457 32.12834 4.8458924" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 177B" class="M" faction="" pedia="" position="36.05912 56.583626 17.580528" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 26806" class="M" faction="" pedia="" position="36.377037 41.10283 93.91144" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 132" class="M" faction="" pedia="" position="36.57358 -56.80325 -41.743973" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 12" class="M" faction="" pedia="" position="36.636597 8.851292 -2.5258806" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 5-32" class="M" faction="" pedia="" position="36.782482 12.053426 -45.17418" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 78-3B" class="M" faction="" pedia="" position="36.812637 49.00735 -32.46771" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 959" class="M" faction="" pedia="" position="37.016552 -55.31972 -46.393646" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 2030 B" class="M" faction="" pedia="" position="37.098278 -8.034172 -45.52388" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 140 B" class="M" faction="" pedia="" position="37.127617 26.017506 -45.88365" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EK Ceti" class="M" faction="" pedia="" position="38.032562 5.8347807 -41.599556" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 3729" class="M" faction="" pedia="" position="38.22953 86.534 -41.149643" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 471" class="M" faction="" pedia="" position="38.469727 -12.368733 -30.228252" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 68-5" class="M" faction="" pedia="" position="38.693005 14.030225 7.267192" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 16" class="M" faction="" pedia="" position="38.74585 43.660103 -26.355045" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BUP 235A" class="M" faction="" pedia="" position="38.885475 52.94794 7.434821" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 1-18" class="M" faction="" pedia="" position="38.997555 6.3841558 -7.6319532" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 27054" class="M" faction="" pedia="" position="39.075176 -36.603607 88.18294" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 416" class="M" faction="" pedia="" position="39.17356 95.75983 -3.5911834" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="51 Aquilae" class="M" faction="" pedia="" position="39.315273 -16.081026 74.90042" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Cygni AB" class="M" faction="" pedia="" position="39.622433 40.245842 44.7035" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 95-9" class="M" faction="" pedia="" position="39.857185 54.670265 -42.87536" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FR Aquarii" class="M" faction="" pedia="" position="40.03968 -4.86956 41.17328" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 24-9" class="M" faction="" pedia="" position="40.229996 8.588959 60.817516" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 632" class="M" faction="" pedia="" position="40.444344 66.94397 12.362964" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 86" class="M" faction="" pedia="" position="40.682125 -41.934685 -3.7965307" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 3533" class="M" faction="" pedia="" position="40.89494 78.16058 -71.623634" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Cephei" class="M" faction="" pedia="" position="40.93292 70.39145 20.17966" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1036" class="M" faction="" pedia="" position="41.212887 -31.39843 -14.443789" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 13 AB" class="M" faction="" pedia="" position="41.596428 62.295242 -7.57787" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 271 AB" class="M" faction="" pedia="" position="41.87043 -27.098555 35.206142" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FS 34" class="M" faction="" pedia="" position="42.08461 -23.614038 49.02492" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 6-38" class="M" faction="" pedia="" position="42.765755 33.734413 -68.5001" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 27368" class="M" faction="" pedia="" position="43.103817 -32.416397 85.23645" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="51 Arietis" class="M" faction="" pedia="" position="43.153893 30.903366 -44.07934" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 94" class="M" faction="" pedia="" position="43.15728 -53.369003 -4.402826" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 106" class="M" faction="" pedia="" position="43.162075 20.122774 -37.30392" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="42 Aquilae" class="M" faction="" pedia="" position="43.18284 -8.482422 94.989296" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 149 B" class="M" faction="" pedia="" position="43.37479 -35.0005 -63.570457" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Indi" class="M" faction="" pedia="" position="43.56514 -74.37129 53.052883" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 635" class="M" faction="" pedia="" position="43.565956 -20.802485 -13.5893755" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 126" class="M" faction="" pedia="" position="43.69091 -68.60347 -48.20689" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 27376" class="M" faction="" pedia="" position="43.950115 -54.082455 86.394104" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 223" class="M" faction="" pedia="" position="44.075363 -54.02801 -9.574653" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Equulei AB" class="M" faction="" pedia="" position="44.51843 10.469881 39.220734" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 19815" class="M" faction="" pedia="" position="44.591618 -54.279263 22.47757" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DQ Tucanae" class="M" faction="" pedia="" position="44.70262 -69.82144 9.041284" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1284" class="M" faction="" pedia="" position="44.84192 -16.809767 5.859622" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="51 Pegasi" class="M" faction="" pedia="" position="45.09046 17.757025 12.618286" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 4435" class="M" faction="" pedia="" position="45.31902 25.008633 -66.320786" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 13" class="M" faction="" pedia="" position="45.39335 -59.64496 -3.3520298" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BAG 30 AB" class="M" faction="" pedia="" position="45.60326 29.176935 3.2192826" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 6-15" class="M" faction="" pedia="" position="45.675404 19.354391 -60.4953" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DO Tucanae" class="M" faction="" pedia="" position="45.7215 -94.66173 10.046407" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Cassiopeiae" class="M" faction="" pedia="" position="45.908756 86.25161 -18.039993" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1033" class="M" faction="" pedia="" position="45.972 -20.461683 -15.251747" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1047 AB" class="M" faction="" pedia="" position="45.98432 42.26867 -32.50259" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GD 25" class="M" faction="" pedia="" position="46.06634 46.429996 -31.15031" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 100 B" class="M" faction="" pedia="" position="46.10129 -21.058752 -35.056053" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 2018" class="M" faction="" pedia="" position="46.505466 13.996712 -21.669317" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 3-35" class="M" faction="" pedia="" position="46.989574 13.196937 -27.875282" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 24-7" class="M" faction="" pedia="" position="47.154205 10.389718 75.16702" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 701B" class="M" faction="" pedia="" position="47.30915 11.155035 20.053238" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 741" class="M" faction="" pedia="" position="47.53158 -30.931826 -46.402317" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 741B" class="M" faction="" pedia="" position="47.534973 -30.929348 -46.400524" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DO 42941" class="M" faction="" pedia="" position="47.547523 48.51545 8.012558" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 328" class="M" faction="" pedia="" position="47.57057 -36.093613 -8.880859" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Algol" class="M" faction="" pedia="" position="47.74495 60.80953 -51.275887" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 20 AB" class="M" faction="" pedia="" position="47.823677 4.333094 -15.516818" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 7-22" class="M" faction="" pedia="" position="47.841347 22.385311 -90.464775" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FT Eridani" class="M" faction="" pedia="" position="47.96604 -64.84972 -52.098873" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FZ Andromedae" class="M" faction="" pedia="" position="47.990364 64.714355 7.259368" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 233-38" class="M" faction="" pedia="" position="48.03333 80.17031 12.374471" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 38-3" class="M" faction="" pedia="" position="48.121414 43.729607 -65.58054" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BC Arietis" class="M" faction="" pedia="" position="48.221985 33.180542 -43.476273" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="19 Ceti" class="M" faction="" pedia="" position="48.347103 -9.307887 -10.746785" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="2E 591" class="M" faction="" pedia="" position="48.48771 27.156681 -39.040066" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GCRV 2310" class="M" faction="" pedia="" position="48.57071 55.918583 -87.483765" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="94 Ceti AB" class="M" faction="" pedia="" position="48.617554 -1.5224853 -54.362423" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CK Arietis" class="M" faction="" pedia="" position="48.725166 40.82596 -61.94098" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 214-14" class="M" faction="" pedia="" position="48.800373 47.711437 25.057045" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Arietis" class="M" faction="" pedia="" position="48.849274 21.156195 -26.699629" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 5-7" class="M" faction="" pedia="" position="48.924908 13.050203 -47.836132" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 383" class="M" faction="" pedia="" position="49.016056 -55.536903 -18.267378" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ADS 2292 B" class="M" faction="" pedia="" position="49.040997 61.744366 -50.029884" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Trianguli" class="M" faction="" pedia="" position="49.085167 31.63416 -26.396936" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 24-12" class="M" faction="" pedia="" position="49.15389 -3.167905 72.62459" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COO 252B" class="M" faction="" pedia="" position="49.20357 -56.32742 17.27236" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 3929" class="M" faction="" pedia="" position="49.25221 45.719543 -57.49835" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BV Phoenicis" class="M" faction="" pedia="" position="49.441452 -64.78944 -12.193899" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COO 259" class="M" faction="" pedia="" position="49.489082 -25.491049 3.4341493" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 3240" class="M" faction="" pedia="" position="50.239826 54.645817 -72.30247" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 95" class="M" faction="" pedia="" position="50.440285 -30.937204 -4.8420453" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 144-31" class="M" faction="" pedia="" position="50.45525 29.458273 58.647465" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CABS 182" class="M" faction="" pedia="" position="50.755722 56.070957 42.204124" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 28798" class="M" faction="" pedia="" position="50.804623 71.95918 60.7885" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="7 Andromedae" class="M" faction="" pedia="" position="50.856457 60.642944 10.682661" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 565" class="M" faction="" pedia="" position="51.042145 -2.9213839 -45.354588" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 5-2" class="M" faction="" pedia="" position="51.73871 19.788233 -47.664364" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 16" class="M" faction="" pedia="" position="51.860733 9.363633 -4.1444707" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 135" class="M" faction="" pedia="" position="51.911522 -3.9903705 -61.33618" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 18" class="M" faction="" pedia="" position="51.999054 -26.677036 -5.562799" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="2E 604" class="M" faction="" pedia="" position="52.20528 8.160335 -42.66952" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 56" class="M" faction="" pedia="" position="52.39661 -58.870644 -3.6717055" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 74-15" class="M" faction="" pedia="" position="52.69272 49.944275 -37.03096" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BZ Ceti" class="M" faction="" pedia="" position="53.53207 10.304665 -53.552475" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="84 Ceti" class="M" faction="" pedia="" position="53.75926 -0.855587 -45.60375" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 77-1" class="M" faction="" pedia="" position="53.905273 8.041474 -50.18982" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 35-8" class="M" faction="" pedia="" position="53.93768 31.647102 -26.091932" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 382" class="M" faction="" pedia="" position="54.193752 -24.079273 -11.304996" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BEU 4" class="M" faction="" pedia="" position="54.40728 -35.411556 -53.102955" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 155" class="M" faction="" pedia="" position="54.4969 23.823427 17.427048" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 151" class="M" faction="" pedia="" position="54.504395 -1.432607 33.364407" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="11 Eridani" class="M" faction="" pedia="" position="55.21289 -34.515347 -56.378212" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CABS 29" class="M" faction="" pedia="" position="55.243145 0.9693936 -76.58842" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CPO 24A" class="M" faction="" pedia="" position="55.977722 -50.43308 -13.283457" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 30496" class="M" faction="" pedia="" position="55.98633 -88.384895 36.385807" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 112" class="M" faction="" pedia="" position="56.45316 36.2305 -50.0558" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AGKR 3376" class="M" faction="" pedia="" position="56.54379 12.22738 -88.8822" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 33-6" class="M" faction="" pedia="" position="56.763184 12.950578 -11.112036" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ankaa" class="M" faction="" pedia="" position="56.838295 -52.070156 -6.5465364" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CPO 24 AB" class="M" faction="" pedia="" position="56.840088 -51.17261 -13.239382" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CF 470" class="M" faction="" pedia="" position="57.283188 -73.416435 -26.934935" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="53 Aquarii AB" class="M" faction="" pedia="" position="57.549202 -18.857569 24.85424" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="A 1205" class="M" faction="" pedia="" position="57.562668 56.72749 83.57923" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AK Fornacis" class="M" faction="" pedia="" position="57.62128 -42.19379 -74.67362" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ENG 9A" class="M" faction="" pedia="" position="58.10986 43.82809 -33.24874" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 216-9" class="M" faction="" pedia="" position="58.275074 68.27105 21.27287" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="6 Ceti" class="M" faction="" pedia="" position="59.277233 -16.422445 -2.916005" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Beta Delphini" class="M" faction="" pedia="" position="59.77585 24.529152 72.80607" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="6 Capricorni" class="M" faction="" pedia="" position="60.080463 -23.594934 87.37383" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 506" class="M" faction="" pedia="" position="60.26635 34.233913 2.6550417" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpha Lacertae" class="M" faction="" pedia="" position="60.547264 78.70696 24.681265" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="11 Aquarii" class="M" faction="" pedia="" position="60.924835 -7.111527 60.625957" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 848" class="M" faction="" pedia="" position="60.930737 -85.701324 -11.453097" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 30588" class="M" faction="" pedia="" position="61.104527 84.49757 38.695644" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alnair" class="M" faction="" pedia="" position="61.118446 -74.088425 32.41819" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BB Sculptoris" class="M" faction="" pedia="" position="61.15848 -38.439117 -26.91544" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DAW 31B" class="M" faction="" pedia="" position="61.159523 -38.439346 -26.912767" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EZ Piscium" class="M" faction="" pedia="" position="61.27783 22.19232 -4.348481" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Fornacis" class="M" faction="" pedia="" position="61.298336 -46.600494 -62.17338" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 634" class="M" faction="" pedia="" position="61.33103 -29.531298 -19.10399" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FT Ceti" class="M" faction="" pedia="" position="61.412697 -4.3683023 -50.039173" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 662" class="M" faction="" pedia="" position="61.70652 -30.613943 -20.278374" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CHA 116" class="M" faction="" pedia="" position="61.914246 -2.6868267 17.094984" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FF Andromedae" class="M" faction="" pedia="" position="62.01022 45.09496 -11.717222" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 24-21" class="M" faction="" pedia="" position="62.057587 10.631838 77.17861" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="DO 474" class="M" faction="" pedia="" position="62.091362 4.8292336 -53.265923" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FS 6" class="M" faction="" pedia="" position="62.528267 7.2684307 -48.09954" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 32277" class="M" faction="" pedia="" position="62.57456 71.08355 13.878439" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 93-6" class="M" faction="" pedia="" position="62.71288 12.05072 50.637157" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AE Fornacis" class="M" faction="" pedia="" position="62.863167 -42.53407 -67.4761" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 28495" class="M" faction="" pedia="" position="62.953827 -3.15242 82.91438" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 76-6" class="M" faction="" pedia="" position="63.240578 21.641771 -50.194645" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 399" class="M" faction="" pedia="" position="63.38265 50.118393 -5.54764" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="15 Delphini" class="M" faction="" pedia="" position="63.473568 20.943089 69.49482" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 502" class="M" faction="" pedia="" position="63.516113 -35.02019 -15.930707" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 215-25" class="M" faction="" pedia="" position="64.24883 70.82337 38.018055" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BE Ceti" class="M" faction="" pedia="" position="64.63657 -14.056077 -6.4684267" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="94 Aquarii AB" class="M" faction="" pedia="" position="64.706436 -15.734781 11.669203" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 75-2" class="M" faction="" pedia="" position="64.89356 4.132637 -45.75948" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EO Piscium" class="M" faction="" pedia="" position="64.93493 27.956945 -26.590973" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="6 Andromedae" class="M" faction="" pedia="" position="65.215256 63.460888 14.321767" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EZ Ceti" class="M" faction="" pedia="" position="65.45363 -13.928187 -33.85207" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ES 37C" class="M" faction="" pedia="" position="65.52857 82.07435 0.4635068" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="21 Eridani" class="M" faction="" pedia="" position="65.83029 -11.236829 -93.163925" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 75-5" class="M" faction="" pedia="" position="65.93105 -9.762559 -46.904522" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Ceti" class="M" faction="" pedia="" position="66.174706 -18.130392 -55.312096" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FIN 312B" class="M" faction="" pedia="" position="66.17618 -18.124817 -55.31219" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 2363" class="M" faction="" pedia="" position="66.55378 67.39457 -37.683773" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 1030" class="M" faction="" pedia="" position="66.59228 18.982458 -19.944712" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 7" class="M" faction="" pedia="" position="66.71241 6.160096 -19.072433" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="37 Capricorni" class="M" faction="" pedia="" position="66.95489 -30.371561 49.160244" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="15 Pegasi" class="M" faction="" pedia="" position="67.11225 43.435753 41.73338" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Chi Ceti" class="M" faction="" pedia="" position="67.158676 -14.27391 -34.80673" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 779" class="M" faction="" pedia="" position="67.2906 -46.62351 -26.177181" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 25-3" class="M" faction="" pedia="" position="67.38635 19.390871 75.314735" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU Ceti AB" class="M" faction="" pedia="" position="67.67411 -4.2998424 -10.4897995" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CVN 17" class="M" faction="" pedia="" position="67.75897 20.981947 80.849304" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 742" class="M" faction="" pedia="" position="67.98309 -37.56397 -24.687914" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FN Ceti" class="M" faction="" pedia="" position="68.524124 -22.496218 -41.576767" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 72-56" class="M" faction="" pedia="" position="68.69153 47.972466 -42.021465" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="47 Arietis" class="M" faction="" pedia="" position="69.23744 36.633793 -68.0897" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="13 Trianguli" class="M" faction="" pedia="" position="69.281975 50.08087 -52.592144" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FS 29" class="M" faction="" pedia="" position="69.412964 3.41159 43.196175" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EX Ceti" class="M" faction="" pedia="" position="69.61626 -9.061333 -31.575447" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 302" class="M" faction="" pedia="" position="70.48443 20.549181 36.77893" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 18-1" class="M" faction="" pedia="" position="70.601494 19.01584 44.441788" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="5 Andromedae" class="M" faction="" pedia="" position="70.611374 84.26011 16.38173" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BPM 95753" class="M" faction="" pedia="" position="70.87152 13.111068 85.663574" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 3666" class="M" faction="" pedia="" position="70.96704 10.969997 -73.38892" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="29 Arietis" class="M" faction="" pedia="" position="70.991066 24.2722 -55.91588" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 144-23" class="M" faction="" pedia="" position="71.61245 23.171656 85.8135" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 377" class="M" faction="" pedia="" position="71.63921 -35.90209 -14.8697405" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="B 620AB" class="M" faction="" pedia="" position="71.78181 -40.48656 3.0567715" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CSV 8791" class="M" faction="" pedia="" position="72.10351 -75.7818 23.620655" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Epsilon Sculptoris" class="M" faction="" pedia="" position="72.54671 -37.861706 -36.029945" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="FK5 5831" class="M" faction="" pedia="" position="72.69986 -33.789345 81.76028" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="COU 432" class="M" faction="" pedia="" position="72.86752 30.600708 44.51543" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="64 Piscium" class="M" faction="" pedia="" position="72.90879 22.725525 -15.822866" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="14 Eridani" class="M" faction="" pedia="" position="73.02061 -17.990637 -84.44319" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 68-34" class="M" faction="" pedia="" position="73.90665 28.520826 6.8233104" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="2E 254" class="M" faction="" pedia="" position="74.189514 66.72936 -21.156944" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="37 Ceti" class="M" faction="" pedia="" position="74.62153 -10.958132 -25.112726" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EN Piscium" class="M" faction="" pedia="" position="75.050316 48.753788 -27.860481" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 188-4" class="M" faction="" pedia="" position="75.22554 62.6957 56.774464" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 616" class="M" faction="" pedia="" position="75.58343 -50.16361 -22.829552" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="CHR 111" class="M" faction="" pedia="" position="76.548225 -9.498336 31.198362" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Eta Arietis" class="M" faction="" pedia="" position="76.621086 35.537163 -50.13929" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 33179" class="M" faction="" pedia="" position="76.69319 31.294174 1.5257452" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 678AB" class="M" faction="" pedia="" position="76.704605 -15.851815 76.16126" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGGR 553" class="M" faction="" pedia="" position="77.62732 -9.086728 15.638806" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EW Ceti" class="M" faction="" pedia="" position="79.87587 -18.116896 -27.66022" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 32137" class="M" faction="" pedia="" position="81.36595 33.204243 20.345953" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 75-42" class="M" faction="" pedia="" position="81.42176 0.0657868 -73.77716" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 69-45" class="M" faction="" pedia="" position="81.76145 41.733932 -23.652344" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 126-32" class="M" faction="" pedia="" position="81.949524 35.65736 54.714275" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ALD 8AB" class="M" faction="" pedia="" position="82.11943 9.595321 0.072698" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 746" class="M" faction="" pedia="" position="82.84775 -32.025032 -30.358685" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="AZ Arietis" class="M" faction="" pedia="" position="82.91298 38.631325 -53.527504" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 69-14" class="M" faction="" pedia="" position="83.07217 35.29879 -15.749875" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 2040" class="M" faction="" pedia="" position="83.867905 -68.51731 -39.378487" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BY Capricorni" class="M" faction="" pedia="" position="84.69842 -25.748524 58.45741" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="23 Arietis" class="M" faction="" pedia="" position="84.76365 36.929638 -58.88238" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGN 1" class="M" faction="" pedia="" position="84.88421 -1.3640819 -30.343134" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 30866" class="M" faction="" pedia="" position="85.3053 35.984337 47.12545" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Delta Andromedae" class="M" faction="" pedia="" position="85.65781 51.94937 -14.84441" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="23 Andromedae" class="M" faction="" pedia="" position="85.920334 74.91376 -5.0728207" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BVD 21A" class="M" faction="" pedia="" position="87.28608 42.54877 -48.776836" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BAG 19" class="M" faction="" pedia="" position="87.554405 34.919556 -4.8017516" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="112 Piscium" class="M" faction="" pedia="" position="87.57143 5.474257 -50.636047" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 16A" class="M" faction="" pedia="" position="87.719 33.808384 -20.251184" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="13 Pegasi" class="M" faction="" pedia="" position="87.80755 32.386436 55.86199" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 67-33" class="M" faction="" pedia="" position="88.54558 40.162872 26.013594" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 930" class="M" faction="" pedia="" position="89.062744 -7.0397744 -18.393475" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Diphda" class="M" faction="" pedia="" position="89.44684 -29.573286 -17.219515" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 4-9" class="M" faction="" pedia="" position="89.820625 23.81404 -60.847412" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 71-9" class="M" faction="" pedia="" position="90.13952 -0.2654292 -35.97244" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GIC 32" class="M" faction="" pedia="" position="90.44599 16.858047 -70.06297" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="40 Ceti" class="M" faction="" pedia="" position="91.31191 -3.8487234 -31.879019" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 813" class="M" faction="" pedia="" position="91.61203 -55.59568 -38.142067" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="ADS 860" class="M" faction="" pedia="" position="93.10974 -38.29796 -26.02282" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 539" class="M" faction="" pedia="" position="93.40044 -46.375423 -25.159212" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 34-3" class="M" faction="" pedia="" position="93.71672 39.55935 -28.743258" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="33 Pegasi" class="M" faction="" pedia="" position="94.28145 39.329323 42.14652" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 30743" class="M" faction="" pedia="" position="94.405266 -24.595493 55.3844" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGM 820" class="M" faction="" pedia="" position="94.65834 -47.86648 -40.743286" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 31-16" class="M" faction="" pedia="" position="95.432556 5.841594 1.856407" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 68-4" class="M" faction="" pedia="" position="95.74467 34.75375 18.323221" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 67-36" class="M" faction="" pedia="" position="96.263626 31.468975 27.425108" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="18 Ceti" class="M" faction="" pedia="" position="99.254745 -23.150759 -19.95847" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 2-28" class="M" faction="" pedia="" position="99.539764 1.79463 -32.59423" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 18-10" class="M" faction="" pedia="" position="99.92066 6.4597225 58.186405" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="16 Piscium" class="M" faction="" pedia="" position="100.41934 3.705479 10.382122" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GC 591" class="M" faction="" pedia="" position="101.54538 43.002594 -13.600883" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BK Piscium" class="M" faction="" pedia="" position="103.40293 19.748232 -18.092054" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 80AB" class="M" faction="" pedia="" position="103.81861 9.984304 18.818773" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="BU 711B" class="M" faction="" pedia="" position="104.4931 21.82394 35.238613" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="EGG 5" class="M" faction="" pedia="" position="106.99985 31.111614 14.830881" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 68-26" class="M" faction="" pedia="" position="107.901405 40.2787 12.865296" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="G 32-2" class="M" faction="" pedia="" position="108.6852 37.639763 -6.3647914" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="96 Aquarii" class="M" faction="" pedia="" position="111.28652 -10.138307 19.924534" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Zeta Virginis" class="M" faction="" pedia="" position="-67.01442 -0.7610796 29.380978" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Iota Virginis" class="M" faction="" pedia="" position="-57.50412 -7.290012 38.792404" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="83 Leonis" class="M" faction="" pedia="" position="-56.923805 3.0276272 -8.313815" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Lambda Boötis" class="M" faction="" pedia="" position="-55.756626 69.93805 37.745193" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Gamma Boötis" class="M" faction="" pedia="" position="-52.631462 52.77699 41.149544" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Upsilon Ursae Majoris" class="M" faction="" pedia="" position="-50.03047 98.60708 -31.568438" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Gamma Crucis" class="M" faction="" pedia="" position="-47.28516 -73.80826 6.4699917" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Iota Centauri" class="M" faction="" pedia="" position="-44.094498 -35.02531 16.180162" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Kappa Coronae Borealis" class="M" faction="" pedia="" position="-43.920155 59.147614 69.76586" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Tau Boötis AB" class="M" faction="" pedia="" position="-43.28449 15.251943 21.8805" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Tau Coronae Borealis" class="M" faction="" pedia="" position="-42.323666 67.22156 80.42032" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Theta Centauri" class="M" faction="" pedia="" position="-41.742474 -36.1194 25.752663" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Porrima AB" class="M" faction="" pedia="" position="-37.91843 -0.975555 6.9707274" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Xi Scorpii AB" class="M" faction="" pedia="" position="-37.58943 -15.642817 68.072" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Mu Cancri" class="M" faction="" pedia="" position="-37.4189 27.977875 -60.020218" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Sigma Serpentis" class="M" faction="" pedia="" position="-36.945385 1.6011816 81.138695" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Psi Velorum" class="M" faction="" pedia="" position="-36.59764 -39.260834 -27.904688" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Sigma Boötis" class="M" faction="" pedia="" position="-34.177677 25.014046 27.351662" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Iota Draconis" class="M" faction="" pedia="" position="-32.96926 87.511536 41.05305" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Lambda Geminorum" class="M" faction="" pedia="" position="-30.19311 26.831366 -85.152374" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Tureis" class="M" faction="" pedia="" position="-30.186981 -25.80815 -48.523373" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Xi Ursae Majoris A" class="M" faction="" pedia="" position="-28.462996 17.761784 -5.2482414" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Sigma Coronae Borealis C" class="M" faction="" pedia="" position="-27.607277 41.357273 55.335926" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 429" class="M" faction="" pedia="" position="-27.528875 -27.235605 -50.60462" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Psi Serpentis" class="M" faction="" pedia="" position="-26.71433 2.0991793 39.617085" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Sigma Coronae Borealis AB" class="M" faction="" pedia="" position="-26.039608 39.390644 52.620083" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 690" class="M" faction="" pedia="" position="-25.592175 52.807438 2.5789535" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Rho Cancri AB" class="M" faction="" pedia="" position="-24.592821 19.387188 -26.234035" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 55" class="M" faction="" pedia="" position="-24.372347 -20.624096 -76.33296" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="SV Leonis Minoris AB" class="M" faction="" pedia="" position="-23.885368 21.32428 -17.40677" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Groombridge 1830" class="M" faction="" pedia="" position="-23.596924 18.26803 -0.728121" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Rho Coronae Borealis" class="M" faction="" pedia="" position="-23.553337 31.196766 41.229286" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Kappa Ophiuchi" class="M" faction="" pedia="" position="-22.742998 13.9784565 81.554054" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Innes' star" class="M" faction="" pedia="" position="-22.382801 -35.87255 -4.3238683" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Iota Ursae Majoris ABC" class="M" faction="" pedia="" position="-22.480927 35.483925 -22.635647" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 1041" class="M" faction="" pedia="" position="-22.327381 22.045033 21.270653" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Pi Canis Majoris" class="M" faction="" pedia="" position="-21.501753 -32.80577 -86.846725" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Rho Geminorum AB" class="M" faction="" pedia="" position="-19.432404 31.762962 -47.434044" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 224" class="M" faction="" pedia="" position="1.5252888 21.964836 -88.56967" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Gamma Mensae" class="M" faction="" pedia="" position="2.9053771 -97.681465 -23.558455" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 835" class="M" faction="" pedia="" position="4.405499 22.045847 64.08778" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 49" class="M" faction="" pedia="" position="4.7280107 11.723123 -71.87655" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Zeta Doradus" class="M" faction="" pedia="" position="4.8099346 -32.02409 -19.848347" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 45 AB" class="M" faction="" pedia="" position="7.0476637 11.456226 -62.490387" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Zeta Tucanae" class="M" faction="" pedia="" position="11.847035 -25.361855 -1.0381144" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Gamma Coronae Australis AB" class="M" faction="" pedia="" position="13.3007345 -35.15418 44.604134" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 733" class="M" faction="" pedia="" position="18.771503 20.559973 55.57058" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Iota Pictoris B" class="M" faction="" pedia="" position="18.474485 -84.00306 -59.445415" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 232" class="M" faction="" pedia="" position="19.942886 35.027233 -95.64227" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Zeta Sagittarii" class="M" faction="" pedia="" position="20.831987 -44.361885 74.34622" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Kappa Tucanae AB" class="M" faction="" pedia="" position="22.706291 -62.13609 -7.7915955" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Smethells 85" class="M" faction="" pedia="" position="24.699064 -61.430004 17.628809" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="V491 Persei" class="M" faction="" pedia="" position="24.882504 41.375202 -46.586346" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Smethells 38" class="M" faction="" pedia="" position="24.900858 -92.49252 59.947327" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="17 Cygni AB" class="M" faction="" pedia="" position="25.328995 37.758656 50.566284" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 735" class="M" faction="" pedia="" position="27.103542 38.977474 79.489395" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 1122" class="M" faction="" pedia="" position="27.122353 69.82989 48.994118" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Smethells 89" class="M" faction="" pedia="" position="27.58273 -29.059477 17.710276" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Rho Indi" class="M" faction="" pedia="" position="28.273262 -81.27372 8.286529" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Psi Capricorni" class="M" faction="" pedia="" position="28.672907 -20.417673 32.38145" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Omicron Aquilae AB" class="M" faction="" pedia="" position="28.954798 11.428941 55.019444" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Iota Pegasi" class="M" faction="" pedia="" position="30.511839 16.40608 16.393236" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Nu Phoenicis" class="M" faction="" pedia="" position="32.54406 -35.02146 -11.0751" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 779.1" class="M" faction="" pedia="" position="32.705853 30.647293 54.341267" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 365" class="M" faction="" pedia="" position="42.888233 86.77445 -41.62472" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 364" class="M" faction="" pedia="" position="42.895176 86.76995 -41.626907" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 923" class="M" faction="" pedia="" position="43.338116 -6.4787283 32.123844" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Tau Piscis Austrini" class="M" faction="" pedia="" position="45.694607 -32.869568 23.751284" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Hamal" class="M" faction="" pedia="" position="51.36955 26.232405 -31.841593" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="KZ Andromedae" class="M" faction="" pedia="" position="53.87466 61.199818 11.955072" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="V450 Andromedae" class="M" faction="" pedia="" position="54.259342 55.731525 -35.54554" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 953" class="M" faction="" pedia="" position="55.05801 9.149679 32.615192" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 939" class="M" faction="" pedia="" position="55.093903 -6.8369374 36.663853" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Theta Sculptoris" class="M" faction="" pedia="" position="58.071587 -40.917564 -2.9751737" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Gamma Ceti AB" class="M" faction="" pedia="" position="61.91353 4.626266 -53.49047" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Kappa Delphini" class="M" faction="" pedia="" position="61.728786 17.160183 74.13752" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Omicron Gruis" class="M" faction="" pedia="" position="62.455536 -82.92834 9.164414" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Zeta Fornacis" class="M" faction="" pedia="" position="67.53325 -45.015057 -67.29856" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Ross 324" class="M" faction="" pedia="" position="67.41804 39.107285 -23.825872" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 5" class="M" faction="" pedia="" position="68.6009 64.03791 -10.563769" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Tau 1 Gruis" class="M" faction="" pedia="" position="68.78098 -81.40112 20.495" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Pi Piscis Austrini" class="M" faction="" pedia="" position="74.25912 -53.12095 18.688406" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Rho Piscium" class="M" faction="" pedia="" position="74.672 27.91701 -29.509943" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Rho Arietis" class="M" faction="" pedia="" position="78.82083 35.71793 -76.40475" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 4" class="M" faction="" pedia="" position="81.934525 74.55271 -11.912235" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Sigma Pegasi AB" class="M" faction="" pedia="" position="82.506035 14.949676 25.06878" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Gamma Equulei" class="M" faction="" pedia="" position="83.48364 20.207338 76.27034" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Alpheratz" class="M" faction="" pedia="" position="84.7275 47.172527 -3.1016617" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Pi Piscium" class="M" faction="" pedia="" position="98.217995 23.180035 -44.295185" color="250 250 210 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Wolf 64" class="M" faction="" pedia="" position="100.17596 24.602177 -38.590805" color="255 192 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="MCC 349" class="M" faction="" pedia="" position="100.98196 -29.930191 1.2180665" color="255 0 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="GJ 3106" class="M" faction="" pedia="" position="16.959597 38.140793 -8.010994" color="0 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Gamma Crateris" class="M" faction="" pedia="" position="-78.90905 -25.457079 -12.186467" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Merak" class="M" faction="" pedia="" position="-42.53922 66.10097 -11.033112" color="255 255 255 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Lambda Serpentis" class="M" faction="" pedia="" position="-20.9129 4.904018 31.729841" color="255 255 0 255" ambient="255 255 255 255" />
+			<location type="StarSystem" name="Test" class="M" faction="" pedia="" position="5 5 5" color="255 255 255 255" ambient="255 255 255 255" />
+			<objects />
+		</map>
+	</maps>
+</resource>

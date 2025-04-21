@@ -1,5 +1,6 @@
 import colour
 import customtkinter as ctk
+import lxml.etree
 import openpyxl
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
@@ -176,7 +177,7 @@ class System:
             s += planet.get_xml_repr()
             s += '\n'
         s += '</location>'
-        return s
+        return lxml.etree.tostring(lxml.etree.fromstring(s.replace("\n", "")), pretty_print=True, encoding=str)
 
 
 if __name__ == '__main__':
