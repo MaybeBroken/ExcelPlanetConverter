@@ -150,7 +150,7 @@ class Planet:
                 continue
             if value is not None and value not in ("#NUM!", "#DIV/0!"):
                 if str(value).replace(".", "").isnumeric():
-                    if int(value) != float(value):
+                    if int(float(value)) != float(value):
                         value = round(float(value), 2)
                 s += f"{prop}={str(value).__repr__()} "
         s += ">\n<description>"
