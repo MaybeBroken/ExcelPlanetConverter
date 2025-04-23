@@ -41,7 +41,7 @@ class SystemWindow(ctk.CTkToplevel):
     def __init__(self, master, system_obj: System):
         super().__init__(master)
         self.attributes("-topmost", True)
-        self.geometry(f"500x700")
+        self.geometry(f"700x900")
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
         self.system = system_obj
@@ -49,12 +49,16 @@ class SystemWindow(ctk.CTkToplevel):
         self.sframe = ctk.CTkScrollableFrame(self)
         self.sframe.grid(row=0, column=0, sticky="NESW")
         
+        
         for attr, widget in attr_to_widget.items():
             try:
                 __value = system_obj.__getattribute__(attr)
             except AttributeError:
                 __value = ""
             self.__setattr__(f"system.{attr}", widget(self.sframe, __value))
+            
+        self.scroll_buffer = ctk.CTkFrame(self.sframe, fg_color="transparent", height=200)
+        self.scroll_buffer.grid(row=1000)
         self.protocol("WM_DELETE_WINDOW", self.on_close)
     
     def on_close(self):

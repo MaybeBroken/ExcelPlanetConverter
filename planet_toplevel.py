@@ -74,7 +74,7 @@ class PlanetWindow(ctk.CTkToplevel):
     
     def __init__(self, master, planet_obj: Planet, system):
         super().__init__(master)
-        self.geometry("500x700")
+        self.geometry("700x900")
         # self.attributes("-topmost", True)
         self.after(10, lambda: self.lift(aboveThis=master))
         
@@ -84,8 +84,11 @@ class PlanetWindow(ctk.CTkToplevel):
         self.planet = planet_obj
         self.title(self.planet.name)
         self.system = system.get()
+        
         self.sframe = ctk.CTkScrollableFrame(self)
         self.sframe.grid(row=0, column=0, sticky="NESW")
+        
+        
         if self.system in PlanetWindow.systems.keys():
             PlanetWindow.systems[self.system].append(self)
         else:
@@ -97,6 +100,9 @@ class PlanetWindow(ctk.CTkToplevel):
             except AttributeError:
                 __value = ""
             self.__setattr__(f"planet.{attr}", widget(self.sframe, __value))
+            
+        self.scroll_buffer = ctk.CTkFrame(self.sframe, fg_color="transparent", height=200)
+        self.scroll_buffer.grid(row=1000)
         self.protocol("WM_DELETE_WINDOW", self.on_close)
     
     def on_close(self):

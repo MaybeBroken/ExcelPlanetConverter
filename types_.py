@@ -180,7 +180,7 @@ class Attribute:
         
         entry_frame = ctk.CTkFrame(master, fg_color="transparent")
         
-        name = ctk.CTkOptionMenu(entry_frame, values=sorted(options), variable=ctk_vars[0])
+        name = ctk.CTkOptionMenu(entry_frame, values=sorted(options), variable=ctk_vars[0], width=180)
         name.set(mineral)
         name.grid(sticky="E")
         
@@ -201,7 +201,7 @@ class Attribute:
         return cls(name, value, ctk_vars, ctk_vars[1].get)
     
     @classmethod
-    def _material_values(cls, master, value: dict[str: float], label_text: str, options: list[str], default: str, term: str =  "Material", editable=True):
+    def _material_values(cls, master, value: dict[str: float], label_text: str, options: list[str], default: str, term: str = "Material", editable=True):
         """
         Mineral Input Creator
         :param master: parent container
@@ -235,10 +235,12 @@ class Attribute:
             mineral.vars[0].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
             mineral.vars[1].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
             minerals.append(mineral)
-            
+        
         def add_material():
             ctk_vars.append(ctk.Variable(master, (default, .5)))
             i, k, v = len(ctk_vars) - 1, default, .5
+            temp_frame = ctk.CTkFrame(entry_frame, height=200)
+            temp_frame.grid(row=1000)
             add_button.grid_forget()
             normalize_button.grid_forget()
             mineral = cls._material(entry_frame, v, k, options)
@@ -247,11 +249,13 @@ class Attribute:
             minerals.append(mineral)
             add_button.grid(sticky="SEW")
             normalize_button.grid(sticky="SEW")
+            temp_frame.grid_remove()
+            temp_frame.destroy()
         
-        add_button = ctk.CTkButton(entry_frame, text=f"Add {term}", command=add_material)
+        add_button = ctk.CTkButton(entry_frame, text=f"Add {term}", command=add_material, width=345)
         add_button.grid(sticky="SEW")
         
-        normalize_button = ctk.CTkButton(entry_frame, text="Normalize", command=normalize)
+        normalize_button = ctk.CTkButton(entry_frame, text="Normalize", command=normalize, width=345)
         normalize_button.grid(sticky="SEW")
         
         entry_frame.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
@@ -284,17 +288,17 @@ class Attribute:
     
     @classmethod
     def specular(cls, master, value: str = None):
-#         return cls._file_input(master, value, "Specular Map: ", [("Image", [".png", ".jpg"])])
+        # return cls._file_input(master, value, "Specular Map: ", [("Image", [".png", ".jpg"])])
         return cls._short_text(master, value, "Specular Map: ", width=200)
     
     @classmethod
     def normal(cls, master, value: str = None):
-#         return cls._file_input(master, value, "Normal Map: ", [("Image", [".png", ".jpg"])])
+        # return cls._file_input(master, value, "Normal Map: ", [("Image", [".png", ".jpg"])])
         return cls._short_text(master, value, "Normal Map: ", width=200)
     
     @classmethod
     def atmosphere_texture(cls, master, value=""):
-#         return cls._file_input(master, value, "Atmosphere Map: ", [("Image", [".png", ".jpg"])])
+        # return cls._file_input(master, value, "Atmosphere Map: ", [("Image", [".png", ".jpg"])])
         return cls._short_text(master, value, "Atmosphere Map: ", width=200)
     
     @classmethod
@@ -379,17 +383,17 @@ class Attribute:
     @classmethod
     def pedia(cls, master, value=""):
         return cls._short_text(master, value, "Pedia: ")
-
+    
     @classmethod
-    def surface_minerals(cls, master, value):
+    def surface_minerals(cls, master, value=None):
         options = json.load(open("options.json"))
         return cls._material_values(master, value, "Surface Minerals: ", term="Mineral", **options["surface_minerals"])
-
+    
     @classmethod
-    def atmosphere_materials(cls, master, value):
+    def atmosphere_materials(cls, master, value=None):
         options = json.load(open("options.json"))
-        return cls._material_values(master, value, "Atmosphere Materials: ", **options["surface_minerals"])
-
+        return cls._material_values(master, value, "Atmosphere Materials: ", **options["atmosphere_materials"])
+        
         # @classmethod
         # def new(cls, master, value):
         #     ctk_vars = [ctk.StringVar(master, value)]
@@ -399,7 +403,8 @@ class Attribute:
         #     entry.grid(row=label.grid_info()["row"], column=label.grid_info()["column"] + 1, sticky="W")
         #
         #     return cls(label, value, ctk_vars, ctk_vars[0].get)
-    
+
+
 if __name__ == '__main__':
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("./blue.json")

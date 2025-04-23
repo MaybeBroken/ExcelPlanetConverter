@@ -8,6 +8,17 @@ import numpy as np
 
 from planet import Planet
 
+props_in_tag = [
+    "name",
+    "class",
+    "radius",
+    "luminosity",
+    "position",
+    "color",
+    "ambient",
+    "pedia",
+]
+
 props = [
     "name",
     "faction",
@@ -169,7 +180,7 @@ class System:
         :return:
         """
         s = '<location type="StarSystem" '
-        for prop in props:
+        for prop in props_in_tag:
             try:
                 s += f'{prop}="{self.__getattribute__(prop)}" '
             except AttributeError:
