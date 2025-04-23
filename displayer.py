@@ -153,7 +153,12 @@ class MainWindow(ctk.CTk):
 if __name__ == '__main__':
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("./blue.json")
-    spreads = filedialog.askopenfilenames(defaultextension=".xlsx", filetypes=[("Excel Sheet", ".xlsx")])
+    spreads = [
+        "Sol.xlsx",
+        "worldbuilding spreadsheet 33 sextantis.xlsx",
+        "worldbuilding template.xlsx",
+    ]
+    # spreads = filedialog.askopenfilenames(defaultextension=".xlsx", filetypes=[("Excel Sheet", ".xlsx")])
     if not spreads:
         exit(-1)
     main_window = MainWindow(*spreads)

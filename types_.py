@@ -173,12 +173,12 @@ class Attribute:
         return cls(label, value, ctk_vars, ctk_vars[0].get)
     
     @classmethod
-    def _mineral(cls, master, value: float, mineral: str, options: list[str], after_text="", editable=True, justify="left", width=100):
+    def _material(cls, master, value: float, mineral: str, options: list[str], after_text="", editable=True, justify="left", width=100):
         ctk_vars = [ctk.StringVar(master, mineral), ctk.DoubleVar(master, value)]
         
         entry_frame = ctk.CTkFrame(master, fg_color="transparent")
         
-        name = ctk.CTkOptionMenu(entry_frame, values=options, variable=ctk_vars[0])
+        name = ctk.CTkOptionMenu(entry_frame, values=sorted(options), variable=ctk_vars[0])
         name.set(mineral)
         name.grid(sticky="E")
         
@@ -199,24 +199,28 @@ class Attribute:
         return cls(name, value, ctk_vars, ctk_vars[1].get)
     
     @classmethod
-    def _mineral_values(cls, master, value: dict[str: float], label_text: str, options: list[str], editable=True):
+    def _material_values(cls, master, value: dict[str: float], label_text: str, options: list[str], default: str, term: str =  "Material", editable=True):
         """
         Mineral Input Creator
         :param master: parent container
         :param value: values
         :param label_text: text of label
+        :param options: the materials
+        :param default: the default value
+        :param term: what these are called
         :param editable: whether this input is editable
         :return:
         """
+        if not value:
+            value = {default: .5}
         ctk_vars = [ctk.Variable(master, (k, v)) for k, v in value.items()]
         
         label = ctk.CTkLabel(master, text=label_text)
-        label.grid(sticky="E")
+        label.grid(sticky="NE")
         
         def normalize():
             values = list(map(lambda _: _.get(), minerals))
             for i, v in enumerate(values):
-                print(sum(values))
                 minerals[i].vars[1].set((float(v) / sum(values)))
                 ctk_vars[i].set((ctk_vars[i].get()[0], (float(v) / sum(values))))
         
@@ -225,15 +229,24 @@ class Attribute:
         minerals = []
         for i, p in enumerate(value.items()):
             k, v = p
-            mineral = cls._mineral(entry_frame, v, k, options)
+            mineral = cls._material(entry_frame, v, k, options)
             mineral.vars[0].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
             mineral.vars[1].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
             minerals.append(mineral)
             
-        def add_mineral():
-            ctk_vars.append(ctk.Variable(master, ("", 1)))
+        def add_material():
+            ctk_vars.append(ctk.Variable(master, (default, .5)))
+            i, k, v = len(ctk_vars) - 1, default, .5
+            add_button.grid_forget()
+            normalize_button.grid_forget()
+            mineral = cls._material(entry_frame, v, k, options)
+            mineral.vars[0].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
+            mineral.vars[1].trace_add("write", partial(lambda *_: ctk_vars[i].set((mineral.vars[0].get(), mineral.get()))))
+            minerals.append(mineral)
+            add_button.grid(sticky="SEW")
+            normalize_button.grid(sticky="SEW")
         
-        add_button = ctk.CTkButton(entry_frame, text="Add Mineral", command=add_mineral)
+        add_button = ctk.CTkButton(entry_frame, text=f"Add {term}", command=add_material)
         add_button.grid(sticky="SEW")
         
         normalize_button = ctk.CTkButton(entry_frame, text="Normalize", command=normalize)
@@ -355,11 +368,15 @@ class Attribute:
     @classmethod
     def pedia(cls, master, value=""):
         return cls._short_text(master, value, "Pedia: ")
-    
+
     @classmethod
-    def surface_minerals(cls, master):
-        return cls._mineral_values(master, {"iron": .5, "gold": .2}, "Surface Minerals: ", ["iron", "silicon", "magnesium", "sulfur", "nickel", "aluminum", "calcium", "gold", "silver", "platinum", "basalt", "iron oxide", "silicon dioxide", "oxygen", "helium", "water"])
-        
+    def surface_minerals(cls, master, value):
+        return cls._material_values(master, value, "Surface Minerals: ", ["iron", "silicon", "magnesium", "sulfur", "nickel", "aluminum", "calcium", "gold", "silver", "platinum", "basalt", "iron oxide", "silicon dioxide", "oxygen", "helium", "water"], "iron", "Mineral")
+
+    @classmethod
+    def atmosphere_materials(cls, master, value):
+        return cls._material_values(master, value, "Atmosphere Materials: ", ["hydrogen", "helium", "methane", "oxygen", "nitrogen", "argon", "carbon dioxide", "carbon monoxide", "nitrous oxide", "ozone", "sulfur dioxide", "neon", "water vapor", "ammonia", "hydrogen sulfide"], "hydrogen")
+
         # @classmethod
         # def new(cls, master, value):
         #     ctk_vars = [ctk.StringVar(master, value)]

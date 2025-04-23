@@ -23,6 +23,8 @@ props = [
     "density",
     "inclination",
     "temperature",
+    "surface_minerals",
+    "atmosphere_materials",
 ]
 prop_locations = {
     "name": "BK",
@@ -75,6 +77,8 @@ default_vals = {
     "density": "",
     "inclination": "",
     "temperature": "",
+    "surface_minerals": "",
+    "atmosphere_materials": "",
 }
 
 suffixes = "bcdefghijklmnopqrstuvwxyz"
@@ -108,6 +112,11 @@ class Planet:
                 pass
     
     def fill_attr(self, spreadsheet) -> None:
+        for prop in props:
+            if prop in prop_locations:
+                continue
+            self.__setattr__(prop, default_vals[prop])
+            self.__setattr__(f"{prop}_var", ctk.Variable(value=default_vals[prop]))
         try:
             self.__setattr__("color", " ".join(list(hex_to_rgb(hab_to_color[spreadsheet["System Builder"]["AJ" + str(self.row_index)].value]))))
             self.__setattr__("color_var", ctk.StringVar(value=" ".join(list(hex_to_rgb(hab_to_color[spreadsheet["System Builder"]["AJ" + str(self.row_index)].value])))))
@@ -115,6 +124,7 @@ class Planet:
             pass
         except ValueError:
             pass
+
         for prop, location in prop_locations.items():
             try:
                 if isinstance(location, tuple):
@@ -158,6 +168,7 @@ class Planet:
             s += description
         s += "</description>\n"
         s += "<atmosphere />\n"  # to be implemented
+        s += "<surface />\n"  # to be implemented
         s += "</planet>"
         return s
 

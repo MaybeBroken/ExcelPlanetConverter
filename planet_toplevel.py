@@ -47,6 +47,7 @@ attr_to_widget = {
     "name": Attribute.name,
     "government": Attribute.government,
     "type": Attribute.type,
+    "description": Attribute.description,
     "surface": Attribute.surface,
     "specular": Attribute.specular,
     "normal": Attribute.normal,
@@ -63,6 +64,8 @@ attr_to_widget = {
     "density": Attribute.density,
     "inclination": Attribute.inclination,
     "temperature": Attribute.temperature,
+    "surface_minerals": Attribute.surface_minerals,
+    "atmosphere_materials": Attribute.atmosphere_materials,
 }
 
 
