@@ -5,6 +5,26 @@ from lxml import etree
 
 import customtkinter as ctk
 
+props_in_tag = [
+    "name",
+    "government",
+    "description",
+    "type",
+    "surface",
+    "color",
+    "orbitaldistance",
+    "eccentricity",
+    "argumentofperiapsis",
+    "orbitalposition",
+    "orbitalperiod",
+    "rotationalperiod",
+    "mass",
+    "radius",
+    "density",
+    "inclination",
+    "temperature",
+]
+
 props = [
     "name",
     "government",
@@ -152,6 +172,24 @@ class Planet:
                 self.__setattr__(prop, "")
     
     def get_xml_repr(self) -> str:
+        """
+        <description>Home Sweet Home</description>
+        <pedia>Earth</pedia>
+        <atmosphere present="true" height="0.01" color="0 0 0 0" texture="earth_atmos">
+            <gas name="Nitrogen" value="0.78" />
+            <gas name="Oxygen" value="0.21" />
+            <gas name="Argon" value="0.01" />
+            <gas name="Cardon Dioxide" value="0.00035" />
+        </atmosphere>
+        <surface>
+            <mineral name="Iron" value="0.32" />
+            <mineral name="Oxygen" value="0.3" />
+            <mineral name="Silicon" value="0.15" />
+            <mineral name="Magnesium" value="0.14" />
+            <mineral name="Sulfur" value="0.03" />
+            <mineral name="Nickel" value="0.02" />
+        </surface>
+        """
         s = "<planet model='Planet' "
         for prop in props:
             try:
@@ -167,8 +205,20 @@ class Planet:
         if (description := self.__getattribute__("description")) is not None:
             s += description
         s += "</description>\n"
-        s += "<atmosphere />\n"  # to be implemented
-        s += "<surface />\n"  # to be implemented
+        if not self.atmosphere_materials:
+            s += "<atmosphere />\n"  # to be implemented
+        else:
+            s += "<surface>\n"
+            for m_name, m_val in self.surface_minerals.items():
+                s += f'<mineral name="{m_name}" value="{m_val}" />'
+            s += "</surface>\n"
+        if not self.surface_minerals:
+            s += "<surface />\n"  # to be implemented
+        else:
+            s += "<surface>\n"
+            for m_name, m_val in self.surface_minerals.items():
+                s += f'<mineral name="{m_name}" value="{m_val}" />'
+            s += "</surface>\n"
         s += "</planet>"
         return s
 

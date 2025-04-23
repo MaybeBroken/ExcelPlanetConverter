@@ -60,7 +60,7 @@ attr_to_widget = {
     "orbitalperiod": Attribute.orbitalperiod,
     "rotationalperiod": Attribute.rotationalperiod,
     "mass": Attribute.mass,
-    "radius": Attribute.radius,
+    "radius": lambda *args, **kwargs: Attribute.radius(*args, **kwargs, system=True),
     "density": Attribute.density,
     "inclination": Attribute.inclination,
     "temperature": Attribute.temperature,
@@ -75,7 +75,9 @@ class PlanetWindow(ctk.CTkToplevel):
     def __init__(self, master, planet_obj: Planet, system):
         super().__init__(master)
         self.geometry("500x700")
-        self.attributes("-topmost", True)
+        # self.attributes("-topmost", True)
+        self.after(10, lambda: self.lift(aboveThis=master))
+        
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
         self.expanded = False

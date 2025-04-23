@@ -72,7 +72,7 @@ prop_locations = {
     "luminosity": ("F11", "E11"),
     "position": "",
     # "color": "E14",
-    "ambient": "",
+    # "ambient": "",
     "pedia": "",
 }
 
@@ -124,6 +124,8 @@ class System:
         try:
             self.__setattr__("color", " ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255")))
             self.__setattr__("color_var", ctk.StringVar(value=" ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255"))))
+            self.__setattr__("ambient", " ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255")))
+            self.__setattr__("ambient_var", ctk.StringVar(value=" ".join((*[str(int(_ * 256)) for _ in colour.hex2rgb(color_vals[int(spreadsheet["System Builder"]["E14"].value)])], "255"))))
         except KeyError:
             pass
         except ValueError:

@@ -26,7 +26,7 @@ attr_to_widget = {
     "name": Attribute.name,
     "faction": Attribute.faction,
     "class": Attribute.class_,
-    "radius": Attribute.radius,
+    "radius": lambda *args, **kwargs: Attribute.radius(*args, **kwargs, system=True),
     "luminosity": Attribute.luminosity,
     "position": Attribute.position,
     "color": Attribute.color,

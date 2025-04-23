@@ -1,3 +1,4 @@
+import json
 import tkinter
 from functools import partial
 from typing import Callable, Iterable
@@ -144,7 +145,7 @@ class Attribute:
         return cls(label, value, ctk_vars, ctk_vars[0].get)
     
     @classmethod
-    def _dropdown(cls, master, value, label_text: str, options: list, after_text="", editable=True):
+    def _dropdown(cls, master, value, label_text: str, options: list, default="", after_text="", editable=True):
         """
         Dropdown Creator
         :param master:
@@ -155,6 +156,7 @@ class Attribute:
         :param editable:
         :return:
         """
+        value = value or default
         ctk_vars = [ctk.StringVar(master, value)]
         
         label = ctk.CTkLabel(master, text=label_text)
@@ -212,7 +214,7 @@ class Attribute:
         :return:
         """
         if not value:
-            value = {default: .5}
+            value = {}
         ctk_vars = [ctk.Variable(master, (k, v)) for k, v in value.items()]
         
         label = ctk.CTkLabel(master, text=label_text)
@@ -256,13 +258,15 @@ class Attribute:
         
         return cls(label, value, ctk_vars, lambda: dict(_.get() for _ in ctk_vars))
     
+    # wrapping methods
     @classmethod
     def name(cls, master, value="Unnamed"):
         return cls._short_text(master, value, "Name: ", width=200)
     
     @classmethod
     def government(cls, master, value=""):
-        return cls._dropdown(master, value or "Unknown", "Government: ", ["Anarchical", "Dictatorship", "Democracy", "Fascism", "Feudalism", "Republic", "Socialism", "Unknown"])
+        options = json.load(open("options.json"))
+        return cls._dropdown(master, value, "Government: ", **options["government"])
     
     @classmethod
     def description(cls, master, value=""):
@@ -270,23 +274,28 @@ class Attribute:
     
     @classmethod
     def type(cls, master, value=None):
-        return cls._dropdown(master, value or "Rock", "Type: ", ["Rock", "Ice", "Gas_Giant", "Volcanic", "Water", "Terrestrial"])
+        options = json.load(open("options.json"))
+        return cls._dropdown(master, value, "Type: ", **options["type"])
     
     @classmethod
     def surface(cls, master, value: str = None):
-        return cls._file_input(master, value, "Surface Map: ", [("Image", [".png", ".jpg"])])
+        # return cls._file_input(master, value, "Surface Map: ", [("Image", [".png", ".jpg"])])
+        return cls._short_text(master, value, "Surface Map: ", width=200)
     
     @classmethod
     def specular(cls, master, value: str = None):
-        return cls._file_input(master, value, "Specular Map: ", [("Image", [".png", ".jpg"])])
+#         return cls._file_input(master, value, "Specular Map: ", [("Image", [".png", ".jpg"])])
+        return cls._short_text(master, value, "Specular Map: ", width=200)
     
     @classmethod
     def normal(cls, master, value: str = None):
-        return cls._file_input(master, value, "Normal Map: ", [("Image", [".png", ".jpg"])])
+#         return cls._file_input(master, value, "Normal Map: ", [("Image", [".png", ".jpg"])])
+        return cls._short_text(master, value, "Normal Map: ", width=200)
     
     @classmethod
     def atmosphere_texture(cls, master, value=""):
-        return cls._file_input(master, value, "Atmosphere Map: ", [("Image", [".png", ".jpg"])])
+#         return cls._file_input(master, value, "Atmosphere Map: ", [("Image", [".png", ".jpg"])])
+        return cls._short_text(master, value, "Atmosphere Map: ", width=200)
     
     @classmethod
     def color(cls, master, value: str = "0 176 80"):
@@ -341,11 +350,13 @@ class Attribute:
     
     @classmethod
     def faction(cls, master, value=""):
-        return cls._dropdown(master, value or "Independent", "Faction: ", ["House Anoway", "House Cardilir", "House Dezadi", "House Meylek", "House Piddlewee", "House Terra", "House Tinarrah", "Independent"])
+        options = json.load(open("options.json"))
+        return cls._dropdown(master, value, "Faction: ", **options["faction"])
     
     @classmethod
     def class_(cls, master, value=""):
-        return cls._dropdown(master, value or "M", "Star Class: ", ["O", "B", "A", "F", "G", "K", "M"])
+        options = json.load(open("options.json"))
+        return cls._dropdown(master, value, "Star Class: ", **options["class"])
     
     @classmethod
     def luminosity(cls, master, value=""):
@@ -371,11 +382,13 @@ class Attribute:
 
     @classmethod
     def surface_minerals(cls, master, value):
-        return cls._material_values(master, value, "Surface Minerals: ", ["iron", "silicon", "magnesium", "sulfur", "nickel", "aluminum", "calcium", "gold", "silver", "platinum", "basalt", "iron oxide", "silicon dioxide", "oxygen", "helium", "water"], "iron", "Mineral")
+        options = json.load(open("options.json"))
+        return cls._material_values(master, value, "Surface Minerals: ", term="Mineral", **options["surface_minerals"])
 
     @classmethod
     def atmosphere_materials(cls, master, value):
-        return cls._material_values(master, value, "Atmosphere Materials: ", ["hydrogen", "helium", "methane", "oxygen", "nitrogen", "argon", "carbon dioxide", "carbon monoxide", "nitrous oxide", "ozone", "sulfur dioxide", "neon", "water vapor", "ammonia", "hydrogen sulfide"], "hydrogen")
+        options = json.load(open("options.json"))
+        return cls._material_values(master, value, "Atmosphere Materials: ", **options["surface_minerals"])
 
         # @classmethod
         # def new(cls, master, value):

@@ -1,0 +1,92 @@
+{
+    "government": {
+        "options": [
+            "Anarchical",
+            "Dictatorship",
+            "Democracy",
+            "Fascism",
+            "Feudalism",
+            "Republic",
+            "Socialism",
+            "Unknown"
+        ],
+        "default": "Unknown"
+    },
+    "type": {
+        "options": [
+            "Rock",
+            "Ice",
+            "Gas_Giant",
+            "Volcanic",
+            "Water",
+            "Terrestrial"
+        ],
+        "default": "Rock"
+    },
+    "faction": {
+        "options": [
+            "House Anoway",
+            "House Cardilir",
+            "House Dezadi",
+            "House Meylek",
+            "House Piddlewee",
+            "House Terra",
+            "House Tinarrah",
+            "Independent"
+        ],
+        "default": "Independent"
+    },
+    "class": {
+        "options": [
+            "O",
+            "B",
+            "A",
+            "F",
+            "G",
+            "K",
+            "M"
+        ],
+        "default": "M"
+    },
+    "surface_minerals": {
+        "options": [
+            "Iron",
+            "Silicon",
+            "Magnesium",
+            "Sulfur",
+            "Nickel",
+            "Aluminum",
+            "Calcium",
+            "Gold",
+            "Silver",
+            "Platinum",
+            "Basalt",
+            "Iron Oxide",
+            "Silicon Dioxide",
+            "Oxygen",
+            "Helium",
+            "Water"
+        ],
+        "default": "Iron"
+    },
+    "atmosphere_materials": {
+        "options": [
+            "Hydrogen",
+            "Helium",
+            "Methane",
+            "Oxygen",
+            "Nitrogen",
+            "Argon",
+            "Carbon Dioxide",
+            "Carbon Monoxide",
+            "Nitrous Oxide",
+            "Ozone",
+            "Sulfur Dioxide",
+            "Neon",
+            "Water Vapor",
+            "Ammonia",
+            "Hydrogen Sulfide"
+        ],
+        "default": "Hydrogen"
+    }
+}
